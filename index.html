@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 8 Math — Study Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #1e3a5f;
+    --navy-light: #2c4f7c;
+    --navy-deep: #14283f;
+    --gold: #d4a017;
+    --gold-soft: #f5e6c8;
+    --cream: #faf6ed;
+    --cream-deep: #f0e8d3;
+    --paper: #ffffff;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --muted: #6b7280;
+    --soft: #9ca3af;
+    --border: #d8d4c8;
+    --border-strong: #b8b3a3;
+    --green: #2d6a4f;
+    --green-light: #d8f3dc;
+    --green-bg: #ecf7ef;
+    --red: #b8312f;
+    --red-light: #fde2e1;
+    --red-bg: #fbecec;
+    --yellow-light: #fff8dc;
+    --u1bg: #d8f3dc; --u1ink: #1b4332;
+    --u2bg: #fde6c4; --u2ink: #6b3e07;
+    --u3bg: #fbe0eb; --u3ink: #6e1f3a;
+    --u4bg: #d8e7f4; --u4ink: #0d3d6a;
+    --u5bg: #e0dcfa; --u5ink: #2e2474;
+    --u6bg: #fae0d6; --u6ink: #6b2410;
+    --u7bg: #e0eed3; --u7ink: #2d4d0a;
+    --u8bg: #fbdcdc; --u8ink: #6b1818;
+  }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  header.top {
+    background: var(--navy);
+    color: white;
+    padding: 28px 24px;
+    border-bottom: 4px solid var(--gold);
+  }
+  header.top h1 {
+    font-size: 1.9rem;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+    font-weight: 600;
+  }
+  header.top p {
+    opacity: 0.85;
+    font-size: 0.95rem;
+  }
+  nav {
+    background: var(--navy-light);
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    transition: background 0.15s;
+    flex: 1;
+    min-width: 100px;
+  }
+  nav button:hover { background: rgba(255,255,255,0.12); }
+  nav button.active { background: var(--gold); color: var(--navy); }
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 28px 22px 60px;
+  }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fade .25s; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  h2 {
+    color: var(--navy);
+    font-size: 1.6rem;
+    margin: 0 0 14px;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 8px;
+    font-weight: 600;
+  }
+  h3 {
+    color: var(--navy);
+    font-size: 1.2rem;
+    margin: 22px 0 10px;
+    font-weight: 600;
+  }
+  h4 {
+    color: var(--navy-light);
+    font-size: 1.05rem;
+    margin: 14px 0 6px;
+    font-weight: 600;
+  }
+  p { margin: 0 0 12px; }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .stat {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 2px rgba(30,58,95,0.04);
+  }
+  .stat-label {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .stat-val {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .unit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .unit-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 2px rgba(30,58,95,0.04);
+  }
+  .unit-card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .unit-card-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+  }
+  .unit-card-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pill-u1 { background: var(--u1bg); color: var(--u1ink); }
+  .pill-u2 { background: var(--u2bg); color: var(--u2ink); }
+  .pill-u3 { background: var(--u3bg); color: var(--u3ink); }
+  .pill-u4 { background: var(--u4bg); color: var(--u4ink); }
+  .pill-u5 { background: var(--u5bg); color: var(--u5ink); }
+  .pill-u6 { background: var(--u6bg); color: var(--u6ink); }
+  .pill-u7 { background: var(--u7bg); color: var(--u7ink); }
+  .pill-u8 { background: var(--u8bg); color: var(--u8ink); }
+
+  .filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .filter-pill {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--paper);
+    font-size: 13px;
+    cursor: pointer;
+    color: var(--muted);
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .filter-pill.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    font-weight: 600;
+  }
+  .filter-pill:hover:not(.active) {
+    background: var(--cream-deep);
+    color: var(--navy);
+    border-color: var(--border-strong);
+  }
+
+  /* Topic cards */
+  .topic-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    box-shadow: 0 1px 2px rgba(30,58,95,0.04);
+  }
+  .topic-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 6px rgba(212,160,23,0.15);
+  }
+  .topic-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  .topic-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .topic-toggle {
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .topic-body {
+    display: none;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .topic-card.open .topic-body { display: block; }
+  .topic-body h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 16px 0 6px;
+    color: var(--navy);
+  }
+  .topic-body h4:first-child { margin-top: 0; }
+  .topic-body p { margin: 0 0 10px; }
+  .topic-body ul, .topic-body ol { margin: 0 0 10px; padding-left: 22px; }
+  .topic-body li { margin-bottom: 4px; }
+
+  .ex {
+    background: var(--gold-soft);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  .ex-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .pitfall {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 13.5px;
+    color: var(--red);
+  }
+  .key-point {
+    background: #e8eef5;
+    border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 13.5px;
+    color: var(--navy);
+  }
+  .tip-box {
+    background: var(--yellow-light);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 14px;
+    margin: 12px 0;
+    font-size: 14px;
+  }
+  .tip-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Formulas */
+  .formula-section {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 22px 0 8px;
+    color: var(--navy);
+  }
+  .formula-section:first-child { margin-top: 0; }
+  .formula-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: var(--paper);
+  }
+  .formula-name {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .formula-eq {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 14px;
+  }
+  .formula-note {
+    font-size: 12px;
+    color: var(--soft);
+    margin-top: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Quiz */
+  .quiz-q {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: var(--paper);
+  }
+  .quiz-q-head {
+    font-size: 14.5px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.55;
+  }
+  .quiz-choice {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    font-size: 13.5px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .quiz-choice:hover { border-color: var(--border-strong); background: var(--cream-deep); }
+  .quiz-choice .letter {
+    font-weight: 600;
+    min-width: 18px;
+    color: var(--muted);
+  }
+  .quiz-choice.correct {
+    background: var(--green-bg);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .quiz-choice.correct .letter { color: var(--green); }
+  .quiz-choice.wrong {
+    background: var(--red-bg);
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .quiz-choice.wrong .letter { color: var(--red); }
+  .quiz-choice.disabled { cursor: default; }
+  .feedback {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+  .fb-correct {
+    background: var(--green-bg);
+    color: var(--green);
+    border-left: 3px solid var(--green);
+  }
+  .fb-wrong {
+    background: var(--red-bg);
+    color: var(--red);
+    border-left: 3px solid var(--red);
+  }
+  .fb-hint {
+    background: var(--yellow-light);
+    color: var(--ink);
+    border-left: 3px solid var(--gold);
+  }
+  .fb-hint strong { color: var(--navy); }
+  .fb-walk {
+    background: var(--gold-soft);
+    color: var(--ink);
+    border-left: 3px solid var(--gold);
+  }
+  .fb-walk strong {
+    color: var(--navy);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .walkthrough-steps {
+    margin: 0;
+    padding-left: 22px;
+    color: var(--ink);
+  }
+  .walkthrough-steps li {
+    margin-bottom: 6px;
+    line-height: 1.65;
+  }
+  .walkthrough-steps li:last-child {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .quiz-controls {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: var(--cream-deep);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .quiz-controls button {
+    padding: 6px 14px;
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    background: var(--paper);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .quiz-controls button:hover { background: var(--gold-soft); border-color: var(--gold); }
+  .quiz-controls button:disabled { opacity: 0.5; cursor: not-allowed; }
+  .quiz-controls strong { color: var(--navy); font-weight: 600; }
+
+  /* Tutorial */
+  .tut-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .tut-tab {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--paper);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .tut-tab.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+    font-weight: 600;
+  }
+  .tut-tab:hover:not(.active) { background: var(--cream-deep); color: var(--navy); }
+  .tut-content {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 26px;
+    box-shadow: 0 1px 3px rgba(30,58,95,0.05);
+  }
+  .tut-content h3 { color: var(--navy); margin: 22px 0 10px; }
+  .tut-content h3:first-of-type { margin-top: 0; }
+  .tut-content h4 { color: var(--navy-light); margin: 16px 0 8px; }
+  .tut-content p { margin: 0 0 12px; line-height: 1.75; }
+  .tut-content ul, .tut-content ol { margin: 0 0 12px; padding-left: 22px; }
+  .tut-content li { margin-bottom: 6px; line-height: 1.7; }
+  .lesson-divider {
+    border: 0;
+    border-top: 1px dashed var(--border-strong);
+    margin: 28px 0 22px;
+  }
+  .check-q {
+    background: #e8eef5;
+    border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .check-q-head {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Drill */
+  .drill-empty {
+    background: var(--cream-deep);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+  }
+  .drill-empty-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .drill-empty-body {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .session-source {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+  }
+
+  /* Sample exams */
+  .exam-picker {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+  .exam-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .exam-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 2px 6px rgba(212,160,23,0.15);
+  }
+  .exam-card.active {
+    border: 2px solid var(--navy);
+    padding: 13px 15px;
+  }
+  .exam-card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .exam-card-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .exam-card-status {
+    font-size: 11px;
+    margin-top: 8px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    display: inline-block;
+    background: var(--cream-deep);
+    color: var(--muted);
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .exam-card-status.done {
+    background: var(--green-bg);
+    color: var(--green);
+  }
+  .exam-card-status.in-progress {
+    background: #e8eef5;
+    color: var(--navy);
+  }
+
+  .timer {
+    font-size: 14px;
+    color: var(--muted);
+    margin-left: auto;
+    font-variant-numeric: tabular-nums;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+  }
+  .exam-header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .progress-track {
+    height: 5px;
+    background: var(--cream-deep);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--navy);
+    transition: width 0.3s;
+  }
+
+  .info-box {
+    background: #e8eef5;
+    border-left: 4px solid var(--navy);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 14px;
+    margin: 8px 0 14px;
+    font-size: 14px;
+    color: var(--navy);
+    line-height: 1.6;
+  }
+  .warn-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--red);
+    line-height: 1.6;
+  }
+
+  .exam-summary {
+    background: var(--cream-deep);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-top: 18px;
+  }
+  .score-big {
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 6px 0;
+  }
+  .breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .bd-cell {
+    background: var(--paper);
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .bd-strand {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-weight: 600;
+  }
+  .bd-score { font-size: 16px; font-weight: 600; color: var(--navy); }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    main { padding: 16px 14px 32px; }
+    header.top h1 { font-size: 1.5rem; }
+    nav button { padding: 10px 12px; font-size: 13px; min-width: 80px; }
+    h2 { font-size: 1.35rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <h1>Grade 8 math — exam study guide</h1>
+  <p>All eight units of Math Makes Sense 8 · Nova Scotia curriculum</p>
+</header>
+
+<nav id="nav">
+  <button class="active" data-panel="overview">Overview</button>
+  <button data-panel="tutorials">Tutorials</button>
+  <button data-panel="formulas">Formulas</button>
+  <button data-panel="topics">Topic review</button>
+  <button data-panel="practice">Practice</button>
+  <button data-panel="drill">Drill mode</button>
+  <button data-panel="exam">Sample exams</button>
+  <button data-panel="tips">Test tips</button>
+</nav>
+
+<main>
+
+<div class="panel active" id="panel-overview">
+  <h2>About this guide</h2>
+  <p>A complete exam-prep review of all eight units of the Math Makes Sense 8 textbook, aligned to the Nova Scotia Grade 8 curriculum. There are friendly tutorials for each unit if you want to learn the concepts from scratch, plus practice questions, drill mode, and four full sample exams when you're ready to test yourself.</p>
+
+  <div class="stat-row">
+    <div class="stat"><div class="stat-label">Units</div><div class="stat-val">8</div></div>
+    <div class="stat"><div class="stat-label">Tutorials</div><div class="stat-val">8</div></div>
+    <div class="stat"><div class="stat-label">Topic cards</div><div class="stat-val" id="topic-count">—</div></div>
+    <div class="stat"><div class="stat-label">Practice Qs</div><div class="stat-val" id="prac-count">—</div></div>
+    <div class="stat"><div class="stat-label">Sample exams</div><div class="stat-val">4</div></div>
+  </div>
+
+  <h3>What's in each unit</h3>
+  <div class="unit-grid">
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u1">Unit 1</span><span class="unit-card-name">Square roots & Pythagoras</span></div><div class="unit-card-desc">Perfect squares, exact and estimated square roots, the Pythagorean theorem, the converse, triples, real-world problems.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u2">Unit 2</span><span class="unit-card-name">Integers</span></div><div class="unit-card-desc">Multiplying and dividing integers using counters, number lines, and rules. Order of operations.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u3">Unit 3</span><span class="unit-card-name">Operations with fractions</span></div><div class="unit-card-desc">Multiplying and dividing positive fractions, mixed numbers, area models, estimation, multi-step problems.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u4">Unit 4</span><span class="unit-card-name">Prisms & cylinders</span></div><div class="unit-card-desc">Nets, surface area, and volume of right rectangular prisms, right triangular prisms, and right cylinders.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u5">Unit 5</span><span class="unit-card-name">Percent, ratio, rate</span></div><div class="unit-card-desc">Percents above 100% and below 1%, percent change, tax & discount, ratios, proportions, unit rates, best buys.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u6">Unit 6</span><span class="unit-card-name">Linear equations & graphing</span></div><div class="unit-card-desc">One- and two-step equations, the distributive property, equations with fractions, tables of values, linear graphs.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u7">Unit 7</span><span class="unit-card-name">Data & probability</span></div><div class="unit-card-desc">Graph types, identifying misleading graphs, independent events, the multiplication rule.</div></div>
+    <div class="unit-card"><div class="unit-card-head"><span class="pill pill-u8">Unit 8</span><span class="unit-card-name">Geometry</span></div><div class="unit-card-desc">Top/front/side views, isometric drawings, rotations of 3-D objects, transformations on the coordinate plane.</div></div>
+  </div>
+
+  <h3>How to use this guide</h3>
+  <p><strong>Start with Tutorials</strong> if you want a friendly, lesson-by-lesson walk-through of each unit. They include worked examples and short interactive checks to make sure the concepts stick.</p>
+  <p><strong>Use Topic review</strong> if you've already learned the material and want quick refreshers, with detailed examples and pitfalls grouped by concept.</p>
+  <p><strong>Skim the Formulas tab</strong> for a one-page reference of every equation.</p>
+  <p><strong>Test yourself in Practice</strong> with 120 multiple-choice questions filterable by unit. Wrong answers automatically join your <strong>Drill mode</strong> set so you can review them.</p>
+  <p><strong>When you're ready, try the Sample exams</strong> — there are four to work through, each timed and auto-graded.</p>
+  <p><strong>Read Test tips</strong> the night before your test for last-minute strategy and the most common pitfalls.</p>
+
+  <div class="info-box" style="margin-top: 18px;"><strong>How questions work:</strong> in Tutorials and Practice, a wrong answer gives you a hint and another try. A second wrong answer gives a stronger hint. After three wrong tries, you get a step-by-step walkthrough showing how to solve it. Sample exams work the way real exams do — one shot per question, scored on submit.</div>
+
+  <div class="info-box" style="margin-top: 12px;"><strong>Your progress is saved.</strong> Practice answers, drill set, and exam scores are stored in your browser, so you can close the tab and come back later. Use the "Reset all progress" button on this page if you want to start fresh.</div>
+
+  <div style="margin-top: 14px;">
+    <button id="reset-all-btn" style="padding: 8px 16px; border: 1px solid var(--border-strong); border-radius: 6px; background: var(--paper); cursor: pointer; font-family: inherit; font-size: 13px; color: var(--ink-soft);">Reset all progress</button>
+  </div>
+</div>
+
+<div class="panel" id="panel-tutorials">
+  <h2>Unit tutorials</h2>
+  <p style="color: var(--ink-soft); margin-bottom: 18px;">Friendly, lesson-by-lesson walk-throughs of each unit. Each tutorial has worked examples and short interactive checks. Pick a unit to begin.</p>
+  <div class="tut-tabs" id="tut-tabs">
+    <button class="tut-tab active" data-tut="u1">Unit 1</button>
+    <button class="tut-tab" data-tut="u2">Unit 2</button>
+    <button class="tut-tab" data-tut="u3">Unit 3</button>
+    <button class="tut-tab" data-tut="u4">Unit 4</button>
+    <button class="tut-tab" data-tut="u5">Unit 5</button>
+    <button class="tut-tab" data-tut="u6">Unit 6</button>
+    <button class="tut-tab" data-tut="u7">Unit 7</button>
+    <button class="tut-tab" data-tut="u8">Unit 8</button>
+  </div>
+  <div class="tut-content" id="tut-content"></div>
+</div>
+
+<div class="panel" id="panel-formulas">
+  <p style="color: var(--ink-soft); margin-bottom: 18px;">Every formula and rule grouped by unit.</p>
+
+  <div class="formula-section">Unit 1 — Square roots & Pythagoras</div>
+  <div class="formula-card"><div class="formula-name">Square root</div><div class="formula-eq">If n = k², then √n = k (k ≥ 0)</div></div>
+  <div class="formula-card"><div class="formula-name">Pythagorean theorem</div><div class="formula-eq">a² + b² = c²</div><div class="formula-note">a, b are legs; c is the hypotenuse (longest side, opposite the right angle).</div></div>
+  <div class="formula-card"><div class="formula-name">Finding the hypotenuse</div><div class="formula-eq">c = √(a² + b²)</div></div>
+  <div class="formula-card"><div class="formula-name">Finding a leg</div><div class="formula-eq">a = √(c² − b²)</div></div>
+  <div class="formula-card"><div class="formula-name">Common Pythagorean triples</div><div class="formula-eq">3-4-5, 5-12-13, 8-15-17, 7-24-25</div><div class="formula-note">Multiples also work: 6-8-10, 9-12-15, etc.</div></div>
+  <div class="formula-card"><div class="formula-name">Converse of Pythagoras</div><div class="formula-eq">If a² + b² = c², the triangle is a right triangle</div></div>
+
+  <div class="formula-section">Unit 2 — Integers</div>
+  <div class="formula-card"><div class="formula-name">Sign rules — × and ÷</div><div class="formula-eq">(+)(+) = +&nbsp;&nbsp;(−)(−) = +&nbsp;&nbsp;(+)(−) = −&nbsp;&nbsp;(−)(+) = −</div></div>
+  <div class="formula-card"><div class="formula-name">Order of operations</div><div class="formula-eq">B E DM AS</div><div class="formula-note">Brackets, Exponents, Division/Multiplication (left to right), Addition/Subtraction (left to right).</div></div>
+  <div class="formula-card"><div class="formula-name">Subtracting an integer</div><div class="formula-eq">a − b = a + (−b)</div></div>
+
+  <div class="formula-section">Unit 3 — Fractions</div>
+  <div class="formula-card"><div class="formula-name">Multiplying fractions</div><div class="formula-eq">a/b × c/d = (a × c) / (b × d)</div></div>
+  <div class="formula-card"><div class="formula-name">Dividing fractions</div><div class="formula-eq">a/b ÷ c/d = a/b × d/c</div><div class="formula-note">Keep the first, change ÷ to ×, flip the second.</div></div>
+  <div class="formula-card"><div class="formula-name">Mixed → improper</div><div class="formula-eq">a b/c = (a × c + b) / c</div></div>
+  <div class="formula-card"><div class="formula-name">Reciprocal</div><div class="formula-eq">Reciprocal of a/b is b/a</div></div>
+
+  <div class="formula-section">Unit 4 — Prisms & cylinders</div>
+  <div class="formula-card"><div class="formula-name">Surface area — rectangular prism</div><div class="formula-eq">SA = 2(ℓw + ℓh + wh)</div></div>
+  <div class="formula-card"><div class="formula-name">Surface area — triangular prism</div><div class="formula-eq">SA = 2(½bh) + (perimeter × length)</div></div>
+  <div class="formula-card"><div class="formula-name">Surface area — cylinder</div><div class="formula-eq">SA = 2πr² + 2πrh</div></div>
+  <div class="formula-card"><div class="formula-name">Volume — any prism</div><div class="formula-eq">V = (area of base) × height</div></div>
+  <div class="formula-card"><div class="formula-name">Volume — cylinder</div><div class="formula-eq">V = πr² × h</div></div>
+  <div class="formula-card"><div class="formula-name">Circumference</div><div class="formula-eq">C = 2πr = πd</div></div>
+  <div class="formula-card"><div class="formula-name">Area of a circle</div><div class="formula-eq">A = πr²</div></div>
+
+  <div class="formula-section">Unit 5 — Percent, ratio, rate</div>
+  <div class="formula-card"><div class="formula-name">Percent of a number</div><div class="formula-eq">p% of n = (p ÷ 100) × n</div></div>
+  <div class="formula-card"><div class="formula-name">Percent change</div><div class="formula-eq">% change = (change ÷ original) × 100</div><div class="formula-note">Always divide by the ORIGINAL, never the new value.</div></div>
+  <div class="formula-card"><div class="formula-name">Add tax of t%</div><div class="formula-eq">× (1 + t/100)</div></div>
+  <div class="formula-card"><div class="formula-name">Apply discount of d%</div><div class="formula-eq">× (1 − d/100)</div></div>
+  <div class="formula-card"><div class="formula-name">Solving a proportion</div><div class="formula-eq">a/b = c/d  →  a × d = b × c</div></div>
+  <div class="formula-card"><div class="formula-name">Unit rate</div><div class="formula-eq">first quantity ÷ second quantity</div></div>
+  <div class="formula-card"><div class="formula-name">m/s ↔ km/h</div><div class="formula-eq">m/s × 3.6 = km/h</div></div>
+
+  <div class="formula-section">Unit 6 — Linear equations & graphing</div>
+  <div class="formula-card"><div class="formula-name">Preservation of equality</div><div class="formula-eq">Whatever you do to one side, do to the other.</div></div>
+  <div class="formula-card"><div class="formula-name">Distributive property</div><div class="formula-eq">a(x + b) = ax + ab</div></div>
+  <div class="formula-card"><div class="formula-name">Distributing a negative</div><div class="formula-eq">−(x + b) = −x − b</div></div>
+  <div class="formula-card"><div class="formula-name">General linear relation</div><div class="formula-eq">y = ax + b</div></div>
+  <div class="formula-card"><div class="formula-name">Ordered pair</div><div class="formula-eq">(x, y)  x = independent, y = dependent</div></div>
+
+  <div class="formula-section">Unit 7 — Data & probability</div>
+  <div class="formula-card"><div class="formula-name">Probability of an event</div><div class="formula-eq">P(E) = (favourable) ÷ (total)</div></div>
+  <div class="formula-card"><div class="formula-name">Two independent events</div><div class="formula-eq">P(A and B) = P(A) × P(B)</div></div>
+  <div class="formula-card"><div class="formula-name">Three or more independent events</div><div class="formula-eq">P(A and B and C) = P(A) × P(B) × P(C)</div></div>
+  <div class="formula-card"><div class="formula-name">Total outcomes</div><div class="formula-eq">(outcomes A) × (outcomes B) × …</div></div>
+  <div class="formula-card"><div class="formula-name">Complement</div><div class="formula-eq">P(not E) = 1 − P(E)</div></div>
+
+  <div class="formula-section">Unit 8 — Geometry</div>
+  <div class="formula-card"><div class="formula-name">Translation notation</div><div class="formula-eq">[a, b]  →  a right (− = left), b up (− = down)</div></div>
+  <div class="formula-card"><div class="formula-name">Reflection in x-axis</div><div class="formula-eq">(x, y) → (x, −y)</div></div>
+  <div class="formula-card"><div class="formula-name">Reflection in y-axis</div><div class="formula-eq">(x, y) → (−x, y)</div></div>
+  <div class="formula-card"><div class="formula-name">90° rotation about origin (CW)</div><div class="formula-eq">(x, y) → (y, −x)</div></div>
+  <div class="formula-card"><div class="formula-name">90° rotation about origin (CCW)</div><div class="formula-eq">(x, y) → (−y, x)</div></div>
+  <div class="formula-card"><div class="formula-name">180° rotation about origin</div><div class="formula-eq">(x, y) → (−x, −y)</div></div>
+</div>
+
+<div class="panel" id="panel-topics">
+  <div class="filter-row" id="topic-filters">
+    <button class="filter-pill active" data-strand="all">All units</button>
+    <button class="filter-pill" data-strand="u1">Unit 1</button>
+    <button class="filter-pill" data-strand="u2">Unit 2</button>
+    <button class="filter-pill" data-strand="u3">Unit 3</button>
+    <button class="filter-pill" data-strand="u4">Unit 4</button>
+    <button class="filter-pill" data-strand="u5">Unit 5</button>
+    <button class="filter-pill" data-strand="u6">Unit 6</button>
+    <button class="filter-pill" data-strand="u7">Unit 7</button>
+    <button class="filter-pill" data-strand="u8">Unit 8</button>
+  </div>
+  <div id="topic-list"></div>
+</div>
+
+<div class="panel" id="panel-practice">
+  <div class="filter-row" id="practice-filters">
+    <button class="filter-pill active" data-strand="all">All</button>
+    <button class="filter-pill" data-strand="u1">Unit 1</button>
+    <button class="filter-pill" data-strand="u2">Unit 2</button>
+    <button class="filter-pill" data-strand="u3">Unit 3</button>
+    <button class="filter-pill" data-strand="u4">Unit 4</button>
+    <button class="filter-pill" data-strand="u5">Unit 5</button>
+    <button class="filter-pill" data-strand="u6">Unit 6</button>
+    <button class="filter-pill" data-strand="u7">Unit 7</button>
+    <button class="filter-pill" data-strand="u8">Unit 8</button>
+  </div>
+  <div id="practice-list"></div>
+  <div class="quiz-controls">
+    <button id="reset-prac">Reset answers</button>
+    <span>Answered: <strong id="prac-answered">0</strong></span>
+    <span>Correct: <strong id="prac-correct">0</strong></span>
+    <span>Accuracy: <strong id="prac-acc">—</strong></span>
+    <span>In drill set: <strong id="drill-count-prac">0</strong></span>
+  </div>
+</div>
+
+<div class="panel" id="panel-drill">
+  <p style="color: var(--ink-soft); margin-bottom: 14px;">Questions you got wrong elsewhere appear here automatically. Get one right and it leaves the set after a moment. Your drill set is saved between visits.</p>
+  <div class="filter-row" id="drill-filters">
+    <button class="filter-pill active" data-strand="all">All</button>
+    <button class="filter-pill" data-strand="u1">Unit 1</button>
+    <button class="filter-pill" data-strand="u2">Unit 2</button>
+    <button class="filter-pill" data-strand="u3">Unit 3</button>
+    <button class="filter-pill" data-strand="u4">Unit 4</button>
+    <button class="filter-pill" data-strand="u5">Unit 5</button>
+    <button class="filter-pill" data-strand="u6">Unit 6</button>
+    <button class="filter-pill" data-strand="u7">Unit 7</button>
+    <button class="filter-pill" data-strand="u8">Unit 8</button>
+  </div>
+  <div id="drill-list"></div>
+  <div class="quiz-controls">
+    <button id="shuffle-drill">Shuffle</button>
+    <button id="clear-drill">Clear drill set</button>
+    <span>In set: <strong id="drill-total">0</strong></span>
+    <span>Mastered: <strong id="drill-mastered">0</strong></span>
+  </div>
+</div>
+
+<div class="panel" id="panel-exam">
+  <h2>Sample exams</h2>
+  <p style="color: var(--ink-soft); margin-bottom: 18px;">Four full-length exams of 30 questions each, each tracked separately. A timer runs while you take it. Submit for an auto-graded report by unit; wrong answers feed your drill set.</p>
+  <div class="exam-picker" id="exam-picker"></div>
+  <div id="exam-active" style="display: none;">
+    <div class="exam-header-row">
+      <h3 id="exam-active-name" style="margin: 0;">Exam</h3>
+      <span class="timer" id="exam-timer">00:00</span>
+    </div>
+    <div class="info-box" id="exam-status"><strong>Ready when you are.</strong> Submit when finished for an auto-graded report broken down by unit.</div>
+    <div class="progress-track"><div class="progress-fill" id="exam-progress" style="width: 0%;"></div></div>
+    <div id="exam-list"></div>
+    <div class="quiz-controls" id="exam-controls">
+      <button onclick="submitExam()" id="submit-exam-btn">Submit exam</button>
+      <button onclick="resetExam()">Reset this exam</button>
+      <button onclick="closeExam()">Back to exam picker</button>
+    </div>
+    <div id="exam-results"></div>
+  </div>
+</div>
+
+<div class="panel" id="panel-tips">
+  <h2>Test-day strategy</h2>
+  <p><strong>Read every word.</strong> "What fraction is left" is different from "what fraction was eaten." Underline what's actually asked.</p>
+  <p><strong>Show every step.</strong> Even on multiple choice, write the steps so you can catch your own mistakes.</p>
+  <p><strong>Check your units.</strong> cm vs. m, cm² vs. cm³, % vs. decimal — wrong unit = wrong answer.</p>
+  <p><strong>Estimate first.</strong> If a soup-can volume comes out to 50 000 cm³, you've made an error.</p>
+  <p><strong>Verify the answer.</strong> Plug your equation answer back in. Probabilities must be between 0 and 1.</p>
+  <p><strong>Don't get stuck.</strong> If a question takes more than 3 minutes, mark it and move on. Come back later.</p>
+
+  <h3>Common pitfalls — units 1 to 4</h3>
+  <div class="warn-box"><strong>√36 ≠ 18.</strong> The square root of 36 is 6, not half of 36.</div>
+  <div class="warn-box"><strong>Pythagoras direction.</strong> Adding squares gives c². Subtracting gives a leg squared.</div>
+  <div class="warn-box"><strong>Negative × negative is positive.</strong> (−4) × (−3) = +12.</div>
+  <div class="warn-box"><strong>(−6)² = 36 but −6² = −36.</strong> Brackets matter.</div>
+  <div class="warn-box"><strong>Multiplying fractions ≠ adding them.</strong> 2/3 × 1/4 = 1/6. No common denominator needed.</div>
+  <div class="warn-box"><strong>Mixed numbers in × or ÷:</strong> always convert to improper fractions first.</div>
+  <div class="warn-box"><strong>Diameter vs. radius.</strong> If given d, divide by 2 to get r.</div>
+  <div class="warn-box"><strong>Cylinder net</strong> has two circles AND a rectangle of length 2πr.</div>
+
+  <h3>Common pitfalls — unit 5</h3>
+  <div class="warn-box"><strong>0.65% = 0.0065,</strong> not 0.65.</div>
+  <div class="warn-box"><strong>Percent change uses the ORIGINAL.</strong> Never divide by the new value.</div>
+  <div class="warn-box"><strong>Successive percents don't add.</strong> 20% then 10% off = 28% off, not 30% (0.80 × 0.90 = 0.72).</div>
+  <div class="warn-box"><strong>Part-to-part vs. part-to-whole.</strong> 5 golf : 8 tennis is 5:8, NOT 5/13 of the balls.</div>
+  <div class="warn-box"><strong>When scaling a ratio,</strong> multiply ALL terms by the same number.</div>
+
+  <h3>Common pitfalls — unit 6</h3>
+  <div class="warn-box"><strong>Do the same thing to BOTH sides.</strong> Solving 2x + 3 = 11 means subtract 3 from both sides.</div>
+  <div class="warn-box"><strong>Distribute to every term.</strong> 4(x − 3) = 4x − 12, not 4x − 3.</div>
+  <div class="warn-box"><strong>Distributing a negative.</strong> −(x − 5) = −x + 5, not −x − 5.</div>
+  <div class="warn-box"><strong>If −x = 5, then x = −5.</strong> Multiply both sides by −1.</div>
+  <div class="warn-box"><strong>Verify by substitution.</strong> Plug your solution into the original equation.</div>
+  <div class="warn-box"><strong>Discrete data points are NOT joined.</strong> Number of guests, number of pizzas — leave them unconnected.</div>
+
+  <h3>Common pitfalls — unit 7</h3>
+  <div class="warn-box"><strong>Match graph type to data.</strong> Line for time, circle for parts of a whole, bar for categories.</div>
+  <div class="warn-box"><strong>Watch the y-axis scale.</strong> A bar starting at 98 makes a small difference look huge.</div>
+  <div class="warn-box"><strong>Independent vs. dependent.</strong> Multiplication rule only works for independent events.</div>
+  <div class="warn-box"><strong>"AND" means multiply.</strong> P(red AND a 6) = P(red) × P(6).</div>
+  <div class="warn-box"><strong>Probability is between 0 and 1.</strong> 7/4 means you've made an error.</div>
+
+  <h3>Common pitfalls — unit 8</h3>
+  <div class="warn-box"><strong>Top view = length × width</strong> (looking down). Front and side views show height.</div>
+  <div class="warn-box"><strong>Internal lines only where depth changes.</strong></div>
+  <div class="warn-box"><strong>Hidden cubes can be there.</strong> One set of views can match more than one object.</div>
+  <div class="warn-box"><strong>Rotation direction matters.</strong> 90° CW and CCW give different images.</div>
+  <div class="warn-box"><strong>Reflection axis matters.</strong> x-axis flips y; y-axis flips x.</div>
+  <div class="warn-box"><strong>Order of transformations matters.</strong></div>
+</div>
+
+<div class="footer">Grade 8 math study guide · Math Makes Sense 8 · Nova Scotia curriculum</div>
+</main>
+<script>
+// =================== TUTORIALS ===================
+// Format: { intro: 'short hook', body: 'HTML content with .ex worked examples', checks: [{q, choices, a, exp}, ...] }
+const TUTORIALS = {
+  u1: {
+    title: 'Unit 1 — Square roots & Pythagoras',
+    intro: 'You probably already know that 5 × 5 = 25. This unit takes that simple idea and uses it to do something cool: find missing distances and side lengths. By the end, you\'ll be able to figure out the diagonal of a TV, the length of a ladder, or whether a triangle has a right angle in it — all from a single rule.',
+    body: `
+      <h3>Lesson 1.1 — Perfect squares</h3>
+      <p>A <strong>perfect square</strong> is what you get when you multiply a whole number by itself. Picture a square room with sides of 5 metres. Its area is 5 × 5 = 25 square metres. So 25 is a perfect square, and 5 is its <em>square root</em>.</p>
+
+      <div class="tip-box"><span class="tip-label">Memorize these</span>1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36, 7² = 49, 8² = 64, 9² = 81, 10² = 100, 11² = 121, 12² = 144, 13² = 169.</div>
+
+      <p>Quick filter: a perfect square never ends in 2, 3, 7, or 8. So 27 can't be a perfect square. Neither can 192. Useful when you're scanning a multiple choice question.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div><strong>Is 144 a perfect square?</strong><br>Yes. 12 × 12 = 144, so √144 = 12.</div>
+
+      <h3>Lesson 1.2 — Square roots</h3>
+      <p>The square root <strong>undoes</strong> squaring. Since 6² = 36, we say √36 = 6. The big mistake students make is thinking √36 = 18 (half of 36). Don't do that — square root is not "divide by 2."</p>
+
+      <p>For perfect squares, the answer is exact. For other numbers (like 50 or 75), the answer is irrational, meaning you can only estimate.</p>
+
+      <div class="ex"><div class="ex-label">Worked example — bigger numbers</div><strong>√2500 = ?</strong><br>Break it apart: 2500 = 25 × 100. So √2500 = √25 × √100 = 5 × 10 = <strong>50</strong>.</div>
+
+      <h3>Lesson 1.3 — Estimating non-perfect square roots</h3>
+      <p>To estimate √55, find the two perfect squares it sits between: 49 and 64. So √55 is between 7 and 8. Since 55 is closer to 49 than to 64, √55 is a little above 7 — about 7.4.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div><strong>Estimate √87.</strong><br>81 < 87 < 100, so √87 is between 9 and 10.<br>87 is much closer to 81 than to 100, so √87 ≈ 9.3.<br>Calculator confirms: √87 = 9.327…</div>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 1.4 — The Pythagorean theorem</h3>
+      <p>This is the headline rule of the unit. For any <strong>right triangle</strong> (one with a 90° angle):</p>
+      <div class="ex" style="text-align: center; font-size: 18px;"><strong>a² + b² = c²</strong></div>
+      <p><strong>a</strong> and <strong>b</strong> are the two shorter sides — the <em>legs</em>. <strong>c</strong> is the longest side — the <em>hypotenuse</em>, always opposite the right angle.</p>
+
+      <p>The geometric meaning: if you drew a square on each side of the triangle, the area of the biggest square equals the sum of the areas of the two smaller squares.</p>
+
+      <h3>Lesson 1.5 — Finding the hypotenuse</h3>
+      <p>You have the two legs, you want the hypotenuse. Three steps:</p>
+      <ol><li>Square each leg.</li>
+      <li>Add the squares.</li>
+      <li>Take the square root of the total.</li></ol>
+
+      <div class="ex"><div class="ex-label">Worked example — legs 6 and 8</div>c² = 6² + 8² = 36 + 64 = 100<br>c = √100 = <strong>10</strong></div>
+
+      <div class="pitfall"><strong>Don't forget step 3.</strong> If you stop at c² = 100, you'll write 100 as your answer instead of 10. Always take the square root at the end.</div>
+
+      <h3>Lesson 1.6 — Finding a leg</h3>
+      <p>You have the hypotenuse and one leg, you want the other leg. Same idea, but you <strong>subtract</strong>:</p>
+      <div class="ex" style="text-align: center;">a² = c² − b²</div>
+
+      <div class="ex"><div class="ex-label">Worked example — hypotenuse 13, leg 5</div>a² = 13² − 5² = 169 − 25 = 144<br>a = √144 = <strong>12</strong>. (This is the famous 5-12-13 triangle.)</div>
+
+      <div class="pitfall">Subtract <em>biggest minus smallest</em>: c² − b², not the other way around. If you get a negative number, you swapped them.</div>
+
+      <h3>Lesson 1.7 — The converse and Pythagorean triples</h3>
+      <p>The <strong>converse</strong> says: if a triangle's sides satisfy a² + b² = c², then it MUST be a right triangle. Useful for checking if a triangle is right-angled without measuring angles.</p>
+
+      <p><strong>Pythagorean triples</strong> are sets of three whole numbers that fit Pythagoras perfectly. Memorize a few:</p>
+      <div class="ex">3-4-5, 5-12-13, 8-15-17, 7-24-25, 9-40-41</div>
+      <p>Multiples count too. If you see a triangle with sides 6, 8, and 10, that's just 3-4-5 doubled — it's a right triangle.</p>
+
+      <h3>Lesson 1.8 — Real-world problems</h3>
+      <p>Most word problems hide a right triangle inside. Look for:</p>
+      <ul><li>Ladders against walls (wall is vertical, ground is horizontal — right angle at the corner)</li>
+      <li>TV diagonals</li>
+      <li>Walking across a corner of a rectangular field</li>
+      <li>Diagonal braces and supports</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example — the ladder</div>A 5 m ladder leans against a wall. The base is 3 m from the wall. How high does the ladder reach?<br>Height² = 5² − 3² = 25 − 9 = 16<br>Height = √16 = <strong>4 m</strong></div>
+
+      <div class="ex"><div class="ex-label">Worked example — the field shortcut</div>A field is 60 m by 80 m. How much shorter is it to walk diagonally across instead of around two sides?<br>Diagonal² = 60² + 80² = 3600 + 6400 = 10 000<br>Diagonal = 100 m. Two sides = 60 + 80 = 140 m.<br>Diagonal saves <strong>40 m</strong>.</div>
+    `,
+    checks: [
+      { q: 'Estimate √70 to one decimal place.', choices: ['7.5','8.4','9.0','35.0'], a: 1, h1: 'Find the two perfect squares 70 sits between.', h2: '70 is between 64 (=8²) and 81 (=9²). It\'s a bit closer to 64 than to 81, so the answer is just over 8.', walk: ['Find the perfect squares around 70.', '64 = 8² and 81 = 9². So √70 is between 8 and 9.', '70 is closer to 64 (only 6 away) than to 81 (11 away). So √70 is closer to 8.', 'A bit above 8: about 8.4. (Calculator gives 8.367.)'], exp: '64 < 70 < 81, so √70 is between 8 and 9. Since 70 is closer to 64, √70 ≈ 8.4. (Calc: 8.367.)', walk: ['Find perfect squares around 70: 8² = 64 and 9² = 81.', 'So √70 is between 8 and 9.', '70 is closer to 64 than to 81 (gap of 6 vs 11).', 'So √70 is just over 8. Estimate: 8.4. (Calc: 8.367.)'] },
+      { q: 'A right triangle has legs 9 and 12. The hypotenuse is:', choices: ['15','21','108','225'], a: 0, h1: 'Use a² + b² = c². Square both legs and add.', h2: '9² + 12² = 81 + 144 = 225. Don\'t forget the final step: take the square root of 225.', walk: ['Use Pythagoras: a² + b² = c² where c is the hypotenuse.', '9² + 12² = 81 + 144 = 225.', 'Take the square root: √225 = 15.', '(Bonus: this is the 3-4-5 Pythagorean triple, scaled ×3.)'], exp: '9² + 12² = 81 + 144 = 225. √225 = 15. (Multiple of the 3-4-5 triple, ×3.)', walk: ['Use a² + b² = c².', 'Square: 9² = 81 and 12² = 144.', 'Add: 81 + 144 = 225.', 'Take the square root: c = √225 = 15.'] },
+      { q: 'A triangle has sides 6, 8, and 11. Is it a right triangle?', choices: ['Yes, definitely','No','Cannot tell without angles','Only if 11 is the hypotenuse'], a: 1, h1: 'Use the converse: try a² + b² = c² with the LONGEST side as c.', h2: 'Test: 6² + 8² = 100. But 11² = 121. They don\'t match, so the triangle isn\'t right-angled.', walk: ['Use the converse of Pythagoras: test if a² + b² = c² with the LONGEST side as c.', 'Longest side is 11. Compute: 6² + 8² = 36 + 64 = 100.', 'Compare to 11² = 121.', '100 ≠ 121, so the triangle is NOT a right triangle.'], exp: 'Test the converse with 11 as hypotenuse: 6² + 8² = 100, but 11² = 121. Not equal, so NOT a right triangle.', walk: ['Use the converse: try a² + b² = c² with the LONGEST side as c.', 'Square: 6² = 36 and 8² = 64. Sum: 100.', 'Compare to 11² = 121.', '100 ≠ 121, so it\'s NOT a right triangle.'] },
+      { q: 'A 13 m flagpole casts a shadow 5 m long. How far is it from the top of the pole to the tip of the shadow?', choices: ['8 m','12 m','14 m','18 m'], a: 2, h1: 'Picture the pole, the shadow, and the line from top to tip. That makes a right triangle.', h2: 'The pole (13) and shadow (5) are the legs. The line you want is the hypotenuse: c² = 13² + 5² = 194.', walk: ['Picture the right triangle: pole (vertical), shadow (horizontal), and the line from top to tip (the hypotenuse).', 'Use Pythagoras: legs are 13 and 5, hypotenuse is the unknown.', 'c² = 13² + 5² = 169 + 25 = 194.', '√194 ≈ 13.93 m. Closest answer: 14 m.'], exp: 'The pole, shadow, and line to the tip form a right triangle. Hypotenuse² = 13² + 5² = 169 + 25 = 194. √194 ≈ 13.9 m. Closest answer is 14 m.', walk: ['The pole, shadow, and the line from top to tip form a right triangle.', 'Pole and shadow are the legs (13 and 5).', 'The line you want is the hypotenuse: c² = 13² + 5².', '= 169 + 25 = 194.', 'c = √194 ≈ 13.93. Closest answer: 14 m.'] },
+    ]
+  },
+
+  u2: {
+    title: 'Unit 2 — Integers',
+    intro: 'You\'ve added and subtracted negative numbers since Grade 7. Now we go further: multiplying and dividing them. The good news? There are only two rules to remember, and you already know them subconsciously.',
+    body: `
+      <h3>Lesson 2.1 — Multiplying integers (the rules)</h3>
+      <p>Two rules cover every multiplication and division of integers:</p>
+      <div class="tip-box"><span class="tip-label">The two rules</span>
+      <strong>Same signs → positive.</strong> (+)(+) = + and (−)(−) = +<br>
+      <strong>Different signs → negative.</strong> (+)(−) = − and (−)(+) = −</div>
+
+      <p>That's it. The same rules apply to division. So (−24) ÷ (−3) = +8, and (−24) ÷ 3 = −8.</p>
+
+      <div class="ex"><div class="ex-label">Worked examples</div>(−7)(−4) = +28 (same signs)<br>(−6)(5) = −30 (different signs)<br>(−24) ÷ (−3) = +8<br>0 × (−5) = 0 (zero is always zero)</div>
+
+      <h3>Lesson 2.2 — Three or more numbers</h3>
+      <p>When you're multiplying a bunch of integers, count the <strong>negative signs</strong>. If there's an even number of them, the answer is positive. If odd, negative.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>(−2)(3)(−4)(−1) → three negatives (odd) → answer is negative.<br>Now multiply the numbers: 2 × 3 × 4 × 1 = 24.<br>Final answer: <strong>−24</strong>.</div>
+
+      <h3>Lesson 2.3 — Order of operations (BEDMAS)</h3>
+      <p>Order of operations doesn't change with negatives. Still BEDMAS: <strong>B</strong>rackets, <strong>E</strong>xponents, <strong>D</strong>/M (left to right), <strong>A</strong>/S (left to right).</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>(−2) − (−3) × 4<br>Multiplication first: (−3) × 4 = −12.<br>Then: (−2) − (−12) = (−2) + 12 = <strong>10</strong>.</div>
+
+      <div class="pitfall"><strong>(−6)² is NOT the same as −6².</strong><br>(−6)² = (−6)(−6) = +36 (the brackets are part of what's being squared)<br>−6² = −(6 × 6) = −36 (only the 6 is squared, the negative is applied after)</div>
+
+      <h3>Lesson 2.4 — Integer word problems</h3>
+      <p>Look for these common contexts where negatives appear:</p>
+      <ul><li><strong>Temperature:</strong> drops are negative.</li>
+      <li><strong>Elevation:</strong> below sea level is negative.</li>
+      <li><strong>Money:</strong> debts and losses are negative.</li>
+      <li><strong>Sports:</strong> golf strokes below par are negative.</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example — submarine</div>A submarine descends 12 m every minute. Where is it after 7 minutes?<br>Each minute: −12 m. After 7 minutes: 7 × (−12) = <strong>−84 m</strong> (84 m below the surface).</div>
+
+      <div class="ex"><div class="ex-label">Worked example — golf</div>A golfer's last 4 holes were +3, −2, −4, −1 against par. Total relative to par?<br>Sum: 3 + (−2) + (−4) + (−1) = <strong>−4</strong> (four under par).</div>
+    `,
+    checks: [
+      { q: 'Evaluate (−5)(−6).', choices: ['−30','−11','11','30'], a: 3, h1: 'Apply the sign rule: same signs give a positive answer.', h2: 'Both numbers are negative, so the answer is positive. Now just multiply 5 × 6.', walk: ['Sign rule: same signs multiplied → positive.', 'Both numbers are negative, so the result is positive.', 'Multiply magnitudes: 5 × 6 = 30.', 'Final answer: +30.'], exp: 'Same signs → positive: (5)(6) = 30.', walk: ['Sign rule: same signs → positive.', 'Both numbers are negative.', 'Multiply magnitudes: 5 × 6 = 30.', 'Apply sign: +30.'] },
+      { q: 'Evaluate −12 ÷ (−4) × 3.', choices: ['−9','−1','1','9'], a: 3, h1: 'Order of operations: do division and multiplication LEFT to RIGHT.', h2: 'Step 1: −12 ÷ (−4). Same signs → positive 3. Step 2: 3 × 3.', walk: ['With only ÷ and × at equal priority, work LEFT to RIGHT.', 'First step: −12 ÷ (−4). Same signs → positive. 12 ÷ 4 = 3.', 'Second step: 3 × 3 = 9.', 'Final answer: 9.'], exp: 'Left to right: −12 ÷ (−4) = +3 (same signs). Then 3 × 3 = 9.', walk: ['Order of operations: do ÷ and × left to right.', 'First: −12 ÷ (−4) = +3 (same signs → positive).', 'Then: 3 × 3 = 9.', 'Answer: 9.'] },
+      { q: 'Evaluate (−3)² + (−3).', choices: ['−12','−6','6','12'], a: 2, h1: 'Brackets first: (−3)² means (−3) × (−3). The brackets include the negative.', h2: '(−3)² = 9 (negative times negative). Then add (−3) to that 9.', walk: ['The brackets matter: (−3)² means (−3) × (−3).', '(−3) × (−3) = +9 (same signs → positive).', 'Now: 9 + (−3) = 9 − 3.', 'Final answer: 6.'], exp: '(−3)² = 9 (brackets squared). Then 9 + (−3) = 6.', walk: ['Brackets first: (−3)² means (−3) × (−3).', 'Same signs → positive: (−3)² = 9.', 'Now add (−3): 9 + (−3) = 9 − 3.', '= 6.'] },
+      { q: 'A diver is at −15 m. She descends 4 m, then ascends 9 m. Where is she now?', choices: ['−10 m','−2 m','+2 m','+10 m'], a: 0, h1: 'Descending = subtract (or add a negative). Ascending = add.', h2: 'Start: −15. After descending 4: −15 + (−4) = −19. After ascending 9: −19 + 9.', walk: ['Translate words to math: descending = adding a negative; ascending = adding a positive.', 'Start: −15. Descend 4: −15 + (−4) = −19.', 'Ascend 9: −19 + 9 = −10.', 'Final position: −10 m.'], exp: '(−15) + (−4) + 9 = −10 m.', walk: ['Translate: descending = adding a negative; ascending = adding a positive.', 'Start: −15.', 'Descend 4: −15 + (−4) = −19.', 'Ascend 9: −19 + 9 = −10.', 'She\'s at −10 m.'] },
+    ]
+  },
+
+  u3: {
+    title: 'Unit 3 — Operations with fractions',
+    intro: 'In Grade 7 you added and subtracted fractions. Now we tackle multiplying and dividing them — which actually has fewer rules than addition. No common denominators required, just one neat trick.',
+    body: `
+      <h3>Lesson 3.1 — Multiplying fractions</h3>
+      <p>Multiplying fractions is gloriously simple: top × top, bottom × bottom.</p>
+      <div class="ex" style="text-align: center;">a/b × c/d = (a × c) / (b × d)</div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>2/3 × 4/5 = (2 × 4) / (3 × 5) = <strong>8/15</strong></div>
+
+      <p>If your answer can be simplified, do it. 6/12 should be written as 1/2.</p>
+
+      <div class="tip-box"><span class="tip-label">Cross-cancel before multiplying</span>If a top and a bottom share a factor, you can cancel them BEFORE multiplying. It saves work.<br><br>3/8 × 4/9: the 3 and 9 share a factor of 3 (cancel to 1 and 3). The 4 and 8 share a factor of 4 (cancel to 1 and 2). Now: 1/2 × 1/3 = <strong>1/6</strong>.</div>
+
+      <div class="pitfall"><strong>Multiplying fractions does NOT need a common denominator.</strong> That's a rule for adding and subtracting. Don't apply it here.</div>
+
+      <h3>Lesson 3.2 — Multiplying mixed numbers</h3>
+      <p>Always convert mixed numbers to improper fractions FIRST, then multiply.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>1½ × 2⅓<br>Convert: 1½ = 3/2 and 2⅓ = 7/3.<br>Multiply: 3/2 × 7/3 = 21/6 = <strong>3½</strong>.</div>
+
+      <div class="pitfall">Do NOT multiply whole parts and fraction parts separately. 1½ × 2⅓ ≠ (1×2) + (½ × ⅓) = 2⅙. The actual answer is 3½ — quite different.</div>
+
+      <h3>Lesson 3.3 — Estimating fraction products</h3>
+      <p>Round each fraction to 0, ½, or 1, then multiply. It's a great sanity check.</p>
+      <ul><li>Less than ¼ → round to 0</li>
+      <li>Between ¼ and ¾ → round to ½</li>
+      <li>More than ¾ → round to 1</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example</div>7/8 × 5/9 ≈ 1 × ½ = ½. Actual answer: 35/72 ≈ 0.486. Close enough.</div>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 3.4 — Dividing fractions (keep, change, flip)</h3>
+      <p>Dividing fractions has a famous trick: <strong>keep, change, flip</strong>.</p>
+      <ol><li><strong>Keep</strong> the first fraction the same.</li>
+      <li><strong>Change</strong> ÷ to ×.</li>
+      <li><strong>Flip</strong> the second fraction (use its reciprocal).</li></ol>
+      <p>Then multiply normally.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>2/3 ÷ 4/5<br>Keep, change, flip: 2/3 × 5/4<br>Multiply: 10/12 = <strong>5/6</strong>.</div>
+
+      <p>It works because dividing by a number is the same as multiplying by its reciprocal. 4 ÷ ½ = 4 × 2 = 8 (think: how many half-cups in 4 cups? Eight.)</p>
+
+      <h3>Lesson 3.5 — Dividing mixed numbers</h3>
+      <p>Same as multiplying: convert to improper fractions first, then keep-change-flip.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>2½ ÷ 1¼<br>Convert: 5/2 ÷ 5/4<br>Keep-change-flip: 5/2 × 4/5<br>Multiply (cancel the 5s): 4/2 = <strong>2</strong>.</div>
+
+      <h3>Lesson 3.6 — Order of operations and word problems</h3>
+      <p>BEDMAS still rules. And word problems often hide multi-step fractions.</p>
+
+      <div class="ex"><div class="ex-label">Worked example — pizza</div>Sarah ate ¼ of a pizza. Tom ate ⅓ of what was left. What fraction did Tom eat?<br>What's left after Sarah: 1 − ¼ = ¾.<br>Tom eats ⅓ of ¾: ⅓ × ¾ = <strong>¼</strong>.</div>
+
+      <div class="pitfall">"Fraction left" and "fraction eaten" are different questions. Read carefully and underline what's actually being asked.</div>
+    `,
+    checks: [
+      { q: 'What is 3/4 × 2/9?', choices: ['1/6','5/13','6/13','3/18'], a: 0, h1: 'Multiply top × top, bottom × bottom. Or cross-cancel before multiplying to make it easier.', h2: 'Cancel the 3 (top) with the 9 (bottom) — both divide by 3, leaving 1 and 3. Now you have 1/4 × 2/3.', walk: ['Multiply tops and bottoms straight across.', '(3 × 2) / (4 × 9) = 6/36.', 'Simplify by dividing top and bottom by 6: 6/36 = 1/6.', '(Or cross-cancel first: 3 with 9 → 1 and 3, leaving 1/4 × 2/3 = 2/12 = 1/6.)'], exp: 'Cross-cancel 3 and 9 (→ 1 and 3), then multiply: 1/4 × 2/3 = 2/12 = 1/6.', walk: ['Multiply tops × tops, bottoms × bottoms.', 'Or cross-cancel first: 3 (top) and 9 (bottom) share a factor of 3.', 'After cancelling: 1/4 × 2/3.', 'Multiply: 2/12.', 'Simplify: 1/6.'] },
+      { q: 'What is 5/6 ÷ 2/3?', choices: ['5/9','5/4','10/18','15/12'], a: 1, h1: 'Keep, change, flip: keep the first, change ÷ to ×, flip the second.', h2: '5/6 ÷ 2/3 becomes 5/6 × 3/2. Now multiply tops and bottoms: 15/12. Simplify.', walk: ['Keep, change, flip: keep 5/6, change ÷ to ×, flip 2/3 to 3/2.', '5/6 × 3/2.', 'Multiply: (5 × 3) / (6 × 2) = 15/12.', 'Simplify: 15/12 = 5/4 (divide by 3).'], exp: 'Keep-change-flip: 5/6 × 3/2 = 15/12 = 5/4 = 1¼.', walk: ['Keep, change, flip: 5/6 × 3/2.', 'Multiply: (5 × 3)/(6 × 2) = 15/12.', 'Simplify: 15/12 = 5/4.', 'As mixed: 1 1/4.'] },
+      { q: 'How many ¼-cup servings are in 2½ cups?', choices: ['5','8','10','12'], a: 2, h1: 'This is a division problem: 2½ ÷ ¼.', h2: 'Convert 2½ to 5/2. Then 5/2 ÷ 1/4 = 5/2 × 4/1 = 20/2.', walk: ['This is a division problem: total ÷ serving size.', '2½ ÷ ¼. Convert mixed: 2½ = 5/2.', 'Keep, change, flip: 5/2 × 4/1 = 20/2.', '20/2 = 10 servings.'], exp: '2½ ÷ ¼ = 5/2 × 4/1 = 20/2 = 10 servings.', walk: ['This is division: 2 1/2 ÷ 1/4.', 'Convert to improper: 5/2 ÷ 1/4.', 'Keep-change-flip: 5/2 × 4/1 = 20/2.', '= 10 servings.'] },
+      { q: 'Estimate 2⅞ × 3⅛.', choices: ['About 6','About 9','About 12','About 15'], a: 1, h1: 'Round each mixed number to the nearest whole.', h2: '2⅞ is almost 3. 3⅛ is just over 3. So the answer is about 3 × 3.', walk: ['Round each mixed number to the nearest whole.', '2⅞ is just below 3, so round to 3. 3⅛ is just above 3, so round to 3.', '3 × 3 = 9.', '(Actual answer: 2.875 × 3.125 = 8.984 — very close to 9.)'], exp: '2⅞ rounds to 3, 3⅛ rounds to 3. 3 × 3 = 9. (Actual ≈ 8.99.)', walk: ['Round each to the nearest whole number.', '2 7/8 ≈ 3 (it\'s close to 3).', '3 1/8 ≈ 3 (it\'s close to 3).', '3 × 3 = 9.', 'Actual answer: 8.99...'] },
+    ]
+  },
+
+  u4: {
+    title: 'Unit 4 — Prisms & cylinders',
+    intro: 'Imagine wrapping a present, or filling a juice box, or painting a soup can. This unit is about two ideas: how much surface a 3-D shape has (surface area), and how much it can hold (volume). For prisms and cylinders, both have neat formulas.',
+    body: `
+      <h3>Lesson 4.1 — Vocabulary</h3>
+      <ul><li><strong>Prism:</strong> two identical parallel ends joined by rectangles. A box is a rectangular prism. A Toblerone bar is a triangular prism.</li>
+      <li><strong>Cylinder:</strong> like a prism but with circular ends. A soup can is a cylinder.</li>
+      <li><strong>Net:</strong> the flat 2-D pattern that folds into the shape.</li>
+      <li><strong>Surface area (SA):</strong> total area of all the outside faces. Square units (cm², m²).</li>
+      <li><strong>Volume (V):</strong> how much fits inside. Cubic units (cm³, m³).</li></ul>
+
+      <h3>Lesson 4.2 — Surface area of a rectangular prism</h3>
+      <p>A box has 6 faces in 3 pairs (top/bottom, front/back, left/right). Add up all six.</p>
+      <div class="ex" style="text-align: center;"><strong>SA = 2(ℓw + ℓh + wh)</strong></div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Box with ℓ = 4, w = 3, h = 2 cm.<br>SA = 2(4×3 + 4×2 + 3×2) = 2(12 + 8 + 6) = 2(26) = <strong>52 cm²</strong>.</div>
+
+      <h3>Lesson 4.3 — Surface area of a triangular prism</h3>
+      <p>2 triangles + 3 rectangles. The triangles are the ends. The rectangles wrap around — their lengths equal the perimeter of the triangle, and their width equals the prism's length.</p>
+      <div class="ex" style="text-align: center;"><strong>SA = 2(½ × b × h_t) + (perimeter × prism length)</strong></div>
+
+      <h3>Lesson 4.4 — Surface area of a cylinder</h3>
+      <p>A cylinder net has 2 circles (top and bottom) and a rectangle (the curved side, unrolled).</p>
+      <p>The rectangle's length is the <strong>circumference</strong> of the circle (because that's how far it wraps around). Its height equals the cylinder's height. So:</p>
+      <div class="ex" style="text-align: center;"><strong>SA = 2πr² + 2πrh</strong></div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Cylinder with r = 3, h = 10.<br>Two circles: 2π(3²) = 18π.<br>Curved side: 2π(3)(10) = 60π.<br>Total: 78π ≈ <strong>245 cm²</strong>.</div>
+
+      <div class="pitfall">If a question gives the <strong>diameter</strong>, divide by 2 to get the radius before plugging into the formula.</div>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 4.5 — Volume of a prism</h3>
+      <p>This rule is beautifully general — for ANY prism:</p>
+      <div class="ex" style="text-align: center;"><strong>V = (area of base) × height</strong></div>
+
+      <p>So:</p>
+      <ul><li><strong>Rectangular prism:</strong> V = ℓwh</li>
+      <li><strong>Triangular prism:</strong> V = ½bh × prism length</li>
+      <li><strong>Cylinder:</strong> V = πr² × h</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example — soup can</div>A soup can has diameter 7 cm and height 11 cm. Volume?<br>r = 7 ÷ 2 = 3.5 cm.<br>V = π(3.5)²(11) = π(12.25)(11) ≈ <strong>423 cm³</strong>, or about 423 mL.</div>
+
+      <h3>Lesson 4.6 — Volume vs. surface area — units</h3>
+      <p>Easy to mix these up. Volume is <strong>cubic</strong> units (cm³, mL, L). Surface area is <strong>square</strong> units (cm², m²).</p>
+      <div class="tip-box"><span class="tip-label">Useful conversions</span>1 cm³ = 1 mL · 1000 cm³ = 1 L · 1 m³ = 1000 L</div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>A box has volume 2400 cm³. How many litres? 2400 cm³ = 2400 mL = <strong>2.4 L</strong>.</div>
+
+      <div class="pitfall">If a problem asks for the amount of paint to cover the outside, that's surface area (cm²). If it asks how much water fits inside, that's volume (cm³ or mL). Read carefully.</div>
+    `,
+    checks: [
+      { q: 'Surface area of a 5 × 4 × 3 cm rectangular prism?', choices: ['47 cm²','60 cm²','94 cm²','120 cm²'], a: 2, h1: 'SA = 2(ℓw + ℓh + wh). There are three pairs of faces.', h2: 'ℓw = 20, ℓh = 15, wh = 12. Add: 20 + 15 + 12 = 47. Now multiply by 2 for the pairs.', walk: ['Use SA = 2(ℓw + ℓh + wh).', 'Compute each face pair: ℓw = 20, ℓh = 15, wh = 12.', 'Sum: 20 + 15 + 12 = 47.', 'Multiply by 2: 94 cm².'], exp: 'SA = 2(5×4 + 5×3 + 4×3) = 2(20 + 15 + 12) = 2(47) = 94 cm².', walk: ['SA = 2(ℓw + ℓh + wh).', 'ℓw = 5×4 = 20. ℓh = 5×3 = 15. wh = 4×3 = 12.', 'Sum: 20 + 15 + 12 = 47.', 'Multiply by 2: 94 cm².'] },
+      { q: 'Volume of a cylinder with r = 4 cm, h = 10 cm? (π ≈ 3.14)', choices: ['125.6 cm³','251 cm³','502.4 cm³','628 cm³'], a: 2, h1: 'V = πr²h. Square the radius first.', h2: 'r² = 16. So V = π × 16 × 10 = 160π. Multiply by 3.14.', walk: ['V = πr²h.', 'r² = 16. So V = π × 16 × 10 = 160π.', 'Multiply: 160 × 3.14 = 502.4.', 'Volume ≈ 502.4 cm³.'], exp: 'V = π × 4² × 10 = π × 16 × 10 = 160π ≈ 502.4 cm³.', walk: ['V = πr²h.', 'Square the radius: r² = 16.', 'V = π × 16 × 10 = 160π.', '× 3.14 ≈ 502.4 cm³.'] },
+      { q: 'A cylinder has diameter 6 cm and height 8 cm. Surface area? (π ≈ 3.14)', choices: ['151 cm²','207 cm²','276 cm²','452 cm²'], a: 1, h1: 'First convert diameter to radius: r = d ÷ 2.', h2: 'r = 3. Now SA = 2πr² + 2πrh = 2π(9) + 2π(3)(8) = 18π + 48π = 66π.', walk: ['Convert d to r first: r = 6 ÷ 2 = 3.', 'SA = 2πr² + 2πrh = 2π(9) + 2π(3)(8) = 18π + 48π.', 'Total: 66π.', '66 × 3.14 ≈ 207 cm².'], exp: 'r = 3. SA = 2π(9) + 2π(3)(8) = 18π + 48π = 66π ≈ 207 cm².', walk: ['First convert d to r: r = d/2 = 3.', 'SA = 2πr² + 2πrh.', 'Two circles: 2π × 9 = 18π.', 'Curved side: 2π × 3 × 8 = 48π.', 'Total: 66π × 3.14 ≈ 207 cm².'] },
+      { q: 'A box of volume 600 cm³ holds how many millilitres of water?', choices: ['0.6 mL','60 mL','600 mL','6000 mL'], a: 2, h1: '1 cm³ equals exactly 1 mL — they\'re the same.', h2: 'So 600 cm³ = 600 mL. No conversion math needed.', walk: ['The conversion: 1 cm³ = 1 mL exactly.', 'So you don\'t need any math — they\'re the same unit by volume.', '600 cm³ = 600 mL.', '(For litres, divide by 1000: 0.6 L.)'], exp: '1 cm³ = 1 mL exactly. So 600 cm³ = 600 mL.', walk: ['1 cm³ equals exactly 1 mL.', 'So no math needed — just relabel.', '600 cm³ = 600 mL.'] },
+    ]
+  },
+
+  u5: {
+    title: 'Unit 5 — Percent, ratio, and rate',
+    intro: 'You already use percents, ratios, and rates without thinking about it. "30% off" is a percent. "2 cups flour for 1 cup sugar" is a ratio. "100 km/h" is a rate. By the end of this unit, you\'ll handle sale prices, taxes, mixing recipes, and figuring out best buys at the grocery store.',
+    body: `
+      <h3>Lesson 5.1 — Fractions, decimals, and percents</h3>
+      <p>Fractions, decimals, and percents are three different outfits for the same number. 35% = 35/100 = 0.35. The number itself doesn't change.</p>
+
+      <div class="tip-box"><span class="tip-label">Quick conversions</span>
+      Percent → decimal: divide by 100 (slide the decimal two places left). 35% → 0.35.<br>
+      Decimal → percent: multiply by 100. 0.07 → 7%.<br>
+      Fraction → percent: divide top by bottom, multiply by 100. 3/4 → 0.75 → 75%.</div>
+
+      <p>Percents above 100% mean more than the whole. 150% is one and a half times the original. Percents below 1% mean really small.</p>
+
+      <div class="pitfall"><strong>0.65% is NOT 0.65.</strong> 0.65% means 0.65 out of 100, which is 0.0065. Slide the decimal TWO places left, not one.</div>
+
+      <h3>Lesson 5.2 — Percent of a number</h3>
+      <p>"What is 30% of 80?" is the same question as "What is 0.30 × 80?" Convert to a decimal, then multiply.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>15% of 60 = 0.15 × 60 = <strong>9</strong>.</div>
+
+      <div class="tip-box"><span class="tip-label">Mental math shortcuts</span>
+      10% = ÷ 10. 1% = ÷ 100. 50% = ÷ 2. 25% = ÷ 4.<br>
+      So 35% of 80 = 25% (= 20) + 10% (= 8) = <strong>28</strong>. Quick.</div>
+
+      <h3>Lesson 5.3 — Percent change and finding the whole</h3>
+      <p>Two questions show up over and over: <em>by what percent did it grow or shrink?</em> and <em>given a percent, what was the whole?</em></p>
+
+      <div class="ex" style="text-align: center;"><strong>% change = (change ÷ original) × 100</strong></div>
+
+      <div class="ex"><div class="ex-label">Worked example — milk price</div>Milk goes from $0.95 to $1.25. % increase?<br>Change: 1.25 − 0.95 = 0.30.<br>Divide by ORIGINAL (0.95): 0.30 ÷ 0.95 ≈ 0.316.<br>× 100: <strong>about 32% increase</strong>.</div>
+
+      <div class="pitfall"><strong>Always divide by the original.</strong> Not by the new value. If a price went up by 30%, the increase divided by the OLD price = 0.30, not by the new price.</div>
+
+      <p>To find the whole given a percent: divide to find 1%, then multiply by 100.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>15% of a number is 12. Find the number.<br>1% = 12 ÷ 15 = 0.8.<br>100% = 0.8 × 100 = <strong>80</strong>.</div>
+
+      <h3>Lesson 5.4 — Tax and discount</h3>
+      <p>Two tricks to remember:</p>
+      <ul><li><strong>To add tax of t%:</strong> multiply by (1 + t/100). 12% tax → multiply by 1.12.</li>
+      <li><strong>To apply a discount of d%:</strong> multiply by (1 − d/100). 30% off → multiply by 0.70.</li>
+      <li><strong>Multiple steps:</strong> chain-multiply.</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example — game with discount and tax</div>$28 game, 30% off, then 12% tax.<br>$28 × 0.70 × 1.12 = $21.95.</div>
+
+      <div class="pitfall"><strong>Successive percents don't add.</strong> 20% off then 10% off ≠ 30% off. It's actually 28% off (0.80 × 0.90 = 0.72, meaning you pay 72%, so 28% has been discounted total).</div>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 5.5 — Ratios</h3>
+      <p>A ratio compares amounts. "5 to 8" can be written 5:8 or sometimes 5/8.</p>
+
+      <p>Two flavours of ratio:</p>
+      <ul><li><strong>Part-to-part:</strong> 5 golf balls : 8 tennis balls. Compares two parts. CAN'T be a fraction of the whole.</li>
+      <li><strong>Part-to-whole:</strong> 5 golf balls : 13 total balls. Compares one part to the total. CAN be written as 5/13 (and turned into a percent — about 38%).</li></ul>
+
+      <div class="pitfall">If you have 5 golf and 8 tennis, the ratio of golf to tennis is 5:8 (NOT 5/13). The fraction form 5/13 only applies when comparing to the total.</div>
+
+      <h3>Lesson 5.6 — Equivalent ratios and proportions</h3>
+      <p>Equivalent ratios mean the same thing: 4:3 = 8:6 = 12:9. Whatever you do to one term, do to ALL terms.</p>
+
+      <p>A <strong>proportion</strong> is a statement that two ratios are equal: 3/4 = c/24. Solve with cross-multiplication.</p>
+      <div class="ex" style="text-align: center;">a/b = c/d  →  a × d = b × c</div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>3/x = 5/20.<br>Cross-multiply: 5x = 60.<br>x = <strong>12</strong>.</div>
+
+      <h3>Lesson 5.7 — Rates and unit rates</h3>
+      <p>A <strong>rate</strong> compares two quantities with different units, like 100 km per hour, or $4 per kilogram.</p>
+      <p>A <strong>unit rate</strong> has 1 as the second quantity. To find a unit rate, divide.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>120 sheets printed in 3 minutes. Unit rate?<br>120 ÷ 3 = <strong>40 sheets per minute</strong>.</div>
+
+      <p><strong>Best buys</strong> use unit rates: lowest cost per unit wins.</p>
+
+      <div class="ex"><div class="ex-label">Worked example — cereal</div>A: 600 g for $4.20 → $0.70 per 100 g.<br>B: 450 g for $3.60 → $0.80 per 100 g.<br><strong>A is the better buy</strong> (lower cost per 100 g).</div>
+
+      <h3>Lesson 5.8 — Speed conversions</h3>
+      <p>m/s and km/h are different units of speed. To convert:</p>
+      <div class="ex" style="text-align: center;">m/s × 3.6 = km/h · km/h ÷ 3.6 = m/s</div>
+      <p>Why 3.6? Because 1 km = 1000 m and 1 h = 3600 s, so 3600/1000 = 3.6.</p>
+    `,
+    checks: [
+      { q: 'A jacket is 25% off, then 12% tax. Original price $80. Final?', choices: ['$67.20','$71.40','$72.00','$77.20'], a: 0, h1: '25% off means you pay 75% (multiply by 0.75). Tax of 12% means multiply by 1.12.', h2: 'Chain it: 80 × 0.75 × 1.12. Do it step by step: 80 × 0.75 = 60, then 60 × 1.12.', walk: ['Two steps: discount first, then add tax.', '25% off means you pay 75%: $80 × 0.75 = $60.', '12% tax: multiply by 1.12: $60 × 1.12 = $67.20.', 'Final price: $67.20.'], exp: '80 × 0.75 (25% off) × 1.12 (12% tax) = $67.20.', walk: ['25% off means pay 75% of original. Multiply by 0.75.', '$80 × 0.75 = $60.', 'Add 12% tax: multiply by 1.12.', '$60 × 1.12 = $67.20.'] },
+      { q: '20% of a number is 14. The number is:', choices: ['28','56','70','280'], a: 2, h1: 'Find 1% first by dividing 14 by 20.', h2: '1% = 14 ÷ 20 = 0.7. Now multiply by 100 to get 100% (the whole number).', walk: ['Find 1% first: divide 14 by 20.', '1% = 14 ÷ 20 = 0.7.', 'Multiply by 100 to get 100% (the whole number): 0.7 × 100 = 70.', 'So the number is 70. Check: 20% of 70 = 14 ✓.'], exp: '1% = 14 ÷ 20 = 0.7. So 100% = 70.', walk: ['Find 1% first: divide 14 by 20.', '1% = 14 ÷ 20 = 0.7.', 'Multiply by 100 to get the whole.', '100% = 0.7 × 100 = 70.'] },
+      { q: 'A bag has 4 red, 6 blue, and 5 green marbles. Ratio of red to blue?', choices: ['4:6','2:3','4:15','5:6'], a: 1, h1: 'Part-to-part ratio: just compare the two parts asked for, not the total.', h2: '4 red : 6 blue = 4:6. Simplify by dividing both by 2.', walk: ['Part-to-part ratio: just compare red and blue, ignore green.', 'Red : Blue = 4 : 6.', 'Simplify by dividing both terms by 2.', 'Final ratio: 2:3.'], exp: '4:6 simplifies to 2:3 (divide both by 2). It\'s part-to-part — don\'t confuse with the total.', walk: ['This is a part-to-part ratio.', 'Compare just the two parts asked for: 4 red : 6 blue.', 'Simplify by dividing both by 2.', '= 2:3.'] },
+      { q: 'Convert 90 km/h to m/s.', choices: ['15 m/s','25 m/s','27 m/s','324 m/s'], a: 1, h1: 'To convert km/h to m/s, divide by 3.6.', h2: '90 ÷ 3.6 = ? You can think of it as 90 ÷ 3.6 = 900 ÷ 36.', walk: ['Conversion: divide km/h by 3.6 to get m/s.', '90 ÷ 3.6.', 'Multiply both by 10 to clean up: 900 ÷ 36.', '= 25 m/s.'], exp: '90 ÷ 3.6 = 25 m/s.', walk: ['To convert km/h to m/s, divide by 3.6.', 'Why 3.6? 1 km = 1000 m, 1 hr = 3600 s, ratio is 3600/1000 = 3.6.', '90 ÷ 3.6 = 25.', 'Answer: 25 m/s.'] },
+    ]
+  },
+
+  u6: {
+    title: 'Unit 6 — Linear equations & graphing',
+    intro: 'An equation is just a sentence with an equals sign. Solving it means finding the value of the unknown that makes the sentence true. This unit goes from simple "x + 5 = 12" to more complex equations with brackets and fractions, and shows how equations connect to graphs.',
+    body: `
+      <h3>Lesson 6.1 — Solving simple equations</h3>
+      <p>The big idea is the <strong>preservation of equality</strong>: whatever you do to one side, you must do to the other. Like a balance scale.</p>
+
+      <p>To solve, get the variable alone by doing the INVERSE operation on both sides:</p>
+      <ul><li>If something is added, subtract it.</li>
+      <li>If something is subtracted, add it.</li>
+      <li>If something is multiplied, divide.</li>
+      <li>If something is divided, multiply.</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example</div>x + 7 = 12. Subtract 7 from both sides: x = <strong>5</strong>.</div>
+
+      <h3>Lesson 6.2 — Two-step equations</h3>
+      <p>For two-step equations like 2x + 3 = 13, undo + or − FIRST, then × or ÷.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>2x + 3 = 13<br>Subtract 3 from both sides: 2x = 10<br>Divide both sides by 2: x = <strong>5</strong><br>Check: 2(5) + 3 = 13 ✓</div>
+
+      <div class="tip-box"><span class="tip-label">Always verify</span>Plug your answer back into the ORIGINAL equation. Both sides should be equal. This catches almost every arithmetic mistake.</div>
+
+      <h3>Lesson 6.3 — Equations with negatives and fractions</h3>
+      <p>Same rules apply, but be careful with signs.</p>
+
+      <div class="ex"><div class="ex-label">Worked example — negative</div>16 + 5m = 6<br>Subtract 16: 5m = −10<br>Divide by 5: m = <strong>−2</strong>.</div>
+
+      <p>For equations with fractions, you can either keep the fraction or clear it by multiplying every term by the denominator.</p>
+
+      <div class="ex"><div class="ex-label">Worked example — fractions</div>x/3 + 2 = 5<br>Method 1: subtract 2 → x/3 = 3 → multiply by 3 → x = 9.<br>Method 2: multiply EVERY term by 3 → x + 6 = 15 → x = 9.</div>
+
+      <div class="pitfall">If you reach −x = 5, that's not your answer. Multiply both sides by −1: x = −5.</div>
+
+      <h3>Lesson 6.4 — The distributive property</h3>
+      <p>To solve equations like 4(x + 3) = 32, first <strong>distribute</strong>: multiply 4 by EVERYTHING inside the brackets.</p>
+      <div class="ex" style="text-align: center;"><strong>a(x + b) = ax + ab</strong></div>
+
+      <div class="ex"><div class="ex-label">Worked example</div>4(x + 3) = 32<br>Distribute: 4x + 12 = 32<br>Subtract 12: 4x = 20<br>Divide by 4: x = <strong>5</strong>.</div>
+
+      <div class="pitfall"><strong>Distribute to EVERY term inside.</strong> 4(x + 3) = 4x + 12, NOT 4x + 3.<br>And watch negatives: −(x − 5) = −x + 5, NOT −x − 5.</div>
+
+      <h3>Lesson 6.5 — Word problems</h3>
+      <p>Four steps to handle any word problem:</p>
+      <ol><li><strong>Understand</strong> — what's unknown? Pick a letter for it.</li>
+      <li><strong>Plan</strong> — write the equation that fits the problem.</li>
+      <li><strong>Solve</strong> — do the algebra.</li>
+      <li><strong>Verify</strong> — does the answer make sense in the real world?</li></ol>
+
+      <div class="ex"><div class="ex-label">Worked example — DJ booking</div>A DJ charges $150 plus $3 per student. The total bill is $375. How many students?<br>Let s = students. Equation: 3s + 150 = 375.<br>Subtract 150: 3s = 225.<br>Divide by 3: s = <strong>75 students</strong>.</div>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 6.6 — Tables of values and graphs</h3>
+      <p>An equation like y = 3x + 30 lets you build a table:</p>
+      <div class="ex">x: 0, 1, 2, 3, 4, 5<br>y: 30, 33, 36, 39, 42, 45</div>
+      <p>Plot the (x, y) pairs, and the points fall on a line — hence "linear relation."</p>
+
+      <p><strong>Discrete vs. continuous:</strong> if x can only be whole numbers (like number of guests), the points stay separate — DON'T connect them. If x is continuous (like time), connect the dots into a line.</p>
+
+      <h3>Lesson 6.7 — Finding a missing coordinate</h3>
+      <p>Given an equation, you can find y from x (substitute and evaluate) or x from y (substitute and solve).</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>y = 2x + 5. Find x when y = 17.<br>17 = 2x + 5<br>Subtract 5: 12 = 2x<br>Divide by 2: x = <strong>6</strong>.</div>
+    `,
+    checks: [
+      { q: 'Solve: 5x − 8 = 27.', choices: ['x = 3.8','x = 5','x = 7','x = 11'], a: 2, h1: 'Undo the subtraction first by adding 8 to both sides.', h2: '5x = 35. Now divide both sides by 5.', walk: ['Undo the subtraction first by adding 8 to both sides.', '5x = 35.', 'Now divide both sides by 5.', 'x = 7. Check: 5(7) − 8 = 27 ✓.'], exp: '5x = 35. x = 7. Check: 5(7) − 8 = 27 ✓.', walk: ['Two-step: undo +/− first, then ×/÷.', 'Add 8 to both sides: 5x = 35.', 'Divide both sides by 5: x = 7.', 'Verify: 5(7) − 8 = 27. ✓'] },
+      { q: 'Solve: 3(x − 2) = 18.', choices: ['x = 4','x = 6','x = 8','x = 20'], a: 2, h1: 'Distribute the 3 first: 3 × x and 3 × (−2). Or divide both sides by 3.', h2: 'Method 1 (distribute): 3x − 6 = 18, so 3x = 24. Method 2 (divide): x − 2 = 6, so x = 8.', walk: ['Method 1: distribute. 3x − 6 = 18.', 'Add 6: 3x = 24. Divide by 3: x = 8.', 'Method 2: divide both sides by 3 first. x − 2 = 6.', 'Add 2: x = 8.'], exp: 'Distribute: 3x − 6 = 18. 3x = 24. x = 8. (Or divide first: x − 2 = 6, so x = 8.)', walk: ['Two methods. Distribute first OR divide first.', 'Distribute: 3x − 6 = 18. Add 6: 3x = 24. Divide by 3: x = 8.', 'Or divide first: x − 2 = 6. Add 2: x = 8.', 'Either way: x = 8.'] },
+      { q: 'A taxi charges $4 plus $2 per km. The bill was $30. How many km?', choices: ['7 km','13 km','15 km','17 km'], a: 1, h1: 'Let k = km. The equation is: 2k + 4 = 30.', h2: 'Subtract 4 from both sides: 2k = 26. Now divide by 2.', walk: ['Set up the equation: 2k + 4 = 30 (where k = km).', 'Subtract 4 from both sides: 2k = 26.', 'Divide by 2: k = 13.', 'Check: 2(13) + 4 = 30 ✓.'], exp: '2k + 4 = 30. 2k = 26. k = 13 km.', walk: ['Set up: total = fixed + per-km × km.', '2k + 4 = 30.', 'Subtract 4: 2k = 26.', 'Divide by 2: k = 13 km.'] },
+      { q: 'In y = −3x + 10, when x = 4, y = ?', choices: ['−2','7','13','22'], a: 0, h1: 'Substitute x = 4 and follow order of operations.', h2: 'y = −3(4) + 10. First the multiplication: −12. Then add 10.', walk: ['Substitute x = 4 into the equation.', 'y = −3(4) + 10.', 'Multiplication first: −3 × 4 = −12.', '−12 + 10 = −2.'], exp: '−3(4) + 10 = −12 + 10 = −2.', walk: ['Substitute x = 4 into the equation.', 'y = −3(4) + 10.', 'Multiplication first: −3(4) = −12.', 'Then add 10: −12 + 10 = −2.'] },
+    ]
+  },
+
+  u7: {
+    title: 'Unit 7 — Data & probability',
+    intro: 'This unit has two parts. First, how to choose the right kind of graph and spot ones that mislead. Second, how to calculate the chance of two or more things happening — like flipping heads AND rolling a 6.',
+    body: `
+      <h3>Lesson 7.1 — Types of graphs</h3>
+      <ul><li><strong>Bar graph:</strong> compares categories. Easy to read.</li>
+      <li><strong>Double bar graph:</strong> compares two related sets across categories.</li>
+      <li><strong>Line graph:</strong> shows continuous change over time.</li>
+      <li><strong>Circle (pie) graph:</strong> shows parts of a whole as percentages.</li>
+      <li><strong>Pictograph:</strong> uses pictures or symbols to represent quantities.</li></ul>
+
+      <div class="tip-box"><span class="tip-label">How to choose</span>
+      Time-related → line graph.<br>
+      Parts of a whole → circle graph.<br>
+      Comparing categories → bar graph.</div>
+
+      <h3>Lesson 7.2 — Strengths and limitations</h3>
+      <p>Each graph type has tradeoffs:</p>
+      <ul><li><strong>Circle graph:</strong> great for percentages, but hides actual numbers and gets ugly with too many slices.</li>
+      <li><strong>Line graph:</strong> excellent for trends, but only for continuous data.</li>
+      <li><strong>Bar graph:</strong> great for category comparisons, but doesn't show smooth change.</li>
+      <li><strong>Pictograph:</strong> visually appealing, but partial symbols are hard to read.</li></ul>
+
+      <h3>Lesson 7.3 — Misleading graphs</h3>
+      <p>Watch out for these tricks:</p>
+
+      <div class="pitfall"><strong>Truncated y-axis.</strong> If a bar graph's y-axis starts at 95 instead of 0, a tiny difference can look enormous. Always check where the y-axis starts.</div>
+
+      <div class="ex"><div class="ex-label">Example</div>Two yogurts: A has 10.8 g sugar, B has 14.1 g.<br>If the y-axis goes 0 to 15, the bars look fairly similar.<br>If the y-axis goes 10 to 15, B looks 4× as tall as A — misleading!</div>
+
+      <p>Other tricks: bars of different widths, missing keys on pictographs, 3-D effects that distort sizes, breakouts on circle graphs that emphasize one slice.</p>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 7.4 — Probability basics</h3>
+      <p>Probability is the chance of something happening, written as a fraction, decimal, or percent.</p>
+      <div class="ex" style="text-align: center;"><strong>P(event) = (favourable outcomes) ÷ (total outcomes)</strong></div>
+
+      <p>P is always between 0 and 1. P = 0 means impossible. P = 1 means certain. P = 0.5 means equally likely.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>What's P(rolling a 5) on a fair die?<br>Favourable: 1 outcome (the 5). Total: 6 outcomes.<br>P(5) = <strong>1/6</strong>.</div>
+
+      <h3>Lesson 7.5 — Independent vs. dependent events</h3>
+      <p><strong>Independent events</strong> don't affect each other. Flipping a coin doesn't change what the die rolls.</p>
+      <p><strong>Dependent events</strong> do. Drawing a card without replacing it changes what's left in the deck.</p>
+
+      <div class="tip-box"><span class="tip-label">In Grade 8</span>You only need the rule for INDEPENDENT events: P(A and B) = P(A) × P(B). The "AND" between two independent events means multiply.</div>
+
+      <h3>Lesson 7.6 — The multiplication rule</h3>
+      <div class="ex" style="text-align: center;"><strong>P(A and B) = P(A) × P(B)</strong></div>
+      <p>Extends to three or more: P(A and B and C) = P(A) × P(B) × P(C).</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>P(flipping heads AND rolling a 6)<br>= P(heads) × P(6)<br>= 1/2 × 1/6 = <strong>1/12</strong>.</div>
+
+      <div class="ex"><div class="ex-label">Worked example — three coins</div>P(all three coins land heads)<br>= (1/2) × (1/2) × (1/2) = <strong>1/8</strong>.</div>
+
+      <h3>Lesson 7.7 — Sample space</h3>
+      <p>The <strong>sample space</strong> is the list of all possible outcomes. Two ways to find it: a tree diagram, or a table.</p>
+
+      <p>Quick shortcut: <strong>total outcomes = (outcomes of A) × (outcomes of B) × …</strong></p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Coin × die × 4-colour spinner.<br>Total outcomes = 2 × 6 × 4 = <strong>48</strong>.<br>P of any one specific combination = 1/48.</div>
+
+      <div class="pitfall">"AND" means multiply. "OR" (when events can't happen at the same time) means add. Most Grade 8 problems are AND.</div>
+    `,
+    checks: [
+      { q: 'Best graph for showing temperature throughout a day?', choices: ['Bar','Pictograph','Circle','Line'], a: 3, h1: 'Temperature changes continuously over time. Which graph type is best for continuous change?', h2: 'When data points connect smoothly over time (like temperature each hour), a line graph shows the trend best.', walk: ['Temperature changes continuously over time.', 'Continuous data over time should show a trend.', 'A line graph connects the data points to show the trend.', 'Answer: line graph.'], exp: 'Continuous data over time → line graph.', walk: ['Temperature changes continuously over time.', 'Time = continuous x-axis.', 'Connecting points shows the trend (rising in morning, peak afternoon, falling evening).', 'Line graph is best.'] },
+      { q: 'P(rolling an even number AND flipping tails)?', choices: ['1/12','1/8','1/4','1/2'], a: 2, h1: 'These are independent. Multiply: P(even) × P(tails).', h2: 'P(even) = 3/6 = 1/2 (the 2, 4, and 6). P(tails) = 1/2. Multiply them.', walk: ['Two independent events: die roll and coin flip.', 'P(even on die) = 3/6 = 1/2 (the 2, 4, 6).', 'P(tails) = 1/2.', 'Multiply: 1/2 × 1/2 = 1/4.'], exp: 'P(even) = 3/6 = 1/2. P(tails) = 1/2. Multiply: 1/4.', walk: ['These are independent events. Use P(A) × P(B).', 'P(even on die) = 3/6 = 1/2 (the 2, 4, 6).', 'P(tails on coin) = 1/2.', 'Multiply: 1/2 × 1/2 = 1/4.'] },
+      { q: 'A 4-colour spinner is spun twice. P(red both times)?', choices: ['1/2','1/4','1/8','1/16'], a: 3, h1: 'Two independent spins. Use P(A) × P(B).', h2: 'P(red on one spin) = 1/4. Spinning twice: 1/4 × 1/4.', walk: ['Two independent spins.', 'P(red on one spin) = 1/4.', 'P(red AND red) = 1/4 × 1/4.', '= 1/16.'], exp: 'P(red once) = 1/4. Both: 1/4 × 1/4 = 1/16.', walk: ['Two independent spins.', 'P(red on one spin) = 1/4.', 'P(red both times) = 1/4 × 1/4.', '= 1/16.'] },
+      { q: 'Why might a bar graph that starts y-axis at 90 instead of 0 be misleading?', choices: ['Easier to read','Differences look smaller','Differences look bigger','More accurate'], a: 2, h1: 'Think about how the bars LOOK when the scale doesn\'t start at zero.', h2: 'When the y-axis is truncated (doesn\'t start at 0), small differences between values look much bigger than they actually are.', walk: ['When the y-axis is truncated, the bars don\'t represent values from zero up — only the part above the cutoff.', 'A bar at 91 vs a bar at 100 starting from 90 looks 10× bigger.', 'From 0, those same bars look nearly identical.', 'The truncation makes small differences LOOK bigger than they really are.'], exp: 'Truncated scale exaggerates small differences.', walk: ['A truncated y-axis (one that doesn\'t start at 0) distorts visual comparisons.', 'Bars get scaled relative to the small visible range, not absolute zero.', 'Small absolute differences look much larger.', 'It exaggerates differences between values.'] },
+    ]
+  },
+
+  u8: {
+    title: 'Unit 8 — Geometry',
+    intro: 'This unit has two parts. First, drawing different views of 3-D objects (top, front, side, and the cool isometric ones). Second, moving 2-D shapes around on a grid using translations, reflections, and rotations.',
+    body: `
+      <h3>Lesson 8.1 — Top, front, and side views</h3>
+      <p>Imagine you're looking at a stack of cubes from straight in front, straight from the side, or straight down. Each view is a flat 2-D drawing of what you see.</p>
+      <ul><li><strong>Top view:</strong> looking down. Shows length and width.</li>
+      <li><strong>Front view:</strong> looking from the front. Shows width and height.</li>
+      <li><strong>Side view:</strong> looking from the side. Shows depth and height.</li></ul>
+
+      <div class="tip-box"><span class="tip-label">Drawing rule</span>Internal lines appear only where the depth CHANGES. A flat face has no internal lines.</div>
+
+      <h3>Lesson 8.2 — Building from views</h3>
+      <p>Given top, front, and side views, you can usually build the original object — but not always uniquely. Hidden cubes can sneak in without showing up in any view.</p>
+
+      <div class="pitfall">One set of views can match more than one object. Watch out for hidden cubes.</div>
+
+      <h3>Lesson 8.3 — Isometric drawings</h3>
+      <p>An <strong>isometric drawing</strong> shows a 3-D object on dot paper at an angle, so you see the top, front, and one side at once.</p>
+      <p>Drawing a single cube: start with three lines making a "Y" shape from one dot. Then from each endpoint, draw two lines parallel to the others. Don't draw hidden edges.</p>
+
+      <h3>Lesson 8.4 — Rotating a 3-D object</h3>
+      <p>If you rotate an object on a turntable (multiples of 90°), the views change predictably.</p>
+      <p>After a 90° clockwise turn:</p>
+      <ul><li>What was the right side is now the front.</li>
+      <li>What was the front is now the left.</li>
+      <li>What was the left is now the back.</li>
+      <li>What was the back is now the right.</li></ul>
+      <p>180° turn: front and back swap; left and right swap. 360° turn: back to start.</p>
+
+      <hr class="lesson-divider">
+
+      <h3>Lesson 8.5 — Transformations on the coordinate plane</h3>
+      <p>Three kinds of transformation. All preserve size and shape (the image is congruent to the original).</p>
+
+      <h4>Translation</h4>
+      <p>A slide. Notation [a, b]: move a units right (negative = left), b units up (negative = down).</p>
+      <div class="ex"><div class="ex-label">Worked example</div>Translate (3, 5) by [−2, 4].<br>New point: (3 + (−2), 5 + 4) = <strong>(1, 9)</strong>.</div>
+
+      <h4>Reflection</h4>
+      <p>A flip across an axis.</p>
+      <ul><li><strong>In x-axis:</strong> (x, y) → (x, −y). Y flips sign.</li>
+      <li><strong>In y-axis:</strong> (x, y) → (−x, y). X flips sign.</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Reflect (3, 5) in the x-axis: <strong>(3, −5)</strong>.<br>Reflect (4, −2) in the y-axis: <strong>(−4, −2)</strong>.</div>
+
+      <h4>Rotation about the origin</h4>
+      <ul><li><strong>90° clockwise:</strong> (x, y) → (y, −x)</li>
+      <li><strong>90° counter-clockwise:</strong> (x, y) → (−y, x)</li>
+      <li><strong>180°:</strong> (x, y) → (−x, −y)</li></ul>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Rotate (3, 4) 90° clockwise:<br>(x, y) → (y, −x) = <strong>(4, −3)</strong>.</div>
+
+      <div class="pitfall">Direction matters! 90° clockwise and 90° counter-clockwise give different images. Read the problem carefully.</div>
+
+      <h3>Lesson 8.6 — Combinations of transformations</h3>
+      <p>Apply transformations one at a time. Order matters: translate-then-reflect gives a different result than reflect-then-translate.</p>
+
+      <div class="ex"><div class="ex-label">Worked example</div>Take A(2, 1). Reflect in y-axis, then translate [3, 2].<br>After reflection: (−2, 1).<br>After translation: (−2 + 3, 1 + 2) = <strong>(1, 3)</strong>.</div>
+
+      <h3>Lesson 8.7 — Working backwards</h3>
+      <p>To find the pre-image, undo each transformation in reverse order:</p>
+      <ul><li>Translation [a, b]: undo with [−a, −b].</li>
+      <li>Reflection: reflect in the same line again.</li>
+      <li>Rotation: rotate the same amount in the opposite direction.</li></ul>
+    `,
+    checks: [
+      { q: 'Translate (4, −1) by [−2, 5]. New coordinates?', choices: ['(2, 4)','(6, −6)','(−8, −5)','(2, −6)'], a: 0, h1: '[a, b] means add a to x, add b to y.', h2: 'x: 4 + (−2). y: −1 + 5. Compute each.', walk: ['Translation [a, b] means add a to x and add b to y.', 'x: 4 + (−2) = 2.', 'y: −1 + 5 = 4.', 'New point: (2, 4).'], exp: '(4 + (−2), −1 + 5) = (2, 4).', walk: ['Translation [a, b] adds a to x and b to y.', 'x: 4 + (−2) = 2.', 'y: −1 + 5 = 4.', 'New: (2, 4).'] },
+      { q: 'Reflect (5, −3) in the y-axis.', choices: ['(5, 3)','(−5, −3)','(−5, 3)','(3, 5)'], a: 1, h1: 'Reflecting in the y-axis flips the sign of x. The y stays the same.', h2: '(x, y) → (−x, y). So (5, −3) becomes (−5, −3).', walk: ['Reflecting in the y-axis flips the x-coordinate sign. The y stays.', 'Rule: (x, y) → (−x, y).', 'Apply to (5, −3): x becomes −5, y stays −3.', 'Result: (−5, −3).'], exp: 'Reflecting in y-axis flips x: (−5, −3).', walk: ['Reflection in y-axis flips x sign.', 'Rule: (x, y) → (−x, y).', '(5, −3) → (−5, −3).'] },
+      { q: 'Rotate (2, 3) 90° clockwise about the origin.', choices: ['(3, 2)','(−2, −3)','(3, −2)','(−3, 2)'], a: 2, h1: 'The rule for 90° clockwise: (x, y) → (y, −x).', h2: 'x = 2, y = 3. So new point is (y, −x) = (3, −2).', walk: ['Rule for 90° clockwise: (x, y) → (y, −x).', 'Original: x = 2, y = 3.', 'New x = old y = 3. New y = −(old x) = −2.', 'Result: (3, −2).'], exp: '(x, y) → (y, −x) → (3, −2).', walk: ['90° clockwise rule: (x, y) → (y, −x).', 'x = 2, y = 3.', 'New: (y, −x) = (3, −2).'] },
+      { q: 'After any translation, reflection, or rotation, the image is:', choices: ['Larger than original','Smaller than original','Congruent to original','Rotated 360°'], a: 2, h1: 'These transformations preserve size and shape. Nothing stretches.', h2: 'The image is congruent to the original — same size, same shape, just moved or flipped.', walk: ['Translations slide. Reflections flip. Rotations turn.', 'None of these changes change size or shape — they only move the figure around.', 'An image with the same lengths and angles as the original is called CONGRUENT.', 'Answer: congruent to the original.'], exp: 'These transformations preserve size and shape — the image is congruent to the pre-image.', walk: ['Translations slide. Reflections flip. Rotations turn.', 'None of these change size or shape.', 'Image is congruent to original — same size, same shape.'] },
+    ]
+  },
+};
+
+// =================== TOPICS ===================
+const TOPICS = [
+  { strand: 'u1', title: 'Perfect squares', body: `<h4>What is a perfect square</h4>
+    <p>A perfect square is a whole number multiplied by itself.</p>
+    <div class="ex">1² = 1, 2² = 4, 3² = 9, 4² = 16, 5² = 25, 6² = 36, 7² = 49, 8² = 64, 9² = 81, 10² = 100, 11² = 121, 12² = 144, 13² = 169</div>
+    <div class="key-point">A perfect square never ends in 2, 3, 7, or 8.</div>` },
+  { strand: 'u1', title: 'Square roots — exact values', body: `<h4>Definition</h4>
+    <p>√n is the value that × itself = n. Squaring and square root are inverses.</p>
+    <div class="ex">√49 = 7, √100 = 10, √144 = 12</div>
+    <h4>Larger roots</h4>
+    <div class="ex">√2500 = √(25 × 100) = 5 × 10 = 50</div>
+    <div class="pitfall">√36 = 6, NOT 18.</div>` },
+  { strand: 'u1', title: 'Estimating non-perfect roots', body: `<h4>Strategy</h4>
+    <ol><li>Find perfect squares above and below.</li>
+    <li>Square root falls between their roots.</li>
+    <li>Estimate by position to one decimal.</li></ol>
+    <div class="ex"><div class="ex-label">√55</div>49 < 55 < 64. ≈ 7.4.</div>
+    <div class="ex"><div class="ex-label">√87</div>81 < 87 < 100. ≈ 9.3.</div>` },
+  { strand: 'u1', title: 'The Pythagorean theorem', body: `<h4>The rule</h4>
+    <div class="ex" style="text-align:center;"><strong>a² + b² = c²</strong></div>
+    <p>a, b are legs; c is hypotenuse (longest, opposite the right angle).</p>
+    <div class="key-point">Hypotenuse is always opposite the right angle.</div>` },
+  { strand: 'u1', title: 'Finding the hypotenuse', body: `<h4>Steps</h4>
+    <ol><li>Square each leg.</li>
+    <li>Add.</li>
+    <li>Take square root.</li></ol>
+    <div class="ex"><div class="ex-label">Legs 6, 8</div>36 + 64 = 100. c = 10.</div>
+    <div class="pitfall">Don't forget the square root at the end.</div>` },
+  { strand: 'u1', title: 'Finding a leg', body: `<h4>Rearrange</h4>
+    <div class="ex">a² = c² − b²</div>
+    <div class="ex"><div class="ex-label">Hypotenuse 13, leg 5</div>169 − 25 = 144. a = 12. (5-12-13 triple.)</div>` },
+  { strand: 'u1', title: 'The converse', body: `<h4>What it says</h4>
+    <p>If a² + b² = c² for the sides, the triangle MUST be right.</p>
+    <div class="ex"><div class="ex-label">9, 12, 15</div>81 + 144 = 225 = 15². Yes.</div>
+    <div class="key-point">When testing, plug the LONGEST side as c.</div>` },
+  { strand: 'u1', title: 'Pythagorean triples', body: `<h4>Memorize</h4>
+    <div class="ex">3-4-5, 5-12-13, 8-15-17, 7-24-25</div>
+    <p>Multiples count too: 6-8-10, 9-12-15.</p>` },
+  { strand: 'u1', title: 'Word problems', body: `<h4>Spot the right angle</h4>
+    <ul><li>Ladders against walls</li>
+    <li>TV diagonals</li>
+    <li>Field shortcuts</li></ul>
+    <div class="ex"><div class="ex-label">Ladder</div>5 m ladder, base 3 m. Height² = 16. Height = 4 m.</div>` },
+
+  { strand: 'u2', title: 'Sign rules', body: `<h4>The rules</h4>
+    <div class="ex">Same signs → +. Different signs → −.</div>
+    <div class="ex">(−7)(−4) = +28<br>(−6)(5) = −30<br>0 ÷ (−5) = 0</div>
+    <h4>Counting negatives</h4>
+    <p>Even count → +. Odd count → −.</p>` },
+  { strand: 'u2', title: 'Order of operations', body: `<h4>BEDMAS</h4>
+    <p>Brackets, Exponents, Div/Mult (LR), Add/Sub (LR).</p>
+    <div class="ex">(−2) − (−3) × 4 = (−2) − (−12) = 10</div>
+    <div class="pitfall">(−6)² = 36 but −6² = −36. Brackets matter.</div>` },
+  { strand: 'u2', title: 'Word problems', body: `<h4>Common contexts</h4>
+    <ul><li>Temperature drops → negative</li>
+    <li>Below sea level → negative</li>
+    <li>Debts → negative</li></ul>
+    <div class="ex"><div class="ex-label">Submarine</div>−12 m/min × 7 min = −84 m.</div>` },
+
+  { strand: 'u3', title: 'Multiplying fractions', body: `<h4>Rule</h4>
+    <div class="ex">a/b × c/d = (ac)/(bd)</div>
+    <div class="ex">2/3 × 4/5 = 8/15</div>
+    <h4>Cross-cancel</h4>
+    <div class="ex">3/8 × 4/9: cancel 3 with 9, 4 with 8 → 1/6</div>
+    <div class="key-point">No common denominator needed.</div>` },
+  { strand: 'u3', title: 'Multiplying mixed numbers', body: `<h4>Convert first</h4>
+    <div class="ex">1½ × 2⅓ = 3/2 × 7/3 = 21/6 = 3½</div>
+    <div class="pitfall">DO NOT multiply whole parts and fractions separately.</div>` },
+  { strand: 'u3', title: 'Estimating products', body: `<h4>Round to 0, ½, or 1</h4>
+    <ul><li>Less than ¼ → 0</li>
+    <li>¼ to ¾ → ½</li>
+    <li>More than ¾ → 1</li></ul>
+    <div class="ex">7/8 × 5/9 ≈ 1 × ½ = ½</div>` },
+  { strand: 'u3', title: 'Dividing — keep, change, flip', body: `<h4>Rule</h4>
+    <div class="ex">a/b ÷ c/d = a/b × d/c</div>
+    <div class="ex">2/3 ÷ 4/5 = 2/3 × 5/4 = 5/6</div>
+    <div class="key-point">"How many of those fit into this?" 4 ÷ ½ = 8.</div>` },
+  { strand: 'u3', title: 'Dividing mixed numbers', body: `<h4>Convert, then KCF</h4>
+    <div class="ex">2½ ÷ 1¼ = 5/2 ÷ 5/4 = 5/2 × 4/5 = 2</div>
+    <div class="ex"><div class="ex-label">Servings</div>3½ cups in ¼-cup servings = 14.</div>` },
+  { strand: 'u3', title: 'Word problems', body: `<h4>Track what's left</h4>
+    <div class="ex"><div class="ex-label">Pizza</div>Sarah eats ¼. Tom eats ⅓ of the rest. Tom = ⅓ × ¾ = ¼.</div>
+    <div class="key-point">"Fraction left" and "fraction eaten" are different.</div>` },
+
+  { strand: 'u4', title: 'Vocabulary & nets', body: `<h4>Key terms</h4>
+    <ul><li>Prism: two parallel bases joined by rectangles</li>
+    <li>Cylinder: prism with circular base</li>
+    <li>Net: 2-D pattern that folds to make the 3-D shape</li>
+    <li>SA: cm². V: cm³.</li></ul>
+    <h4>Cylinder net</h4>
+    <p>2 circles + 1 rectangle. Rectangle length = circumference (2πr).</p>` },
+  { strand: 'u4', title: 'SA — rectangular prism', body: `<h4>Formula</h4>
+    <div class="ex">SA = 2(ℓw + ℓh + wh)</div>
+    <div class="ex"><div class="ex-label">4 × 3 × 2</div>2(12 + 8 + 6) = 52 cm²</div>` },
+  { strand: 'u4', title: 'SA — triangular prism', body: `<h4>2 triangles + 3 rectangles</h4>
+    <div class="ex">SA = 2(½bh) + (perimeter × length)</div>
+    <div class="ex"><div class="ex-label">Triangle (b=6, h=4, sides 5,5), length 10</div>24 + 160 = 184 cm²</div>` },
+  { strand: 'u4', title: 'SA — cylinder', body: `<h4>Formula</h4>
+    <div class="ex">SA = 2πr² + 2πrh</div>
+    <div class="ex"><div class="ex-label">r=3, h=10</div>18π + 60π = 78π ≈ 245 cm²</div>
+    <div class="pitfall">Given diameter? Divide by 2 first.</div>` },
+  { strand: 'u4', title: 'Volume — V = base × height', body: `<h4>For ANY prism</h4>
+    <div class="ex">V = (base area) × height</div>
+    <p>Rectangular: ℓwh. Triangular: ½bh × length. Cylinder: πr²h.</p>
+    <div class="key-point">Volume is CUBIC units. SA is SQUARE units.</div>` },
+  { strand: 'u4', title: 'Volume — cylinder', body: `<h4>Formula</h4>
+    <div class="ex">V = πr² × h</div>
+    <div class="ex"><div class="ex-label">Soup can d=7, h=11</div>r=3.5. V ≈ 423 cm³ = 423 mL</div>` },
+  { strand: 'u4', title: 'Units & conversions', body: `<h4>Conversions</h4>
+    <div class="ex">1 cm³ = 1 mL<br>1000 cm³ = 1 L<br>1 m³ = 1000 L</div>
+    <div class="pitfall">cm² ≠ cm³. Wrong unit = wrong answer.</div>` },
+
+  { strand: 'u5', title: 'Percent basics', body: `<h4>Three forms</h4>
+    <div class="ex">35% = 35/100 = 0.35</div>
+    <h4>Above 100% and below 1%</h4>
+    <div class="ex">150% = 1.5<br>0.5% = 0.005</div>
+    <div class="pitfall">0.65% ≠ 0.65. 0.65% = 0.0065.</div>` },
+  { strand: 'u5', title: 'Finding p% of n', body: `<h4>Method 1 — × decimal</h4>
+    <div class="ex">15% of 60 = 0.15 × 60 = 9</div>
+    <h4>Method 2 — easy pieces</h4>
+    <div class="ex">25% of 80 = 20. 10% = 8. 35% = 28.</div>` },
+  { strand: 'u5', title: 'Finding the whole', body: `<h4>Find 1%, then × 100</h4>
+    <div class="ex"><div class="ex-label">15% of n = 12</div>1% = 0.8. 100% = 80.</div>
+    <div class="ex"><div class="ex-label">Up 25% to $35</div>$35 = 125%. 1% = 0.28. Original = $28.</div>` },
+  { strand: 'u5', title: 'Percent change', body: `<h4>Formula</h4>
+    <div class="ex">% change = (change ÷ ORIGINAL) × 100</div>
+    <div class="ex"><div class="ex-label">$50 → $65</div>15/50 = 30% increase</div>
+    <div class="pitfall">Always divide by ORIGINAL, never new value.</div>` },
+  { strand: 'u5', title: 'Tax and discount', body: `<h4>Formulas</h4>
+    <ul><li>Tax t%: × (1 + t/100)</li>
+    <li>Discount d%: × (1 − d/100)</li></ul>
+    <div class="ex"><div class="ex-label">$28 game, 30% off, 12% tax</div>28 × 0.70 × 1.12 ≈ $21.95</div>
+    <div class="pitfall">Successive percents don't add. 20% then 10% off = 28%, not 30%.</div>` },
+  { strand: 'u5', title: 'Ratios', body: `<h4>Three forms</h4>
+    <p>"5 to 8" or 5:8 or 5/8 (only for part-to-whole).</p>
+    <h4>Part-to-part vs. part-to-whole</h4>
+    <ul><li>5 golf : 8 tennis = 5:8 (NOT a fraction of total)</li>
+    <li>5 of 13 total = 5:13 = 5/13</li></ul>` },
+  { strand: 'u5', title: 'Equivalent ratios', body: `<h4>Golden rule</h4>
+    <p>Whatever you do to one term, do to ALL.</p>
+    <div class="ex">4:3 = 8:6 = 12:9</div>
+    <div class="pitfall">Multiplying just one term breaks it.</div>` },
+  { strand: 'u5', title: 'Solving proportions', body: `<h4>Cross-multiply</h4>
+    <div class="ex">a/b = c/d → a×d = b×c</div>
+    <div class="ex"><div class="ex-label">3/x = 5/20</div>5x = 60. x = 12.</div>` },
+  { strand: 'u5', title: 'Rates and best buys', body: `<h4>Unit rate = first ÷ second</h4>
+    <div class="ex">120 sheets / 3 min = 40/min</div>
+    <h4>Best buy = lowest unit cost</h4>
+    <div class="ex">A: $4.20/600g = $0.70/100g<br>B: $3.60/450g = $0.80/100g. A wins.</div>` },
+  { strand: 'u5', title: 'Speed conversions', body: `<h4>m/s ↔ km/h</h4>
+    <div class="ex">m/s × 3.6 = km/h</div>
+    <div class="ex">15 m/s × 3.6 = 54 km/h<br>72 km/h ÷ 3.6 = 20 m/s</div>` },
+
+  { strand: 'u6', title: 'One-step equations', body: `<h4>Inverse op, both sides</h4>
+    <div class="ex">x + 7 = 12 → x = 5<br>3x = 15 → x = 5<br>x ÷ 4 = 6 → x = 24</div>
+    <div class="key-point">Same thing to BOTH sides on the same line.</div>` },
+  { strand: 'u6', title: 'Two-step equations', body: `<h4>Undo +/− first, then ×/÷</h4>
+    <div class="ex">2x + 3 = 13. −3: 2x = 10. ÷2: x = 5.</div>
+    <div class="ex"><div class="ex-label">Taxi</div>2k + 3.75 = 33.75. k = 15 km.</div>` },
+  { strand: 'u6', title: 'Negatives and fractions', body: `<h4>Negative coefficient</h4>
+    <div class="ex">7 − 2x = −16. −2x = −23. x = 11.5.</div>
+    <div class="pitfall">If −x = 5, then x = −5.</div>
+    <h4>Clear fractions</h4>
+    <div class="ex">x/3 + 2 = 5. ×3: x + 6 = 15. x = 9.</div>` },
+  { strand: 'u6', title: 'Distributive property', body: `<h4>Rule</h4>
+    <div class="ex">a(x + b) = ax + ab</div>
+    <div class="ex">4(x + 3) = 4x + 12<br>−(x − 5) = −x + 5</div>
+    <div class="pitfall">Distribute to EVERY term inside.</div>` },
+  { strand: 'u6', title: 'Solving a(x + b) = c', body: `<h4>Two methods</h4>
+    <p><strong>Distribute first:</strong> 4(s−3) = 288 → 4s − 12 = 288 → s = 75.</p>
+    <p><strong>Divide first (when clean):</strong> 4(s−3) = 288 → s − 3 = 72 → s = 75.</p>` },
+  { strand: 'u6', title: 'Verifying solutions', body: `<h4>Plug into ORIGINAL</h4>
+    <p>Both sides must be equal.</p>
+    <div class="ex"><div class="ex-label">Verify x = 5 in 2x + 3 = 13</div>LHS = 13 = RHS ✓</div>` },
+  { strand: 'u6', title: 'Word problems', body: `<h4>Four steps</h4>
+    <ol><li>Understand</li>
+    <li>Plan (write equation)</li>
+    <li>Solve</li>
+    <li>Verify</li></ol>
+    <div class="ex"><div class="ex-label">DJ</div>3s + 150 = 375. s = 75 students.</div>` },
+  { strand: 'u6', title: 'Tables and graphs', body: `<h4>From equation</h4>
+    <div class="ex"><div class="ex-label">y = 3x + 30</div>x: 0, 1, 2, 3<br>y: 30, 33, 36, 39</div>
+    <div class="key-point">Discrete data: don't connect points. Continuous data: connect them.</div>` },
+  { strand: 'u6', title: 'Missing coordinates', body: `<h4>Two cases</h4>
+    <div class="ex"><div class="ex-label">y given x</div>y = 3x + 30 at x = 8: y = 54</div>
+    <div class="ex"><div class="ex-label">x given y</div>y = 60. 60 = 3x + 30. x = 10.</div>` },
+
+  { strand: 'u7', title: 'Types of graphs', body: `<h4>Five common</h4>
+    <ul><li>Bar — categories</li>
+    <li>Double bar — compare two sets</li>
+    <li>Line — continuous over time</li>
+    <li>Circle — parts of a whole</li>
+    <li>Pictograph — symbols</li></ul>
+    <div class="key-point">Time → line. Categories → bar. Whole → circle.</div>` },
+  { strand: 'u7', title: 'Strengths & limitations', body: `<h4>Each has tradeoffs</h4>
+    <ul><li>Circle: %s yes, exact #s no</li>
+    <li>Line: trends yes, only continuous</li>
+    <li>Bar: easy compare, can mislead</li>
+    <li>Pictograph: visual, hard with partial</li></ul>` },
+  { strand: 'u7', title: 'Misleading graphs', body: `<h4>Truncated y-axis</h4>
+    <div class="ex"><div class="ex-label">Yogurt sugar</div>10.8 vs 14.1 g.<br>Y-axis 10–15: looks 4× bigger.<br>Y-axis 0–15: looks closer.</div>
+    <div class="key-point">Always check where y-axis starts.</div>` },
+  { strand: 'u7', title: 'Probability basics', body: `<h4>Definition</h4>
+    <div class="ex">P(E) = favourable ÷ total</div>
+    <p>Always between 0 and 1.</p>
+    <div class="ex">P(rolling 5) = 1/6</div>` },
+  { strand: 'u7', title: 'Independent events', body: `<h4>Don't affect each other</h4>
+    <ul><li>Coin AND die</li>
+    <li>Spinner twice</li>
+    <li>Marble with replacement</li></ul>
+    <h4>Dependent</h4>
+    <ul><li>Cards without replacement</li></ul>
+    <div class="key-point">Multiplication rule only for INDEPENDENT.</div>` },
+  { strand: 'u7', title: 'Multiplication rule', body: `<h4>For independent events</h4>
+    <div class="ex">P(A and B) = P(A) × P(B)</div>
+    <div class="ex">P(heads + 6 on die) = 1/2 × 1/6 = 1/12<br>P(three heads) = 1/8</div>
+    <div class="key-point">"AND" means multiply.</div>` },
+  { strand: 'u7', title: 'Sample space', body: `<h4>Tree diagram or table</h4>
+    <p>List all outcomes. Total = (outcomes A) × (outcomes B).</p>
+    <div class="ex">Coin × 4-spinner × die = 48 outcomes.</div>` },
+  { strand: 'u7', title: 'Probability problems', body: `<h4>Steps</h4>
+    <ol><li>Identify each event</li>
+    <li>Independent?</li>
+    <li>Find each P</li>
+    <li>Multiply (AND)</li></ol>
+    <div class="ex"><div class="ex-label">3 children</div>P(all girls) = (1/2)³ = 1/8</div>` },
+
+  { strand: 'u8', title: 'Top, front, side views', body: `<h4>Three orthographic views</h4>
+    <ul><li>Top: ℓ × w (looking down)</li>
+    <li>Front: w × h</li>
+    <li>Side: depth × h</li></ul>
+    <div class="key-point">Internal lines only where DEPTH changes.</div>` },
+  { strand: 'u8', title: 'Building from views', body: `<h4>Steps</h4>
+    <ol><li>Top = footprint</li>
+    <li>Front = column heights</li>
+    <li>Adjust until views match</li></ol>
+    <div class="pitfall">Hidden cubes mean min/max range.</div>` },
+  { strand: 'u8', title: 'Isometric drawings', body: `<h4>Definition</h4>
+    <p>3-D on dot paper at angle. Top, front, side at once.</p>
+    <p>Start with "Y" of three lines, then parallels.</p>` },
+  { strand: 'u8', title: 'Rotating 3-D objects', body: `<h4>Vertical axis rotation</h4>
+    <p>After 90° CW: right→front, front→left, left→back, back→right.</p>
+    <div class="ex">180° → swap. 270° CW = 90° CCW. 360° = original.</div>` },
+  { strand: 'u8', title: 'Translation', body: `<h4>Notation [a, b]</h4>
+    <p>a right (− = left), b up (− = down).</p>
+    <div class="ex">(3, 5) by [−2, 4] → (1, 9)</div>` },
+  { strand: 'u8', title: 'Reflection', body: `<h4>Two key rules</h4>
+    <ul><li>x-axis: (x,y) → (x,−y). y flips.</li>
+    <li>y-axis: (x,y) → (−x,y). x flips.</li></ul>
+    <div class="ex">(3, 5) in x-axis → (3, −5)</div>` },
+  { strand: 'u8', title: 'Rotation about origin', body: `<h4>Three rotations</h4>
+    <div class="ex">90° CW: (x,y) → (y, −x)<br>90° CCW: (x,y) → (−y, x)<br>180°: (x,y) → (−x, −y)</div>
+    <div class="ex">(3, 4) 90° CW → (4, −3)</div>
+    <div class="pitfall">Direction matters!</div>` },
+  { strand: 'u8', title: 'Combinations', body: `<h4>Apply one at a time</h4>
+    <p>Order matters: translate-then-reflect ≠ reflect-then-translate.</p>
+    <div class="ex"><div class="ex-label">A(1,2)</div>Reflect in x: (1,−2). Translate [−2,3]: (−1, 1).</div>` },
+];
+
+// =================== PRACTICE ===================
+const PRACTICE = [
+  { strand: 'u1', q: 'Which is a perfect square?', choices: ['72','85','121','150'], a: 2, h1: 'Look at the last digit. Perfect squares never end in 2, 3, 7, or 8.', h2: 'Try multiplying numbers by themselves: 11×11 = 121. That\'s a match.', exp: '121 = 11 × 11.', walk: ['Perfect squares are whole numbers × themselves.', 'Check the last digit: perfect squares never end in 2, 3, 7, 8.', '72 ends in 2, 85 ends in 5, 121 ends in 1, 150 ends in 0.', 'Test 121: 11 × 11 = 121. ✓ It\'s a perfect square.'] },
+  { strand: 'u1', q: 'Estimate √45 to one decimal.', choices: ['5.7','6.7','7.1','8.0'], a: 1, h1: 'Find the two perfect squares 45 sits between.', h2: '36 < 45 < 49, so √45 is between 6 and 7. It\'s closer to 49 than to 36, so just under 7.', exp: '36 < 45 < 49. Closer to 49 → ≈ 6.7.', walk: ['Find perfect squares around 45: 6² = 36 and 7² = 49.', 'So √45 is between 6 and 7.', '45 is closer to 49 than to 36 (gap of 4 vs 9).', 'So √45 is closer to 7. Estimate: 6.7. (Calc: 6.708.)'] },
+  { strand: 'u1', q: 'Right triangle, legs 9 and 12. Hypotenuse?', choices: ['15','16','21','108'], a: 0, h1: 'a² + b² = c². Square the legs and add.', h2: '9² + 12² = 81 + 144 = 225. Now take the square root.', exp: '81 + 144 = 225. √225 = 15.', walk: ['This is a right triangle, so use a² + b² = c².', 'Square the legs: 9² = 81, 12² = 144.', 'Add: 81 + 144 = 225.', 'Take the square root: √225 = 15.'] },
+  { strand: 'u1', q: 'Hypotenuse 25, leg 7. Other leg?', choices: ['18','24','26','32'], a: 1, h1: 'a² = c² − b². Subtract the squares.', h2: '25² − 7² = 625 − 49 = 576. Take the square root.', exp: '625 − 49 = 576. √576 = 24. (7-24-25.)', walk: ['Hypotenuse is given (25), one leg is given (7). Find other leg using a² = c² − b².', 'Square: 25² = 625, 7² = 49.', 'Subtract: 625 − 49 = 576.', 'Take the square root: √576 = 24. (This is the 7-24-25 triple.)'] },
+  { strand: 'u1', q: 'NOT a Pythagorean triple?', choices: ['3,4,5','5,12,13','6,8,10','7,8,9'], a: 3, h1: 'Test each set with a² + b² = c² (longest as c).', h2: 'For 7,8,9: 7² + 8² = 49 + 64 = 113. But 9² = 81. Not equal.', exp: '49 + 64 = 113 ≠ 81.', walk: ['Test each set: do the two smaller sides squared equal the largest squared?', '3,4,5: 9+16=25=5². ✓', '5,12,13: 25+144=169=13². ✓', '6,8,10: 36+64=100=10². ✓', '7,8,9: 49+64=113. But 9²=81. Not equal — NOT a triple.'] },
+  { strand: 'u1', q: 'Square area 169 cm². Side?', choices: ['12','12.5','13','14'], a: 2, h1: 'Side of a square = √(area).', h2: '√169 = 13 because 13 × 13 = 169.', exp: '√169 = 13.', walk: ['Square area = side × side. So side = √(area).', '√169: find the number × itself = 169.', '13 × 13 = 169. ✓', 'Side = 13 cm.'] },
+  { strand: 'u1', q: '√2500?', choices: ['25','50','250','500'], a: 1, h1: 'Break it apart: 2500 = 25 × 100.', h2: '√25 × √100 = 5 × 10.', exp: '√(25 × 100) = 5 × 10 = 50.', walk: ['Break 2500 into a product of perfect squares.', '2500 = 25 × 100.', '√2500 = √25 × √100 = 5 × 10.', 'Answer: 50.'] },
+  { strand: 'u1', q: '5 m ladder, base 3 m. Height?', choices: ['2','3','4','6'], a: 2, h1: 'Picture the right triangle: ladder is hypotenuse, base and height are legs.', h2: 'h² = 5² − 3² = 25 − 9 = 16. h = √16.', exp: '25 − 9 = 16. h = 4.', walk: ['Picture the right triangle: ladder is hypotenuse, base and height are legs.', 'Use a² = c² − b²: height² = 5² − 3².', '= 25 − 9 = 16.', 'Height = √16 = 4 m.'] },
+  { strand: 'u1', q: 'Estimate √87.', choices: ['8.3','9.3','10.3','9.8'], a: 1, h1: '81 < 87 < 100, so √87 is between 9 and 10.', h2: '87 is much closer to 81 than to 100, so √87 is just over 9.', exp: '81 < 87 < 100. ≈ 9.3.', walk: ['Find perfect squares around 87: 9² = 81 and 10² = 100.', 'So √87 is between 9 and 10.', '87 is closer to 81 (gap of 6 vs 13).', 'So √87 ≈ 9.3.'] },
+  { strand: 'u1', q: 'Legs 5, 7. Hypotenuse to 1 dp?', choices: ['8.0','8.4','8.6','9.0'], a: 2, h1: 'c² = 5² + 7² = 25 + 49.', h2: 'c² = 74. √74 is between 8 (=√64) and 9 (=√81), closer to 8.', exp: '25 + 49 = 74. √74 ≈ 8.6.', walk: ['Use a² + b² = c² with a=5, b=7.', 'Square: 5² = 25, 7² = 49.', 'Add: 25 + 49 = 74.', '√74 is between √64 = 8 and √81 = 9, closer to 9.', 'Estimate: 8.6. (Calc: 8.602.)'] },
+  { strand: 'u1', q: 'Sides 8, 15, 17. Right triangle?', choices: ['Yes','No','Cannot tell','Need angles'], a: 0, h1: 'Test with 17 as the hypotenuse: 8² + 15² should equal 17².', h2: '64 + 225 = 289. And 17² = 289. They match.', exp: '64 + 225 = 289 = 17². Yes.', walk: ['Test the converse: try a² + b² = c² with the LONGEST side as c.', 'Square: 8² = 64, 15² = 225, 17² = 289.', 'Check: 64 + 225 = 289. ✓', 'Equals 17² exactly, so YES it\'s a right triangle.'] },
+  { strand: 'u1', q: 'TV 32" wide, 24" tall. Diagonal?', choices: ['28"','40"','48"','56"'], a: 1, h1: 'Diagonal of a TV is the hypotenuse of a right triangle.', h2: 'd² = 32² + 24² = 1024 + 576 = 1600. d = √1600.', exp: '1024 + 576 = 1600. d = 40.', walk: ['TV diagonal = hypotenuse of a right triangle.', 'Width and height are the legs: 32 and 24.', 'd² = 32² + 24² = 1024 + 576 = 1600.', 'd = √1600 = 40 inches.'] },
+  { strand: 'u1', q: 'CANNOT be a perfect square?', choices: ['144','225','327','361'], a: 2, h1: 'Perfect squares never end in 2, 3, 7, or 8. Look at last digits.', h2: '327 ends in 7 — impossible for a perfect square.', exp: '327 ends in 7.', walk: ['Perfect squares never end in 2, 3, 7, or 8.', '144 ends in 4 — could be (it is, 12²).', '225 ends in 5 — could be (it is, 15²).', '327 ends in 7 — CANNOT be a perfect square.', '361 ends in 1 — could be (it is, 19²).'] },
+  { strand: 'u1', q: 'x² = 196.', choices: ['13','14','16','98'], a: 1, h1: 'Find a number that times itself = 196.', h2: '14 × 14 = 196.', exp: 'x = 14.', walk: ['x² = 196 means find the number whose square is 196.', 'Try: 13² = 169 (too low). 14² = 196 ✓', 'x = 14.'] },
+  { strand: 'u1', q: '60×80 m field. Diagonal saves how much?', choices: ['40 m','60 m','100 m','140 m'], a: 0, h1: 'Find both: diagonal across (use Pythagoras), and going around (60 + 80).', h2: 'Diagonal: √(60² + 80²) = √10000 = 100. Around: 140. Difference: 40.', exp: 'Diag 100 m. Two sides 140 m. Saves 40.', walk: ['Two routes: diagonal across, OR around two sides.', 'Diagonal: d² = 60² + 80² = 3600 + 6400 = 10000. d = 100 m.', 'Around: 60 + 80 = 140 m.', 'Saved: 140 − 100 = 40 m.'] },
+
+  { strand: 'u2', q: '(−4) × (−7)?', choices: ['−28','−11','11','28'], a: 3, h1: 'Same signs multiplied → positive. Different signs → negative.', h2: '(−4)(−7): both negative. So positive × magnitudes: 28.', exp: 'Same signs → +28.', walk: ['Sign rule: same signs multiplied → positive.', 'Both numbers are negative, so the answer is positive.', 'Multiply the magnitudes: 4 × 7 = 28.', 'Answer: +28.'] },
+  { strand: 'u2', q: '(−24) ÷ 6?', choices: ['−4','−3','3','4'], a: 0, h1: 'Different signs in division → negative answer.', h2: '−24 ÷ 6 = −4 (negative ÷ positive = negative).', exp: 'Different signs → −4.', walk: ['Sign rule: different signs → negative.', '−24 ÷ 6: one negative, one positive.', 'Magnitudes: 24 ÷ 6 = 4.', 'Answer: −4.'] },
+  { strand: 'u2', q: '(−3)(4) − (−2)(5)', choices: ['−22','−2','2','22'], a: 1, h1: 'Do each multiplication first, then subtract.', h2: '(−3)(4) = −12. (−2)(5) = −10. So −12 − (−10) = −12 + 10.', exp: '(−12) − (−10) = −2.', walk: ['Order of operations: multiplication before subtraction.', '(−3)(4) = −12 (different signs).', '(−2)(5) = −10 (different signs).', 'Now subtract: (−12) − (−10) = −12 + 10 = −2.'] },
+  { strand: 'u2', q: '6 + (−2) × (−4) − 5', choices: ['−7','−1','9','19'], a: 2, h1: 'Order of operations: multiplication before addition/subtraction.', h2: '(−2)(−4) = 8. So 6 + 8 − 5.', exp: '× first: 8. 6+8−5 = 9.', walk: ['Order of operations: × before + or −.', '(−2) × (−4) = +8 (same signs).', 'Now: 6 + 8 − 5.', '= 14 − 5 = 9.'] },
+  { strand: 'u2', q: 'Submarine: 12 m/min for 7 min?', choices: ['−84 m','−5 m','5 m','84 m'], a: 0, h1: 'Descending repeatedly = multiplying a negative by a positive.', h2: '7 minutes × (−12 m/min) = −84 m.', exp: '7 × −12 = −84.', walk: ['Each minute, the submarine moves −12 m (downward).', 'After 7 minutes: 7 × (−12).', 'Different signs → negative result.', '= −84 m (84 m below surface).'] },
+  { strand: 'u2', q: '−18 ÷ (−3) × 2', choices: ['−12','−3','3','12'], a: 3, h1: 'Left to right with × and ÷.', h2: '−18 ÷ (−3) = 6. Then 6 × 2.', exp: '6 × 2 = 12.', walk: ['Order of operations: do ÷ and × left to right.', 'First: −18 ÷ (−3) = +6 (same signs).', 'Then: 6 × 2 = 12.', 'Answer: +12.'] },
+  { strand: 'u2', q: 'Equals +20?', choices: ['(−4)(5)','(−4)(−5)','(4)(−5)','−(4)(5)'], a: 1, h1: '(−)(−) gives positive. Look for two negatives.', h2: '(−4)(−5) has both negative, giving +20.', exp: '(−4)(−5) = +20.', walk: ['Looking for an expression that = +20.', '(−4)(5) = −20 (different signs). ✗', '(−4)(−5) = +20 (same signs). ✓', '(4)(−5) = −20. ✗  −(4)(5) = −20. ✗'] },
+  { strand: 'u2', q: '(−15) − 3 × (−4)', choices: ['−27','−3','3','48'], a: 1, h1: 'Multiplication first: 3 × (−4) = −12.', h2: '−15 − (−12) = −15 + 12.', exp: '× first: −12. −15 − (−12) = −3.', walk: ['Multiplication first.', '3 × (−4) = −12.', 'Now: (−15) − (−12) = −15 + 12.', '= −3.'] },
+  { strand: 'u2', q: 'Scores: −2, −3, +5, −1. Total?', choices: ['−11','−1','1','11'], a: 1, h1: 'Add the integers in order.', h2: '−2 + (−3) + 5 + (−1) = −1.', exp: '−2−3+5−1 = −1.', walk: ['Add the integers in order.', '−2 + (−3) = −5.', '−5 + 5 = 0.', '0 + (−1) = −1.'] },
+  { strand: 'u2', q: '(−6)² − 2(−6)', choices: ['−24','24','48','−48'], a: 2, h1: 'Brackets first: (−6)² = (−6)(−6).', h2: '(−6)² = 36. 2(−6) = −12. So 36 − (−12) = 36 + 12.', exp: '36 − (−12) = 48.', walk: ['Brackets first: (−6)² means (−6) × (−6).', '(−6)² = +36 (same signs).', 'Then 2(−6) = −12.', 'So 36 − (−12) = 36 + 12 = 48.'] },
+  { strand: 'u2', q: '(−2)(3)(−4)(−1)', choices: ['−24','24','−12','12'], a: 0, h1: 'Count the negative signs.', h2: 'Three negatives = odd, so the answer is negative. Magnitudes: 2 × 3 × 4 × 1 = 24.', exp: 'Three negatives → negative. 24 → −24.', walk: ['Three negatives in this product. Odd count → answer is negative.', 'Multiply the magnitudes: 2 × 3 × 4 × 1 = 24.', 'Apply the sign: −24.'] },
+  { strand: 'u2', q: 'Diver −8 m, descends 5, ascends 11?', choices: ['−24','−2','+2','+24'], a: 1, h1: 'Translate: descending = subtract, ascending = add.', h2: '−8 + (−5) + 11 = −13 + 11.', exp: '−8−5+11 = −2.', walk: ['Translate: descending = adding a negative; ascending = adding a positive.', 'Start: −8.', 'Descend 5: −8 + (−5) = −13.', 'Ascend 11: −13 + 11 = −2.'] },
+  { strand: 'u2', q: '(−6)² vs −6²?', choices: ['Both 36','One 36, one −36','Both −36','Cannot compute'], a: 1, h1: '(−6)² has brackets — the negative is being squared. −6² has no brackets.', h2: '(−6)² = (−6)(−6) = +36. But −6² = −(6 × 6) = −36.', exp: '(−6)² = 36, −6² = −36.', walk: ['(−6)² has brackets around the −6 — the negative IS being squared.', '(−6)² = (−6)(−6) = +36.', '−6² has no brackets — only the 6 is squared, then negate.', '−6² = −(6 × 6) = −36.', 'One is +36, the other is −36.'] },
+  { strand: 'u2', q: 'Average of −5, 3, −7, 1, −2?', choices: ['−2','−10','0','10'], a: 0, h1: 'Sum first, then divide by 5.', h2: 'Sum: −5 + 3 − 7 + 1 − 2 = −10. Divide by 5.', exp: 'Sum −10. Avg −2.', walk: ['Sum first, then divide by how many numbers (5).', 'Sum: −5 + 3 = −2. −2 + (−7) = −9. −9 + 1 = −8. −8 + (−2) = −10.', 'Divide by 5: −10 ÷ 5 = −2.'] },
+  { strand: 'u2', q: '12 − [(−3)(4) + 5]', choices: ['−5','5','19','25'], a: 2, h1: 'Inside the brackets first: do the multiplication, then add.', h2: '(−3)(4) = −12. −12 + 5 = −7. Then 12 − (−7).', exp: 'Inside: −12+5 = −7. 12 − (−7) = 19.', walk: ['Inside the brackets first.', 'Multiplication: (−3)(4) = −12.', 'Add inside: −12 + 5 = −7.', 'Now: 12 − [−7] = 12 + 7 = 19.'] },
+
+  { strand: 'u3', q: '2/3 × 3/4?', choices: ['1/2','5/12','5/7','6/12'], a: 0, h1: 'Multiply tops and bottoms: (2 × 3)/(3 × 4).', h2: '6/12. Simplify by dividing both by 6.', exp: '6/12 = 1/2.', walk: ['Multiply tops × tops, bottoms × bottoms.', '(2 × 3) / (3 × 4) = 6/12.', 'Simplify by dividing top and bottom by 6.', '= 1/2.'] },
+  { strand: 'u3', q: '4/5 ÷ 2/3?', choices: ['8/15','6/5','5/6','1 1/5'], a: 3, h1: 'Keep, change, flip: 4/5 × 3/2.', h2: 'Multiply: (4 × 3)/(5 × 2) = 12/10 = 6/5 = 1 1/5.', exp: '4/5 × 3/2 = 1 1/5.', walk: ['Keep, change, flip: 4/5 × 3/2.', 'Multiply: (4 × 3)/(5 × 2) = 12/10.', 'Simplify: 12/10 = 6/5.', 'As mixed: 1 1/5.'] },
+  { strand: 'u3', q: '2 3/4 to improper?', choices: ['5/4','9/4','11/4','23/4'], a: 2, h1: 'Mixed → improper: (whole × bottom + top) / bottom.', h2: '(2 × 4 + 3)/4 = 11/4.', exp: '(2×4+3)/4 = 11/4.', walk: ['Mixed → improper: (whole × bottom + top) / bottom.', '(2 × 4 + 3) / 4.', '= (8 + 3)/4 = 11/4.'] },
+  { strand: 'u3', q: '1 1/2 × 2 1/3', choices: ['2 1/6','3 1/2','3 5/6','5'], a: 1, h1: 'Convert both to improper fractions first.', h2: '1 1/2 = 3/2 and 2 1/3 = 7/3. Multiply: 3/2 × 7/3.', exp: '3/2 × 7/3 = 21/6 = 3 1/2.', walk: ['Convert both to improper: 1 1/2 = 3/2 and 2 1/3 = 7/3.', 'Multiply: (3 × 7)/(2 × 3) = 21/6.', 'Simplify: 21/6 = 7/2.', 'As mixed: 3 1/2.'] },
+  { strand: 'u3', q: 'Estimate 5/8 × 7/9', choices: ['0','1/4','1/2','1'], a: 2, h1: 'Round each fraction to 0, 1/2, or 1.', h2: '5/8 ≈ 1/2 and 7/9 ≈ 1. So about 1/2 × 1.', exp: '≈ 1/2 × 1 = 1/2.', walk: ['Round each to 0, 1/2, or 1.', '5/8 is closest to 1/2.', '7/9 is closest to 1.', 'Estimate: 1/2 × 1 = 1/2.'] },
+  { strand: 'u3', q: '3 ÷ 2/5?', choices: ['6/5','3 2/5','5 1/2','7 1/2'], a: 3, h1: 'Whole ÷ fraction: write 3 as 3/1, then KCF.', h2: '3/1 ÷ 2/5 = 3/1 × 5/2 = 15/2.', exp: '3 × 5/2 = 15/2.', walk: ['Whole ÷ fraction. Write 3 as 3/1.', 'Keep-change-flip: 3/1 × 5/2.', '= 15/2.', 'As mixed: 7 1/2.'] },
+  { strand: 'u3', q: '3/4 cup × 1/3 batch?', choices: ['1/4 cup','1/3','3/7','1'], a: 0, h1: '\'Of\' means multiply: 3/4 × 1/3.', h2: '(3 × 1)/(4 × 3) = 3/12. Simplify.', exp: '3/4 × 1/3 = 1/4.', walk: ['\'Of\' means multiply: 3/4 × 1/3.', '(3 × 1)/(4 × 3) = 3/12.', 'Simplify: 3/12 = 1/4 cup.'] },
+  { strand: 'u3', q: '1/2 + 1/3 × 3/4', choices: ['5/8','3/4','5/14','5/24'], a: 1, h1: 'Multiplication before addition.', h2: '1/3 × 3/4 = 3/12 = 1/4. Then 1/2 + 1/4.', exp: '× first: 1/4. 1/2+1/4 = 3/4.', walk: ['Multiplication before addition.', '1/3 × 3/4 = 3/12 = 1/4.', 'Then 1/2 + 1/4.', 'Common denominator 4: 2/4 + 1/4 = 3/4.'] },
+  { strand: 'u3', q: '1/4-cup servings in 3 1/2 cups?', choices: ['7','12','14','21'], a: 2, h1: 'This is division: 3 1/2 ÷ 1/4.', h2: '7/2 ÷ 1/4 = 7/2 × 4/1 = 28/2.', exp: '7/2 ÷ 1/4 = 14.', walk: ['This is a division: total ÷ serving size = 3 1/2 ÷ 1/4.', 'Convert: 7/2 ÷ 1/4.', 'Keep-change-flip: 7/2 × 4/1 = 28/2.', '= 14 servings.'] },
+  { strand: 'u3', q: '2 1/2 ÷ 1 1/4?', choices: ['1 1/2','2','2 1/4','3 1/8'], a: 1, h1: 'Convert both to improper, then KCF.', h2: '5/2 ÷ 5/4 = 5/2 × 4/5. The 5s cancel.', exp: '5/2 × 4/5 = 2.', walk: ['Convert both to improper: 5/2 ÷ 5/4.', 'Keep-change-flip: 5/2 × 4/5.', 'Cancel the 5s: 1/2 × 4/1 = 4/2.', '= 2.'] },
+  { strand: 'u3', q: '17/5 to mixed?', choices: ['3 1/5','3 2/5','3 3/5','17/5'], a: 1, h1: '17 ÷ 5 = 3 remainder 2. The remainder over 5 is the fraction.', h2: '3 with 2 left over, so 3 2/5.', exp: '17÷5 = 3 r 2.', walk: ['17 ÷ 5 = 3 with remainder 2.', 'The whole part is 3, remainder over 5 is 2/5.', '= 3 2/5.'] },
+  { strand: 'u3', q: '4 1/3 − 2 1/2 × 1 1/3', choices: ['1','1 5/6','2 4/9','10 2/3'], a: 0, h1: 'Multiplication first: 5/2 × 4/3 = 10/3.', h2: '13/3 − 10/3 = 3/3 = 1.', exp: '× first: 10/3. 13/3 − 10/3 = 1.', walk: ['Multiplication first: 2 1/2 × 1 1/3 = 5/2 × 4/3 = 20/6 = 10/3.', 'Now subtract: 4 1/3 − 10/3.', 'Convert 4 1/3 to thirds: 13/3.', '13/3 − 10/3 = 3/3 = 1.'] },
+  { strand: 'u3', q: 'Closest to 3 × 5 = 15?', choices: ['3 1/8 × 4 7/8','1 1/4 × 4 3/4','5 × 2','3/4 × 5'], a: 0, h1: 'Round each to nearest whole and multiply.', h2: '3 1/8 × 4 7/8 ≈ 3 × 5 = 15.', exp: '3 1/8 × 4 7/8 ≈ 15.', walk: ['Estimate by rounding each to nearest whole.', '3 1/8 ≈ 3. 4 7/8 ≈ 5.', '3 × 5 = 15. ✓', 'Other options round to nowhere near 15.'] },
+  { strand: 'u3', q: '8 1/2 ft, 3/4-ft pieces. Full?', choices: ['10','11','12','17'], a: 1, h1: 'Number of pieces = total ÷ piece length: 8 1/2 ÷ 3/4.', h2: '17/2 × 4/3 = 68/6 ≈ 11.33. Only 11 are full pieces.', exp: '17/2 × 4/3 ≈ 11 1/3. 11 full.', walk: ['Number of pieces = total ÷ piece length.', '8 1/2 ÷ 3/4 = 17/2 × 4/3 = 68/6.', '= 11.33 (or 11 with some left over).', 'Only 11 FULL pieces.'] },
+  { strand: 'u3', q: 'Sarah ate 1/4. Tom ate 1/3 of rest. Tom?', choices: ['1/3','1/4','1/12','1/7'], a: 1, h1: 'First find what\'s LEFT after Sarah: 1 − 1/4 = 3/4.', h2: 'Tom eats 1/3 OF that 3/4. So 1/3 × 3/4.', exp: '1/3 × 3/4 = 1/4.', walk: ['Find what\'s LEFT after Sarah eats 1/4: 1 − 1/4 = 3/4.', 'Tom eats 1/3 OF that 3/4: 1/3 × 3/4.', '= 3/12 = 1/4.', 'Tom eats 1/4 of the pizza.'] },
+
+  { strand: 'u4', q: 'SA of 4×3×2 cm box?', choices: ['24 cm²','26','52','24 cm³'], a: 2, h1: 'SA = 2(ℓw + ℓh + wh).', h2: 'ℓw=12, ℓh=8, wh=6. Sum: 26. Times 2.', exp: '2(12+8+6) = 52.', walk: ['SA = 2(ℓw + ℓh + wh).', 'ℓw = 5×4 = 20. ℓh = 5×3 = 15. wh = 4×3 = 12.', 'Sum: 20 + 15 + 12 = 47.', 'Multiply by 2: 94 cm².'] },
+  { strand: 'u4', q: 'V of cylinder r=5, h=10? (π=3.14)', choices: ['157','314','785','1570'], a: 2, h1: 'V = πr²h.', h2: '5² × 10 = 250. Times π (3.14).', exp: '3.14×25×10 = 785.', walk: ['V = πr²h.', 'r² = 5² = 25.', 'V = π × 25 × 10 = 250π.', 'Times 3.14: ≈ 785 cm³.'] },
+  { strand: 'u4', q: 'Cylinder d=8, h=12. V?', choices: ['301','603','754','2412'], a: 1, h1: 'Convert d to r first: r = d/2 = 4.', h2: 'V = π × 16 × 12 = 192π ≈ 603.', exp: 'r=4. π×16×12 ≈ 603.', walk: ['Convert diameter to radius: r = d/2 = 8/2 = 4.', 'V = πr²h = π × 16 × 12.', '= 192π.', 'Times 3.14: ≈ 603 cm³.'] },
+  { strand: 'u4', q: 'Triangular prism: base 6, height 4, length 10?', choices: ['60','120','240','60 cm²'], a: 1, h1: 'V = (½ × base × height) × length.', h2: '½ × 6 × 4 = 12. Times 10.', exp: '12 × 10 = 120.', walk: ['V = (½ × base × height of triangle) × prism length.', 'Triangle area = ½ × 6 × 4 = 12.', '× length: 12 × 10 = 120 cm³.'] },
+  { strand: 'u4', q: 'Cylinder net?', choices: ['1c, 1r','2c, 1r','2c, 2r','1c, 1tri'], a: 1, h1: 'A cylinder has 2 circular ends and 1 curved side.', h2: 'When unrolled, the curved side is a rectangle. So 2 circles + 1 rectangle.', exp: '2 circles + 1 rectangle.', walk: ['A cylinder has 2 circular ends and 1 curved side.', 'Unroll the curved side — it becomes a rectangle.', 'So the net is: 2 circles + 1 rectangle.'] },
+  { strand: 'u4', q: 'SA cylinder r=3, h=7? (π=3.14)', choices: ['132','188','198','377'], a: 1, h1: 'SA = 2πr² + 2πrh.', h2: '2π(9) + 2π(3)(7) = 18π + 42π = 60π.', exp: '60π ≈ 188.', walk: ['SA = 2πr² + 2πrh.', 'Two circles: 2π × 9 = 18π.', 'Curved side: 2π × 3 × 7 = 42π.', 'Total: 60π. Times 3.14: ≈ 188 cm².'] },
+  { strand: 'u4', q: 'V=480, ℓ=12, w=8. h?', choices: ['5','6','10','40'], a: 0, h1: 'V = ℓwh, solve for h.', h2: '12 × 8 × h = 480. So 96h = 480.', exp: '96h = 480. h = 5.', walk: ['V = ℓwh, solve for h.', '12 × 8 × h = 480.', '96h = 480.', 'h = 480/96 = 5.'] },
+  { strand: 'u4', q: 'Cylinder rectangle length =', choices: ['radius','diameter','circumference','height'], a: 2, h1: 'Imagine unrolling the curved side. Its length matches the circle\'s perimeter.', h2: 'The rectangle\'s length equals the circumference (2πr) of the circle.', exp: '2πr.', walk: ['Imagine unrolling the curved side of a cylinder.', 'The unrolled rectangle\'s length matches how far it wraps around.', 'That distance = the circumference of the circle (2πr).'] },
+  { strand: 'u4', q: 'SA=94, ℓ=5, w=3. h?', choices: ['2','3','4','5'], a: 2, h1: 'SA = 2(ℓw + ℓh + wh). Plug in and solve for h.', h2: '2(15 + 5h + 3h) = 94. So 30 + 16h = 94.', exp: '94 = 30+16h. h=4.', walk: ['SA = 2(ℓw + ℓh + wh). Plug in ℓ=5, w=3.', '2(15 + 5h + 3h) = 94.', '30 + 16h = 94.', '16h = 64. h = 4 cm.'] },
+  { strand: 'u4', q: 'Triangle 8×5, length 6. V?', choices: ['120','144','240','60'], a: 0, h1: 'V = (triangle area) × prism length.', h2: 'Triangle area = ½ × 8 × 5 = 20. Times 6.', exp: '20×6 = 120.', walk: ['V = (triangle area) × prism length.', 'Triangle: ½ × 8 × 5 = 20.', '× length: 20 × 6 = 120 cm³.'] },
+  { strand: 'u4', q: '2400 cm³ in litres?', choices: ['0.24 L','2.4','24','240'], a: 1, h1: '1 cm³ = 1 mL exactly. 1000 mL = 1 L.', h2: '2400 cm³ = 2400 mL = 2.4 L.', exp: '2400 mL = 2.4 L.', walk: ['1 cm³ equals exactly 1 mL.', '1000 mL = 1 L.', '2400 cm³ = 2400 mL.', '= 2.4 L.'] },
+  { strand: 'u4', q: 'Soup can d=7, h=11?', choices: ['77','423','847','1693'], a: 1, h1: 'd = 7, so r = 3.5. V = πr²h.', h2: 'π × 3.5² × 11 = π × 12.25 × 11 ≈ 423.', exp: 'r=3.5. ≈ 423.', walk: ['d = 7, so r = 3.5.', 'V = πr²h = π × 12.25 × 11.', '= 134.75π.', '× 3.14 ≈ 423 cm³ (or 423 mL).'] },
+  { strand: 'u4', q: 'Triangle (b=6, h=4, sides 5,5), length 10?', choices: ['184','164','144','100'], a: 0, h1: 'Two triangles + three rectangles. Triangles: 2(½×6×4). Rectangles: perimeter × length.', h2: 'Triangles: 24. Rectangles: (5+5+6) × 10 = 160. Total: 184.', exp: '24+160 = 184.', walk: ['Triangular prism: 2 triangles + 3 rectangles.', 'Two triangles: 2 × (½ × 6 × 4) = 24.', 'Three rectangles: perimeter × length = (5+5+6) × 10 = 160.', 'Total: 24 + 160 = 184 cm².'] },
+  { strand: 'u4', q: 'V=800π, r=5. h?', choices: ['16','32','64','160'], a: 1, h1: 'V = πr²h, solve for h.', h2: 'π × 25 × h = 800π. So 25h = 800.', exp: '25h = 800. h = 32.', walk: ['V = πr²h = 800π. Solve for h.', 'π × 25 × h = 800π.', '25h = 800.', 'h = 32.'] },
+  { strand: 'u4', q: 'Box 10×8×5. V?', choices: ['80','160','400','800'], a: 2, h1: 'V = ℓwh.', h2: '10 × 8 × 5.', exp: '400.', walk: ['V = ℓwh.', '= 10 × 8 × 5.', '= 400 cm³.'] },
+
+  { strand: 'u5', q: '0.65% as decimal?', choices: ['65','0.65','0.065','0.0065'], a: 3, h1: 'Slide the decimal point TWO places left to convert percent to decimal.', h2: '0.65% → 0.0065 (not 0.65 — that would be 65%).', exp: '0.65 ÷ 100 = 0.0065.', walk: ['Percent → decimal: divide by 100.', '0.65% means 0.65 out of 100.', 'Slide decimal TWO places left: 0.65 → 0.0065.', '(NOT 0.65 — that\'s already a decimal, equals 65%.)'] },
+  { strand: 'u5', q: '$80 → $100. % increase?', choices: ['20%','25%','80%','125%'], a: 1, h1: 'Change = 100 − 80 = 20. Divide by ORIGINAL.', h2: '20 ÷ 80 = 0.25 = 25%.', exp: '20/80 = 25%.', walk: ['% change = (change ÷ ORIGINAL) × 100.', 'Change: 100 − 80 = 20.', 'Divide by ORIGINAL (80): 20/80 = 0.25.', '× 100 = 25% increase.'] },
+  { strand: 'u5', q: '$80, 30% off, 12% tax?', choices: ['$56','$62.72','$70','$80'], a: 1, h1: 'First apply the discount, then add the tax. Two steps.', h2: '$80 × 0.70 (30% off) = $56. Then $56 × 1.12.', exp: '80 × 0.70 × 1.12 = $62.72.', walk: ['Two operations: discount, then tax. Multiply step by step.', '30% off means pay 70%: 80 × 0.70 = $56.', '12% tax means × 1.12: 56 × 1.12 = $62.72.'] },
+  { strand: 'u5', q: 'Best buy? A: 600g/$4.20. B: 450g/$3.60.', choices: ['A','B','Same','Cannot tell'], a: 0, h1: 'Find cost per 100g for each.', h2: 'A: 4.20 ÷ 6 = $0.70 per 100g. B: 3.60 ÷ 4.5 = $0.80 per 100g. Lower is better.', exp: 'A: $0.70/100g. B: $0.80/100g.', walk: ['Best buy = lowest cost per unit. Compute each.', 'A: 4.20 ÷ 6 = $0.70 per 100g.', 'B: 3.60 ÷ 4.5 = $0.80 per 100g.', 'Lower wins. A is the better buy.'] },
+  { strand: 'u5', q: 'Solve 8/x = 24/15.', choices: ['3','4','5','6'], a: 2, h1: 'Cross-multiply: 8 × 15 = 24x.', h2: '120 = 24x. Divide both sides by 24.', exp: '24x = 120. x=5.', walk: ['Cross-multiply: 8 × 15 = 24 × x.', '120 = 24x.', 'x = 120/24 = 5.'] },
+  { strand: 'u5', q: '72 km/h to m/s?', choices: ['12','20','60','259'], a: 1, h1: 'To go from km/h to m/s, divide by 3.6.', h2: '72 ÷ 3.6 = 20.', exp: '72 ÷ 3.6 = 20.', walk: ['To convert km/h → m/s, divide by 3.6.', 'Why 3.6? 1 km = 1000 m, 1 h = 3600 s, so 3600/1000 = 3.6.', '72 ÷ 3.6 = 20 m/s.'] },
+  { strand: 'u5', q: '15% of n is 9. Find n.', choices: ['1.35','60','135','150'], a: 1, h1: 'Find 1% first: divide 9 by 15. Then × 100.', h2: '1% = 0.6. So 100% = 60.', exp: '1% = 0.6. 100% = 60.', walk: ['Find 1% first by dividing 9 by 15.', '1% = 9 ÷ 15 = 0.6.', 'Now × 100 to get the whole.', '100% = 0.6 × 100 = 60.'] },
+  { strand: 'u5', q: '5 red, 8 yellow. Red:total?', choices: ['5:8','5:13','8:5','8:13'], a: 1, h1: 'Total = 5 + 8 = 13 marbles.', h2: 'Red:total = 5:13.', exp: 'Total 13.', walk: ['Total marbles: 5 + 8 = 13.', 'Red:total is a part-to-whole ratio.', '= 5:13.'] },
+  { strand: 'u5', q: '20% off then 10% off =?', choices: ['25%','28%','30%','32%'], a: 1, h1: 'Successive percents don\'t add. Multiply: 0.8 × 0.9.', h2: '0.72, meaning you pay 72%, so 28% has been discounted.', exp: '0.8 × 0.9 = 0.72 → 28% off.', walk: ['Successive percents don\'t simply add.', '20% off: pay 80% (×0.80).', 'Then 10% off: × 0.90.', 'Combined: 0.80 × 0.90 = 0.72.', 'You pay 72%, so the discount is 28%.'] },
+  { strand: 'u5', q: 'Tom: $54 in 4 hrs. In 7 hrs?', choices: ['$84.50','$94.50','$108','$378'], a: 1, h1: 'Find the unit rate: dollars per hour.', h2: '$54 ÷ 4 = $13.50/hr. Times 7 hours.', exp: '$13.50/h × 7 = $94.50.', walk: ['Find the unit rate first (dollars per hour).', '$54 ÷ 4 hours = $13.50/hr.', '× 7 hours: 13.50 × 7 = $94.50.'] },
+  { strand: 'u5', q: '84:t:96 = 21:27:24. t?', choices: ['72','108','116','120'], a: 1, h1: 'Compare each term to the simplified ratio. 84 ÷ 21 = 4 (the scaling factor).', h2: 'Multiply each term of 21:27:24 by 4. 27 × 4 = 108.', exp: 'Factor 4. t = 108.', walk: ['Find the scaling factor: 84 ÷ 21 = 4.', 'So we multiply ALL terms of 21:27:24 by 4.', '21×4 = 84. ✓ 27×4 = 108. 24×4 = 96. ✓', 't = 108.'] },
+  { strand: 'u5', q: 'Up 25% to $35. Original?', choices: ['$26.25','$27','$28','$30'], a: 2, h1: 'New price is 125% of original. Find 1%, then 100%.', h2: '1% = 35 ÷ 125 = 0.28. So 100% = $28.', exp: '$35 = 125%. Original $28.', walk: ['The new price ($35) is 125% of the original.', 'Find 1%: 35 ÷ 125 = 0.28.', '× 100 to get 100%: 0.28 × 100 = $28.', 'Original was $28.'] },
+  { strand: 'u5', q: 'Map 1:5,000,000. 8 cm = ?', choices: ['40 km','400','4000','40,000'], a: 1, h1: 'Scale: 1 cm represents 50 km (since 5,000,000 cm = 50 km).', h2: '8 cm × 50 km = 400 km.', exp: '8 × 50 = 400 km.', walk: ['Scale 1:5,000,000 means 1 cm on map = 5,000,000 cm in real life.', '5,000,000 cm = 50,000 m = 50 km.', 'So 1 cm = 50 km.', '8 cm × 50 km = 400 km.'] },
+  { strand: 'u5', q: 'Car 9 L/100km. 350 km?', choices: ['25.5 L','28.5','31.5','38.9'], a: 2, h1: 'Set up a proportion: 9/100 = x/350.', h2: '9/100 × 350 = 31.5 L.', exp: '9/100 × 350 = 31.5.', walk: ['Set up a proportion: 9 L per 100 km = x L per 350 km.', 'x/350 = 9/100.', 'x = 9/100 × 350 = 31.5 L.'] },
+  { strand: 'u5', q: '$45 + 15% tip?', choices: ['$45.15','$48','$51.75','$60'], a: 2, h1: '15% tip means multiply by 1.15.', h2: '$45 × 1.15 = $51.75.', exp: '45 × 1.15 = $51.75.', walk: ['15% tip means add 15% to the bill, OR multiply by 1.15.', '$45 × 1.15.', '= $51.75.'] },
+
+  { strand: 'u6', q: 'Solve 3x − 7 = 14.', choices: ['2.33','3','7','21'], a: 2, h1: 'Add 7 to both sides first.', h2: '3x = 21. Divide both sides by 3.', exp: '3x = 21. x = 7.', walk: ['Two-step: undo +/− first, then ×/÷.', 'Add 8 to both sides: 5x = 35.', 'Divide both sides by 5: x = 7.', 'Verify: 5(7) − 8 = 35 − 8 = 27. ✓'] },
+  { strand: 'u6', q: 'Solve 4(x + 3) = 32.', choices: ['2','5','8','11'], a: 1, h1: 'Distribute the 4: 4x + 12.', h2: '4x + 12 = 32. Subtract 12, then divide by 4.', exp: '4x + 12 = 32. x = 5.', walk: ['Distribute the 4 first.', '4(x + 3) = 4x + 12.', '4x + 12 = 32. Subtract 12: 4x = 20.', 'Divide by 4: x = 5.'] },
+  { strand: 'u6', q: 'Solve −2(x − 4) = −10.', choices: ['−1','1','9','−9'], a: 2, h1: 'Distribute the −2: −2x + 8.', h2: '−2x + 8 = −10. Subtract 8: −2x = −18. Divide by −2.', exp: '−2x + 8 = −10. x = 9.', walk: ['Distribute the −2 to BOTH terms inside.', '−2(x − 4) = −2x + 8.', '−2x + 8 = −10. Subtract 8: −2x = −18.', 'Divide by −2 (flips sign): x = 9.'] },
+  { strand: 'u6', q: 'Solve x/3 + 5 = 11.', choices: ['2','6','18','48'], a: 2, h1: 'Subtract 5 from both sides first.', h2: 'x/3 = 6. Multiply both sides by 3.', exp: 'x/3 = 6. x = 18.', walk: ['Get the variable term alone first.', 'Subtract 5 from both sides: x/3 = 6.', 'Multiply both sides by 3: x = 18.', 'Verify: 18/3 + 5 = 6 + 5 = 11. ✓'] },
+  { strand: 'u6', q: 'y = 4x − 7 at x = 5.', choices: ['13','12','22','27'], a: 0, h1: 'Substitute x = 5 into the equation.', h2: 'y = 4(5) − 7 = 20 − 7.', exp: '20 − 7 = 13.', walk: ['Substitute x = 5 into y = 4x − 7.', 'y = 4(5) − 7.', '= 20 − 7 = 13.'] },
+  { strand: 'u6', q: 'y = 2x + 5, x when y = 17?', choices: ['4','6','8','11'], a: 1, h1: 'Substitute y = 17 and solve for x.', h2: '17 = 2x + 5. Subtract 5: 12 = 2x. Divide by 2.', exp: '12 = 2x. x = 6.', walk: ['Substitute y = 17. Now solve for x.', '17 = 2x + 5. Subtract 5: 12 = 2x.', 'Divide by 2: x = 6.'] },
+  { strand: 'u6', q: 'DJ $150 + $3/student = $375. Students?', choices: ['50','75','125','175'], a: 1, h1: 'Total = fixed + per-student × students. Set up: 3s + 150 = 375.', h2: '3s = 225. Divide by 3.', exp: '3s = 225. s = 75.', walk: ['Set up an equation. Total = fixed + per-student × students.', '3s + 150 = 375.', 'Subtract 150: 3s = 225.', 'Divide by 3: s = 75 students.'] },
+  { strand: 'u6', q: '(5, 45) on guests vs cost graph means:', choices: ['5 guests cost $45','5 guests cost $30','45 guests cost $5','5 cost $0.45'], a: 0, h1: 'On a graph, x-coordinate is first, y-coordinate is second.', h2: '(5, 45) means x = 5 guests and y = $45 cost.', exp: 'x = 5, y = 45.', walk: ['A point on a graph is (x, y). x is horizontal, y is vertical.', '(5, 45) means x = 5 and y = 45.', 'If x = guests and y = cost: 5 guests, $45.'] },
+  { strand: 'u6', q: 'y = −2x + 8 at x = 3.', choices: ['2','6','14','−14'], a: 0, h1: 'Substitute x = 3 into y = −2x + 8.', h2: 'y = −2(3) + 8 = −6 + 8.', exp: '−6 + 8 = 2.', walk: ['Substitute x = 3 into y = −2x + 8.', 'y = −2(3) + 8.', 'Multiplication first: −6 + 8.', '= 2.'] },
+  { strand: 'u6', q: 'Pizza vs cost graph points:', choices: ['Connected line','Connected curve','NOT connected','Histogram'], a: 2, h1: 'You can\'t have half a pizza ordered (discrete). Should the dots be connected?', h2: 'Discrete data — can\'t have 1.5 pizzas. So points are NOT connected.', exp: 'Discrete data unconnected.', walk: ['Pizza orders are discrete — you can\'t buy 1.5 pizzas.', 'Each (number, cost) point stands alone.', 'Don\'t connect them with a line.', 'Show as separate dots.'] },
+  { strand: 'u6', q: 'Joe = Bill+16, Sam = Bill, total 79. Bill?', choices: ['16','21','27','37'], a: 1, h1: 'Let b = Bill\'s. Joe = b + 16, Sam = b. Sum = 79.', h2: 'b + (b + 16) + b = 79. So 3b + 16 = 79.', exp: '3b + 16 = 79. b = 21.', walk: ['Let b = Bill\'s age. Joe = b + 16. Sam = b. Sum = 79.', 'b + (b + 16) + b = 79.', '3b + 16 = 79.', 'Subtract 16: 3b = 63.', 'Divide by 3: b = 21. Bill is 21.'] },
+  { strand: 'u6', q: 'Solve 2(x − 4) = −20.', choices: ['−6','−2','6','12'], a: 0, h1: 'Distribute: 2x − 8.', h2: '2x − 8 = −20. Add 8: 2x = −12. Divide by 2.', exp: '2x − 8 = −20. x = −6.', walk: ['Distribute first: 2(x − 4) = 2x − 8.', '2x − 8 = −20.', 'Add 8: 2x = −12.', 'Divide by 2: x = −6.'] },
+  { strand: 'u6', q: 'Identify error: 4(s−3)=288 → 4s−12=288 → 4s−12−12=288−12 → s=69.', choices: ['Should add 12','Distribute','Divide first','No error'], a: 0, h1: 'After distributing 4(s−3) = 4s − 12, what\'s the next step?', h2: 'Should ADD 12 to both sides (not subtract). Common error.', exp: 'Should ADD 12. s = 75.', walk: ['After distributing, equation is 4s − 12 = 288.', 'To isolate 4s, ADD 12 to both sides (don\'t subtract).', '4s = 300.', 's = 75. The error was subtracting instead of adding.'] },
+  { strand: 'u6', q: 'In y = 2x+5, when x increases by 1, y changes by:', choices: ['1','2','5','7'], a: 1, h1: 'In y = 2x + 5, the coefficient of x tells you the change per step.', h2: 'Coefficient is 2. So y goes up by 2 each time x goes up by 1.', exp: 'Coefficient is 2.', walk: ['In y = ax + b, the coefficient of x (here, 2) is the rate of change.', 'Each time x goes up by 1, y goes up by 2.', 'Try it: x=0, y=5. x=1, y=7. Difference is 2.'] },
+  { strand: 'u6', q: 'Cab $3.75 + $2/km. Bill $33.75. km?', choices: ['10','15','17','30'], a: 1, h1: 'Set up: 2k + 3.75 = 33.75.', h2: '2k = 30. Divide by 2.', exp: '2k = 30. k = 15.', walk: ['Set up: 2k + 3.75 = 33.75.', 'Subtract 3.75 from both sides: 2k = 30.', 'Divide by 2: k = 15 km.'] },
+
+  { strand: 'u7', q: 'Best graph for "favourite ice cream flavours"?', choices: ['Line','Circle','Histogram','Scatter'], a: 1, h1: 'Categories (flavours), and you might want percentages of a whole.', h2: 'Parts of a whole → circle (pie) graph.', exp: 'Discrete categories, parts of whole → circle.', walk: ['Ice-cream flavours = discrete categories with parts of a whole.', 'Bar shows categories but not as % of whole well.', 'Pictograph hard to compare proportions.', 'Circle (pie) graph is best — shows each flavour\'s share.'] },
+  { strand: 'u7', q: 'Bar y-axis starts at 95. Effect?', choices: ['No effect','Smaller','Larger','More accurate'], a: 2, h1: 'If the y-axis is truncated (doesn\'t start at 0), what happens visually?', h2: 'Bars look proportionally larger than the actual differences.', exp: 'Truncated → exaggerated.', walk: ['A truncated y-axis (not starting at 0) exaggerates differences.', 'Two bars of values 95 and 100 differ by 5%.', 'If axis is 90–105, one bar looks twice as tall as the other.', 'Visually misleading.'] },
+  { strand: 'u7', q: 'Best for 24-hr temperature?', choices: ['Bar','Pictograph','Circle','Line'], a: 3, h1: 'Continuous data over time.', h2: 'Line graphs are best for trends over time.', exp: 'Continuous over time.', walk: ['Temperature changes continuously through the day.', 'Continuous time data → line graph.', 'Connecting points shows the trend.'] },
+  { strand: 'u7', q: 'P(rolling 4 AND flipping H)?', choices: ['1/12','1/8','1/6','1/2'], a: 0, h1: 'Independent events. Multiply: P(4 on die) × P(H on coin).', h2: '1/6 × 1/2 = 1/12.', exp: '(1/6)(1/2) = 1/12.', walk: ['Coin and die are independent. Use P(A) × P(B).', 'P(roll 4) = 1/6.', 'P(flip H) = 1/2.', 'P(both) = 1/6 × 1/2 = 1/12.'] },
+  { strand: 'u7', q: 'Two coins. P(both heads)?', choices: ['1/2','1/3','1/4','3/4'], a: 2, h1: 'Two independent flips. P(H) × P(H).', h2: '1/2 × 1/2 = 1/4.', exp: '1/2 × 1/2 = 1/4.', walk: ['Two coin flips are independent.', 'P(H) = 1/2 each time.', 'P(both H) = 1/2 × 1/2 = 1/4.'] },
+  { strand: 'u7', q: 'Which is dependent?', choices: ['Coin then die','Spinner twice','Card kept then another','Two dice'], a: 2, h1: 'If the first event affects the second, they\'re dependent.', h2: 'Cards kept aside change what\'s left in the deck — that\'s dependent.', exp: 'Card changes deck.', walk: ['Independent: outcome of one doesn\'t affect the other.', 'Coin & die: don\'t affect each other. Independent.', 'Spinner twice: don\'t affect each other. Independent.', 'Card kept aside: changes what\'s left in deck. DEPENDENT.', 'Two dice: don\'t affect each other. Independent.'] },
+  { strand: 'u7', q: '4-spinner + die. P(red AND 6)?', choices: ['1/24','1/12','1/10','1/4'], a: 0, h1: 'Independent: spin and roll. P(red) × P(6).', h2: '1/4 × 1/6 = 1/24.', exp: '(1/4)(1/6) = 1/24.', walk: ['Spinner and die are independent.', 'P(red) = 1/4. P(roll 6) = 1/6.', 'P(both) = 1/4 × 1/6 = 1/24.'] },
+  { strand: 'u7', q: '3R/4B/5G. P(NOT red)?', choices: ['1/4','1/3','3/4','9/12'], a: 2, h1: 'Total marbles: 3 + 4 + 5 = 12. P(not red) = (not red marbles) / 12.', h2: '9 non-red ÷ 12 = 3/4.', exp: '9/12 = 3/4.', walk: ['Total marbles: 3 + 4 + 5 = 12.', 'Not red = blue + green = 4 + 5 = 9.', 'P(not red) = 9/12 = 3/4.'] },
+  { strand: 'u7', q: 'Three coins. P(all H)?', choices: ['1/2','1/4','1/8','3/8'], a: 2, h1: 'Three independent flips. P(H) × P(H) × P(H).', h2: '(1/2)³ = 1/8.', exp: '(1/2)³ = 1/8.', walk: ['Three independent flips. P(H) each time = 1/2.', 'P(all H) = 1/2 × 1/2 × 1/2.', '= 1/8.'] },
+  { strand: 'u7', q: 'Why is circle graph poor for 25 categories?', choices: ['Too many wedges','Cannot show categories','Need 30+','Only for time'], a: 0, h1: 'Think about how readable a circle graph would be with 25 small slices.', h2: 'Too many tiny wedges — hard to compare or label.', exp: 'Tiny crowded wedges.', walk: ['A circle graph with 25 categories has 25 tiny wedges.', 'Most wedges become too small to see or label.', 'It becomes unreadable.', 'Better: bar graph or table for that many categories.'] },
+  { strand: 'u7', q: 'Coin × die × 5-spinner. Total?', choices: ['13','30','60','120'], a: 2, h1: 'Multiply outcomes: (coin) × (die) × (spinner).', h2: '2 × 6 × 5 = 60.', exp: '2 × 6 × 5 = 60.', walk: ['Each event is independent. Total outcomes = product.', 'Coin: 2 outcomes. Die: 6 outcomes. 5-spinner: 5 outcomes.', 'Total: 2 × 6 × 5 = 60.'] },
+  { strand: 'u7', q: '3 children. P(all girls)?', choices: ['1/2','1/4','1/6','1/8'], a: 3, h1: 'Each child independently has P(girl) = 1/2.', h2: '(1/2)³ = 1/8.', exp: '(1/2)³ = 1/8.', walk: ['Each child\'s gender is independent. P(girl) = 1/2 each.', 'P(all 3 girls) = 1/2 × 1/2 × 1/2.', '= 1/8.'] },
+  { strand: 'u7', q: 'P(rolling doubles)?', choices: ['1/36','1/12','1/6','5/6'], a: 2, h1: 'Doubles: (1,1), (2,2), (3,3), (4,4), (5,5), (6,6) — 6 outcomes out of 36.', h2: '6/36 simplifies to 1/6.', exp: '6/36 = 1/6.', walk: ['Doubles means both dice show the same number: (1,1), (2,2), …, (6,6).', 'That\'s 6 outcomes out of 36 total.', 'P = 6/36 = 1/6.'] },
+  { strand: 'u7', q: '3 drinks × 2 sandwiches × 3 pies. P(specific combo)?', choices: ['1/8','1/9','1/12','1/18'], a: 3, h1: 'Each is independent. P(specific drink) × P(specific sandwich) × P(specific pie).', h2: '1/3 × 1/2 × 1/3 = 1/18.', exp: '1/3 × 1/2 × 1/3 = 1/18.', walk: ['Each choice is independent.', 'P(specific drink) = 1/3. P(specific sandwich) = 1/2. P(specific pie) = 1/3.', 'P(specific combo) = 1/3 × 1/2 × 1/3.', '= 1/18.'] },
+  { strand: 'u7', q: '7/10 flips H. Theoretical P(H)?', choices: ['7/10','1/2','3/10','3/7'], a: 1, h1: 'Theoretical probability is what you\'d EXPECT, not what was observed.', h2: 'A fair coin\'s theoretical P(H) is always 1/2, no matter what was flipped.', exp: 'Theoretical = 1/2.', walk: ['Theoretical probability is the EXPECTED value, not what was observed.', 'A fair coin always has theoretical P(H) = 1/2.', 'Doesn\'t matter what came up in 10 flips.', 'Long term, results would approach 1/2.'] },
+
+  { strand: 'u8', q: 'TOP view shows:', choices: ['ℓ × h','w × h','ℓ × w','only ℓ'], a: 2, h1: 'Top view = looking straight down. You see length and width, not height.', h2: 'ℓ × w (the footprint).', exp: 'Looking down → ℓ × w.', walk: ['Top view = looking straight down.', 'You see length and width but NOT height.', 'Answer: ℓ × w.'] },
+  { strand: 'u8', q: 'Translate (5, −2) by [−3, 4].', choices: ['(2, 2)','(8, −6)','(2, −6)','(8, 2)'], a: 0, h1: '[a, b] means add a to x, add b to y.', h2: '(5 + (−3), −2 + 4) = (2, 2).', exp: '(2, 2).', walk: ['Translation [a, b]: add a to x, add b to y.', '[−3, 4] applied to (5, −2):', 'x: 5 + (−3) = 2.', 'y: −2 + 4 = 2.', 'New point: (2, 2).'] },
+  { strand: 'u8', q: 'Reflect (3, 5) in x-axis.', choices: ['(−3, 5)','(3, −5)','(−3, −5)','(5, 3)'], a: 1, h1: 'Reflecting in x-axis flips the y-coordinate sign.', h2: '(x, y) → (x, −y). So (3, 5) becomes (3, −5).', exp: 'y flips.', walk: ['Reflection in x-axis flips the y-coordinate sign.', 'Rule: (x, y) → (x, −y).', '(3, 5) → (3, −5).'] },
+  { strand: 'u8', q: 'Reflect (4, −2) in y-axis.', choices: ['(−4, −2)','(−4, 2)','(4, 2)','(2, 4)'], a: 0, h1: 'Reflecting in y-axis flips the x-coordinate sign.', h2: '(x, y) → (−x, y). So (4, −2) becomes (−4, −2).', exp: 'x flips.', walk: ['Reflection in y-axis flips the x-coordinate sign.', 'Rule: (x, y) → (−x, y).', '(4, −2) → (−4, −2).'] },
+  { strand: 'u8', q: 'Rotate (3, 4) 90° CW.', choices: ['(4, 3)','(4, −3)','(−4, 3)','(−3, −4)'], a: 1, h1: '90° clockwise: (x, y) → (y, −x).', h2: 'x=3, y=4. New: (4, −3).', exp: '(y, −x) = (4, −3).', walk: ['90° clockwise rule: (x, y) → (y, −x).', 'x = 3, y = 4.', 'New: (4, −3).'] },
+  { strand: 'u8', q: 'Rotate (2, −5) 180°.', choices: ['(−2, 5)','(2, 5)','(−2, −5)','(−5, 2)'], a: 0, h1: '180° rotation: (x, y) → (−x, −y).', h2: 'Both signs flip: (2, −5) → (−2, 5).', exp: '(−x, −y).', walk: ['180° rotation: (x, y) → (−x, −y). Both signs flip.', '(2, −5) → (−2, 5).'] },
+  { strand: 'u8', q: 'Image after transform is:', choices: ['Larger','Smaller','Congruent','Same position'], a: 2, h1: 'These three transformations preserve size and shape.', h2: 'Image is congruent to original — same size, same shape.', exp: 'Preserves size and shape.', walk: ['Translations, reflections, and rotations preserve size and shape.', 'Nothing stretches, shrinks, or distorts.', 'Image is congruent to original.'] },
+  { strand: 'u8', q: 'A(2,1). Reflect y-axis, then [3,2]. Final?', choices: ['(1, 3)','(−2, 1)','(1, 4)','(−1, 4)'], a: 0, h1: 'Apply transformations one at a time, in order.', h2: '(2,1) → reflect y-axis: (−2, 1). Then translate [3, 2]: (−2+3, 1+2) = (1, 3).', exp: '(−2,1) → (1,3).', walk: ['Apply transformations one at a time, in order.', 'Step 1: reflect (2, 1) in y-axis → (−2, 1).', 'Step 2: translate (−2, 1) by [3, 2].', 'x: −2 + 3 = 1. y: 1 + 2 = 3.', 'Final: (1, 3).'] },
+  { strand: 'u8', q: '3-D object same after 90° rotation. It has:', choices: ['Asymmetry','90° rotational symmetry','Wrong axis','Odd cubes'], a: 1, h1: 'If a 90° turn gives the same shape, the object has rotational symmetry.', h2: 'It has 90° rotational symmetry.', exp: 'Rotational symmetry.', walk: ['If a 3-D object looks the same after a 90° turn, it has rotational symmetry.', 'The smallest angle that maps it to itself is its order.', 'Same after 90° = 90° rotational symmetry.'] },
+  { strand: 'u8', q: 'Cubes from views — number?', choices: ['Always one','Range','Always zero','Always 8+'], a: 1, h1: 'Hidden cubes can\'t be seen in any view. You might miss them.', h2: 'Min and max depending on hidden cubes — gives a range.', exp: 'Hidden cubes give a range.', walk: ['Top, front, side views together don\'t always uniquely determine the object.', 'A hidden cube buried inside doesn\'t appear in any view.', 'Result: a range of possible cube counts.', 'Min = bare minimum to satisfy views; max = adding hidden cubes.'] },
+  { strand: 'u8', q: 'Rotate (1, 2) 90° CCW.', choices: ['(2, −1)','(−2, 1)','(−1, −2)','(2, 1)'], a: 1, h1: '90° CCW rule: (x, y) → (−y, x).', h2: 'x=1, y=2. New: (−2, 1).', exp: '(−y, x).', walk: ['90° counter-clockwise rule: (x, y) → (−y, x).', 'x = 1, y = 2.', 'New: (−2, 1).'] },
+  { strand: 'u8', q: 'Reflect (−3, 4) in x-axis.', choices: ['(3, 4)','(−3, −4)','(3, −4)','(−4, −3)'], a: 1, h1: 'Reflecting in x-axis flips only y.', h2: '(−3, 4) → (−3, −4).', exp: 'y flips.', walk: ['Reflection in x-axis flips only y.', '(−3, 4) → (−3, −4).', 'x stays the same, y becomes negative.'] },
+  { strand: 'u8', q: '[4, −3] sent A → A\'(7, 2). A?', choices: ['(3, 5)','(11, −1)','(3, −1)','(11, 5)'], a: 0, h1: 'Translation [4, −3] sent A to A\'. To undo: [−4, +3].', h2: '(7, 2) − (4, −3) = (3, 5).', exp: 'Reverse: (3, 5).', walk: ['Translation [4, −3] sends A to A\'(7, 2).', 'To find A, undo the translation: subtract [4, −3].', 'x: 7 − 4 = 3. y: 2 − (−3) = 5.', 'A = (3, 5).'] },
+  { strand: 'u8', q: '180° rotation gives (−5, 3). Pre-image?', choices: ['(−5, 3)','(5, −3)','(5, 3)','(−3, 5)'], a: 1, h1: '180° rotation undoes itself. Apply (x,y) → (−x, −y) again.', h2: '(−5, 3) → (5, −3).', exp: '180° is its own inverse.', walk: ['180° rotation has rule (x, y) → (−x, −y).', 'It\'s its own inverse: applying twice gets you back.', 'Image (−5, 3). Apply rule: (−(−5), −(3)) = (5, −3).', 'Pre-image is (5, −3).'] },
+  { strand: 'u8', q: 'Two reflections in PERPENDICULAR axes =', choices: ['Translation','Reflection','180° rotation','90° rotation'], a: 2, h1: 'Reflecting twice over perpendicular axes ends up rotating 180°.', h2: '(x, y) → reflect x → (x, −y) → reflect y → (−x, −y), which is 180°.', exp: '(−x, −y) = 180°.', walk: ['Reflect in x-axis: (x, y) → (x, −y).', 'Then reflect in y-axis: (x, −y) → (−x, −y).', 'Result: (x, y) → (−x, −y).', 'That\'s exactly the 180° rotation rule.'] },
+];
+
+// =================== EXAMS ===================
+const EXAMS = {
+  examA: { name: 'Exam A — Diagnostic', desc: 'Balanced coverage of all units. Good first attempt.',
+    questions: [PRACTICE[0], PRACTICE[2], PRACTICE[5], PRACTICE[7], PRACTICE[15], PRACTICE[17], PRACTICE[20], PRACTICE[24], PRACTICE[30], PRACTICE[31], PRACTICE[35], PRACTICE[37], PRACTICE[45], PRACTICE[46], PRACTICE[50], PRACTICE[54], PRACTICE[60], PRACTICE[62], PRACTICE[64], PRACTICE[68], PRACTICE[75], PRACTICE[78], PRACTICE[81], PRACTICE[83], PRACTICE[90], PRACTICE[92], PRACTICE[97], PRACTICE[99], PRACTICE[105], PRACTICE[108]] },
+  examB: { name: 'Exam B — Practice', desc: 'Fresh selection. Similar difficulty to Exam A.',
+    questions: [PRACTICE[1], PRACTICE[3], PRACTICE[6], PRACTICE[10], PRACTICE[16], PRACTICE[18], PRACTICE[22], PRACTICE[26], PRACTICE[32], PRACTICE[33], PRACTICE[38], PRACTICE[39], PRACTICE[47], PRACTICE[48], PRACTICE[53], PRACTICE[57], PRACTICE[61], PRACTICE[63], PRACTICE[67], PRACTICE[71], PRACTICE[76], PRACTICE[79], PRACTICE[82], PRACTICE[86], PRACTICE[91], PRACTICE[94], PRACTICE[100], PRACTICE[103], PRACTICE[106], PRACTICE[110]] },
+  examC: { name: 'Exam C — Challenge', desc: 'Harder: multi-step word problems.',
+    questions: [PRACTICE[4], PRACTICE[8], PRACTICE[11], PRACTICE[14], PRACTICE[19], PRACTICE[23], PRACTICE[27], PRACTICE[28], PRACTICE[34], PRACTICE[40], PRACTICE[41], PRACTICE[43], PRACTICE[49], PRACTICE[51], PRACTICE[55], PRACTICE[58], PRACTICE[65], PRACTICE[66], PRACTICE[69], PRACTICE[73], PRACTICE[80], PRACTICE[84], PRACTICE[87], PRACTICE[88], PRACTICE[93], PRACTICE[95], PRACTICE[101], PRACTICE[104], PRACTICE[111], PRACTICE[114]] },
+  examD: { name: 'Exam D — Final review', desc: 'Mixed difficulty. Use this to simulate a real test.',
+    questions: [PRACTICE[2], PRACTICE[9], PRACTICE[12], PRACTICE[13], PRACTICE[21], PRACTICE[25], PRACTICE[29], PRACTICE[36], PRACTICE[42], PRACTICE[44], PRACTICE[52], PRACTICE[56], PRACTICE[59], PRACTICE[70], PRACTICE[72], PRACTICE[74], PRACTICE[77], PRACTICE[85], PRACTICE[89], PRACTICE[96], PRACTICE[98], PRACTICE[102], PRACTICE[107], PRACTICE[109], PRACTICE[112], PRACTICE[113], PRACTICE[1], PRACTICE[33], PRACTICE[80], PRACTICE[111]] },
+};
+
+const TOPIC_NAMES = { u1: 'Unit 1', u2: 'Unit 2', u3: 'Unit 3', u4: 'Unit 4', u5: 'Unit 5', u6: 'Unit 6', u7: 'Unit 7', u8: 'Unit 8' };
+
+</script>
+<script>
+// =================== STORAGE ===================
+const STORE_KEYS = {
+  practice: 'g8-practice-v2',
+  drillSet: 'g8-drill-set-v1',
+  drillState: 'g8-drill-state-v2',
+  drillMastered: 'g8-drill-mastered-v1',
+  exams: 'g8-exams-v1',
+  tutChecks: 'g8-tut-checks-v2',
+};
+function saveStore(key, data) {
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch(e) {}
+}
+function loadStore(key, fallback) {
+  try {
+    const v = localStorage.getItem(key);
+    return v ? JSON.parse(v) : fallback;
+  } catch(e) { return fallback; }
+}
+
+// =================== STATE ===================
+// Question state shape: { attempts: [c1, c2, ...], correct: bool, revealed: bool }
+let practiceFilter = 'all';
+let drillFilter = 'all';
+let topicFilter = 'all';
+let activeTut = 'u1';
+let practiceState = loadStore(STORE_KEYS.practice, {});
+let drillSet = loadStore(STORE_KEYS.drillSet, []);
+let drillState = loadStore(STORE_KEYS.drillState, {});
+let drillMastered = loadStore(STORE_KEYS.drillMastered, []);
+let examStates = loadStore(STORE_KEYS.exams, {});
+let tutCheckState = loadStore(STORE_KEYS.tutChecks, {});
+
+let currentExamId = null;
+let timerInterval = null;
+
+// =================== HINT-FLOW HELPERS ===================
+// Render multi-choice question body with hint flow.
+function renderQuestionBody(qq, state) {
+  state = state || { attempts: [], correct: false, revealed: false };
+  const attempts = state.attempts || [];
+  const locked = state.correct || state.revealed;
+  let html = '';
+  qq.choices.forEach((choice, i) => {
+    let cls = 'quiz-choice';
+    if (locked) {
+      cls += ' disabled';
+      if (i === qq.a) cls += ' correct';
+      else if (attempts.includes(i)) cls += ' wrong';
+    } else {
+      if (attempts.includes(i)) cls += ' wrong disabled';
+    }
+    html += `<div class="${cls}" data-c="${i}"><span class="letter">${'ABCD'[i]}.</span><span>${choice}</span></div>`;
+  });
+  if (state.correct) {
+    const tries = attempts.length;
+    const heading = tries === 1 ? '✓ Correct — first try!' : (tries === 2 ? '✓ Correct on the second try.' : '✓ Got it.');
+    html += `<div class="feedback fb-correct"><strong>${heading}</strong> ${qq.exp}</div>`;
+  } else if (state.revealed) {
+    if (qq.walk && qq.walk.length) {
+      let stepsHtml = '<ol class="walkthrough-steps">';
+      qq.walk.forEach(step => { stepsHtml += `<li>${step}</li>`; });
+      stepsHtml += '</ol>';
+      html += `<div class="feedback fb-walk"><strong>✗ Let's walk through this one together.</strong>${stepsHtml}</div>`;
+    } else {
+      html += `<div class="feedback fb-wrong"><strong>✗ Let's look at this one together.</strong> ${qq.exp}</div>`;
+    }
+  } else if (attempts.length === 1) {
+    const hint = qq.h1 || 'Take another look and try again.';
+    html += `<div class="feedback fb-hint"><strong>Not quite. Hint:</strong> ${hint}</div>`;
+  } else if (attempts.length === 2) {
+    const hint = qq.h2 || qq.h1 || 'Take another look and try again.';
+    html += `<div class="feedback fb-hint"><strong>Closer — try once more. Bigger hint:</strong> ${hint}</div>`;
+  }
+  return html;
+}
+
+function updateAnswerState(state, qq, choiceIdx) {
+  state = state || { attempts: [], correct: false, revealed: false };
+  if (state.correct || state.revealed) return state;
+  if (state.attempts.includes(choiceIdx)) return state;
+  state.attempts = [...state.attempts, choiceIdx];
+  if (choiceIdx === qq.a) {
+    state.correct = true;
+  } else if (state.attempts.length >= 3) {
+    state.revealed = true;
+  }
+  return state;
+}
+
+// =================== NAV ===================
+document.querySelectorAll('#nav button').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#nav button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+    if (btn.dataset.panel === 'drill') renderDrill();
+    if (btn.dataset.panel === 'exam') { renderExamPicker(); if (!currentExamId) closeExam(); }
+    if (btn.dataset.panel === 'tutorials') renderTutorial(activeTut);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+});
+
+// =================== TUTORIALS ===================
+document.querySelectorAll('#tut-tabs .tut-tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#tut-tabs .tut-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTut = btn.dataset.tut;
+    renderTutorial(activeTut);
+  };
+});
+
+function renderTutorial(unitId) {
+  const tut = TUTORIALS[unitId];
+  if (!tut) return;
+  const target = document.getElementById('tut-content');
+  let html = `<h3 style="font-size: 1.5rem; border-bottom: 2px solid var(--gold); padding-bottom: 8px; margin-bottom: 16px;">${tut.title}</h3>`;
+  html += `<p style="font-style: italic; color: var(--ink-soft); font-size: 15px; margin-bottom: 18px;">${tut.intro}</p>`;
+  html += tut.body;
+  html += `<hr class="lesson-divider"><h3>Try it yourself</h3><p style="color: var(--ink-soft); margin-bottom: 14px;">A quick set of interactive checks. Click your answer to check it. If you get it wrong, you'll get a hint and another try.</p>`;
+  html += `<div id="tut-checks-${unitId}"></div>`;
+  target.innerHTML = html;
+  renderTutChecks(unitId);
+}
+
+function renderTutChecks(unitId) {
+  const tut = TUTORIALS[unitId];
+  const container = document.getElementById('tut-checks-' + unitId);
+  if (!container || !tut.checks) return;
+  container.innerHTML = '';
+  if (!tutCheckState[unitId]) tutCheckState[unitId] = {};
+  tut.checks.forEach((check, qIdx) => {
+    const div = document.createElement('div');
+    div.className = 'check-q';
+    const state = tutCheckState[unitId][qIdx];
+    let html = `<div class="check-q-head">Check ${qIdx + 1}</div><div class="quiz-q-head">${check.q}</div>`;
+    html += renderQuestionBody(check, state);
+    div.innerHTML = html;
+    div.querySelectorAll('.quiz-choice').forEach(el => {
+      if (el.classList.contains('disabled')) return;
+      el.onclick = () => {
+        const c = parseInt(el.dataset.c);
+        const cur = tutCheckState[unitId][qIdx];
+        const updated = updateAnswerState(cur, check, c);
+        tutCheckState[unitId][qIdx] = updated;
+        saveStore(STORE_KEYS.tutChecks, tutCheckState);
+        renderTutChecks(unitId);
+      };
+    });
+    container.appendChild(div);
+  });
+}
+
+// =================== TOPICS ===================
+function renderTopics() {
+  const list = document.getElementById('topic-list');
+  list.innerHTML = '';
+  const filtered = topicFilter === 'all' ? TOPICS : TOPICS.filter(t => t.strand === topicFilter);
+  if (!filtered.length) {
+    list.innerHTML = '<p style="text-align: center; color: var(--muted); padding: 2rem;">No topics in that filter.</p>';
+    return;
+  }
+  filtered.forEach((topic) => {
+    const div = document.createElement('div');
+    div.className = 'topic-card';
+    div.innerHTML = `<div class="topic-head"><div style="display:flex;align-items:center;gap:10px;flex:1;"><span class="pill pill-${topic.strand}">${TOPIC_NAMES[topic.strand]}</span><span class="topic-title">${topic.title}</span></div><span class="topic-toggle">+</span></div><div class="topic-body">${topic.body}</div>`;
+    div.querySelector('.topic-head').onclick = () => {
+      const open = div.classList.toggle('open');
+      div.querySelector('.topic-toggle').textContent = open ? '−' : '+';
+    };
+    list.appendChild(div);
+  });
+}
+
+document.querySelectorAll('#topic-filters .filter-pill').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#topic-filters .filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    topicFilter = btn.dataset.strand;
+    renderTopics();
+  };
+});
+
+// =================== PRACTICE ===================
+function renderPractice() {
+  const list = document.getElementById('practice-list');
+  list.innerHTML = '';
+  PRACTICE.forEach((qq, idx) => {
+    if (practiceFilter !== 'all' && qq.strand !== practiceFilter) return;
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    const state = practiceState[idx];
+    let html = `<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px;"><span class="pill pill-${qq.strand}">${TOPIC_NAMES[qq.strand]}</span></div><div class="quiz-q-head">${qq.q}</div>`;
+    html += renderQuestionBody(qq, state);
+    div.innerHTML = html;
+    div.querySelectorAll('.quiz-choice').forEach(el => {
+      if (el.classList.contains('disabled')) return;
+      el.onclick = () => {
+        const c = parseInt(el.dataset.c);
+        const cur = practiceState[idx];
+        const wasFinishedBefore = cur && (cur.correct || cur.revealed);
+        const updated = updateAnswerState(cur, qq, c);
+        practiceState[idx] = updated;
+        saveStore(STORE_KEYS.practice, practiceState);
+        if (!wasFinishedBefore && updated.revealed) {
+          const key = 'practice:' + idx;
+          if (!drillSet.includes(key)) {
+            drillSet.push(key);
+            saveStore(STORE_KEYS.drillSet, drillSet);
+          }
+        }
+        renderPractice();
+        updatePracticeStats();
+      };
+    });
+    list.appendChild(div);
+  });
+}
+
+function updatePracticeStats() {
+  const all = Object.values(practiceState).filter(s => s.correct || s.revealed);
+  const ans = all.length;
+  const cor = all.filter(s => s.correct).length;
+  document.getElementById('prac-answered').textContent = ans;
+  document.getElementById('prac-correct').textContent = cor;
+  document.getElementById('prac-acc').textContent = ans ? Math.round((cor / ans) * 100) + '%' : '—';
+  document.getElementById('drill-count-prac').textContent = drillSet.length;
+}
+
+document.querySelectorAll('#practice-filters .filter-pill').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#practice-filters .filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    practiceFilter = btn.dataset.strand;
+    renderPractice();
+  };
+});
+
+document.getElementById('reset-prac').onclick = () => {
+  if (!confirm('Reset all practice answers? Your drill set is unaffected.')) return;
+  practiceState = {};
+  saveStore(STORE_KEYS.practice, practiceState);
+  renderPractice();
+  updatePracticeStats();
+};
+
+// =================== DRILL ===================
+function getDrillQuestion(key) {
+  const [source, idxStr] = key.split(':');
+  const idx = parseInt(idxStr);
+  if (source === 'practice') return { qq: PRACTICE[idx], strand: PRACTICE[idx].strand };
+  if (EXAMS[source]) {
+    const examQ = EXAMS[source].questions[idx];
+    return { qq: examQ, strand: examQ.strand };
+  }
+  return null;
+}
+
+function renderDrill() {
+  const list = document.getElementById('drill-list');
+  list.innerHTML = '';
+  const filtered = drillSet.filter(key => {
+    if (drillFilter === 'all') return true;
+    const info = getDrillQuestion(key);
+    return info && info.strand === drillFilter;
+  });
+  document.getElementById('drill-total').textContent = drillSet.length;
+  document.getElementById('drill-mastered').textContent = drillMastered.length;
+  if (!drillSet.length) {
+    list.innerHTML = `<div class="drill-empty"><div class="drill-empty-title">Drill set is empty</div><div class="drill-empty-body">When you get a question wrong in Practice or in a Sample exam, it appears here automatically. Then come back to drill until it's mastered.</div></div>`;
+    return;
+  }
+  if (!filtered.length) {
+    list.innerHTML = `<div class="drill-empty"><div class="drill-empty-title">No questions for this filter</div><div class="drill-empty-body">Try "All" or pick a different unit.</div></div>`;
+    return;
+  }
+  filtered.forEach(key => {
+    const info = getDrillQuestion(key);
+    if (!info) return;
+    const qq = info.qq;
+    const [source] = key.split(':');
+    const sourceLabel = source === 'practice' ? 'Practice' : (EXAMS[source] ? EXAMS[source].name : source);
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    const state = drillState[key];
+    let html = `<div class="session-source">${sourceLabel}</div>`;
+    html += `<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px;"><span class="pill pill-${qq.strand}">${TOPIC_NAMES[qq.strand]}</span></div><div class="quiz-q-head">${qq.q}</div>`;
+    html += renderQuestionBody(qq, state);
+    div.innerHTML = html;
+    if (state && state.correct) {
+      const fb = div.querySelector('.feedback');
+      if (fb) {
+        fb.innerHTML = `<strong>✓ Mastered! Removing from drill set in a moment…</strong> ${qq.exp}`;
+      }
+    }
+    div.querySelectorAll('.quiz-choice').forEach(el => {
+      if (el.classList.contains('disabled')) return;
+      el.onclick = () => {
+        const c = parseInt(el.dataset.c);
+        const cur = drillState[key];
+        const updated = updateAnswerState(cur, qq, c);
+        drillState[key] = updated;
+        saveStore(STORE_KEYS.drillState, drillState);
+        renderDrill();
+        if (updated.correct) {
+          setTimeout(() => {
+            drillSet = drillSet.filter(k => k !== key);
+            delete drillState[key];
+            if (!drillMastered.includes(key)) drillMastered.push(key);
+            saveStore(STORE_KEYS.drillSet, drillSet);
+            saveStore(STORE_KEYS.drillState, drillState);
+            saveStore(STORE_KEYS.drillMastered, drillMastered);
+            renderDrill();
+            updatePracticeStats();
+          }, 1500);
+        }
+      };
+    });
+    list.appendChild(div);
+  });
+}
+
+document.querySelectorAll('#drill-filters .filter-pill').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('#drill-filters .filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    drillFilter = btn.dataset.strand;
+    renderDrill();
+  };
+});
+
+document.getElementById('shuffle-drill').onclick = () => {
+  for (let i = drillSet.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [drillSet[i], drillSet[j]] = [drillSet[j], drillSet[i]];
+  }
+  saveStore(STORE_KEYS.drillSet, drillSet);
+  renderDrill();
+};
+
+document.getElementById('clear-drill').onclick = () => {
+  if (!confirm('Clear the drill set? Mastered count will not be affected.')) return;
+  drillSet = [];
+  drillState = {};
+  saveStore(STORE_KEYS.drillSet, drillSet);
+  saveStore(STORE_KEYS.drillState, drillState);
+  renderDrill();
+  updatePracticeStats();
+};
+
+// =================== EXAMS ===================
+// Exams: NO HINTS — single submit at end. Realistic exam mode.
+function renderExamPicker() {
+  const picker = document.getElementById('exam-picker');
+  picker.innerHTML = '';
+  Object.keys(EXAMS).forEach(id => {
+    const ex = EXAMS[id];
+    const st = examStates[id];
+    let statusClass = '';
+    let statusText = 'Not started';
+    if (st && st.submitted) {
+      const correct = ex.questions.filter((q, i) => st.answers[i] === q.a).length;
+      statusClass = 'done';
+      statusText = `Score: ${correct} / ${ex.questions.length}`;
+    } else if (st && st.startedAt) {
+      statusClass = 'in-progress';
+      statusText = 'In progress';
+    }
+    const card = document.createElement('div');
+    card.className = 'exam-card' + (currentExamId === id ? ' active' : '');
+    card.innerHTML = `<div class="exam-card-name">${ex.name}</div><div class="exam-card-meta">${ex.questions.length} questions · ${ex.desc}</div><span class="exam-card-status ${statusClass}">${statusText}</span>`;
+    card.onclick = () => openExam(id);
+    picker.appendChild(card);
+  });
+}
+
+function openExam(id) {
+  currentExamId = id;
+  if (!examStates[id]) {
+    examStates[id] = { answers: {}, submitted: false, time: 0, startedAt: Date.now() };
+    saveStore(STORE_KEYS.exams, examStates);
+  }
+  document.getElementById('exam-active').style.display = 'block';
+  document.getElementById('exam-active-name').textContent = EXAMS[id].name;
+  renderExam();
+  renderExamPicker();
+  if (!examStates[id].submitted) startTimer();
+  document.getElementById('exam-active').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeExam() {
+  stopTimer();
+  currentExamId = null;
+  document.getElementById('exam-active').style.display = 'none';
+  document.getElementById('exam-results').innerHTML = '';
+  renderExamPicker();
+}
+
+function renderExam() {
+  if (!currentExamId) return;
+  const ex = EXAMS[currentExamId];
+  const state = examStates[currentExamId];
+  const list = document.getElementById('exam-list');
+  list.innerHTML = '';
+  ex.questions.forEach((qq, idx) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-q';
+    const sel = state.answers[idx];
+    const submitted = state.submitted;
+    let html = `<div style="display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px;"><span class="pill pill-${qq.strand}">${TOPIC_NAMES[qq.strand]}</span><span style="color: var(--muted); font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, sans-serif;">Q${idx + 1}</span></div><div class="quiz-q-head">${qq.q}</div>`;
+    qq.choices.forEach((c, i) => {
+      let cls = 'quiz-choice';
+      let style = '';
+      if (submitted) {
+        cls += ' disabled';
+        if (i === qq.a) cls += ' correct';
+        else if (i === sel) cls += ' wrong';
+      } else if (sel === i) {
+        style = 'background: var(--gold-soft); border-color: var(--gold);';
+      }
+      html += `<div class="${cls}" data-q="${idx}" data-c="${i}" style="${style}"><span class="letter">${'ABCD'[i]}.</span><span>${c}</span></div>`;
+    });
+    if (submitted) {
+      const correct = sel === qq.a;
+      const fbCls = correct ? 'fb-correct' : 'fb-wrong';
+      const heading = correct ? '✓ Correct.' : (sel === undefined ? '— Not answered.' : '✗ Not quite.');
+      html += `<div class="feedback ${fbCls}"><strong>${heading}</strong> ${qq.exp}</div>`;
+    }
+    div.innerHTML = html;
+    div.querySelectorAll('.quiz-choice').forEach(el => {
+      el.onclick = () => {
+        if (state.submitted) return;
+        const c = parseInt(el.dataset.c);
+        state.answers[idx] = c;
+        saveStore(STORE_KEYS.exams, examStates);
+        renderExam();
+      };
+    });
+    list.appendChild(div);
+  });
+  updateExamProgress();
+}
+
+function updateExamProgress() {
+  if (!currentExamId) return;
+  const ex = EXAMS[currentExamId];
+  const state = examStates[currentExamId];
+  const ans = Object.keys(state.answers).length;
+  const pct = (ans / ex.questions.length) * 100;
+  document.getElementById('exam-progress').style.width = pct + '%';
+  if (state.submitted) {
+    document.getElementById('exam-status').innerHTML = `<strong>Submitted.</strong> Review your answers below. Wrong answers have been added to your drill set.`;
+    document.getElementById('submit-exam-btn').style.display = 'none';
+  } else {
+    document.getElementById('exam-status').innerHTML = `<strong>${ans} of ${ex.questions.length} answered.</strong> Submit when you're done.`;
+    document.getElementById('submit-exam-btn').style.display = '';
+  }
+}
+
+function submitExam() {
+  if (!currentExamId) return;
+  const state = examStates[currentExamId];
+  if (state.submitted) return;
+  const ans = Object.keys(state.answers).length;
+  const total = EXAMS[currentExamId].questions.length;
+  if (ans < total) {
+    if (!confirm(`You've only answered ${ans} of ${total} questions. Submit anyway?`)) return;
+  }
+  state.submitted = true;
+  saveStore(STORE_KEYS.exams, examStates);
+  stopTimer();
+  EXAMS[currentExamId].questions.forEach((qq, idx) => {
+    const sel = state.answers[idx];
+    if (sel !== qq.a) {
+      const key = currentExamId + ':' + idx;
+      if (!drillSet.includes(key)) drillSet.push(key);
+    }
+  });
+  saveStore(STORE_KEYS.drillSet, drillSet);
+  showExamResults();
+  renderExam();
+  renderExamPicker();
+  updatePracticeStats();
+}
+
+function showExamResults() {
+  const ex = EXAMS[currentExamId];
+  const state = examStates[currentExamId];
+  const total = ex.questions.length;
+  const correct = ex.questions.filter((q, i) => state.answers[i] === q.a).length;
+  const pct = Math.round((correct / total) * 100);
+  const breakdown = {};
+  ex.questions.forEach((qq, i) => {
+    if (!breakdown[qq.strand]) breakdown[qq.strand] = { c: 0, t: 0 };
+    breakdown[qq.strand].t++;
+    if (state.answers[i] === qq.a) breakdown[qq.strand].c++;
+  });
+  let bdHtml = '';
+  Object.keys(breakdown).sort().forEach(s => {
+    const b = breakdown[s];
+    bdHtml += `<div class="bd-cell"><div class="bd-strand">${TOPIC_NAMES[s]}</div><div class="bd-score">${b.c}/${b.t}</div></div>`;
+  });
+  const mins = Math.floor((state.time || 0) / 60);
+  const secs = (state.time || 0) % 60;
+  document.getElementById('exam-results').innerHTML = `
+    <div class="exam-summary">
+      <div style="font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;">${ex.name} — Results</div>
+      <div class="score-big">${correct} / ${total}  <span style="font-size:20px;color:var(--muted);">(${pct}%)</span></div>
+      <div style="color:var(--muted);font-size:14px;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">Time: ${mins}m ${secs}s</div>
+      <div class="breakdown">${bdHtml}</div>
+    </div>`;
+}
+
+function resetExam() {
+  if (!currentExamId) return;
+  if (!confirm('Reset this exam? Your answers and time will be cleared.')) return;
+  examStates[currentExamId] = { answers: {}, submitted: false, time: 0, startedAt: Date.now() };
+  saveStore(STORE_KEYS.exams, examStates);
+  document.getElementById('exam-results').innerHTML = '';
+  startTimer();
+  renderExam();
+  renderExamPicker();
+}
+
+function startTimer() {
+  stopTimer();
+  if (!currentExamId) return;
+  timerInterval = setInterval(() => {
+    if (!currentExamId) return;
+    const state = examStates[currentExamId];
+    if (state.submitted) { stopTimer(); return; }
+    state.time = (state.time || 0) + 1;
+    const m = Math.floor(state.time / 60).toString().padStart(2, '0');
+    const s = (state.time % 60).toString().padStart(2, '0');
+    document.getElementById('exam-timer').textContent = `${m}:${s}`;
+    if (state.time % 5 === 0) saveStore(STORE_KEYS.exams, examStates);
+  }, 1000);
+  const state = examStates[currentExamId];
+  const m = Math.floor((state.time || 0) / 60).toString().padStart(2, '0');
+  const s = ((state.time || 0) % 60).toString().padStart(2, '0');
+  document.getElementById('exam-timer').textContent = `${m}:${s}`;
+}
+
+function stopTimer() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+}
+
+// =================== RESET ALL ===================
+document.getElementById('reset-all-btn').onclick = () => {
+  if (!confirm('This will erase all your progress: practice answers, drill set, exam scores, and tutorial checks. Are you sure?')) return;
+  ['g8-practice-v1','g8-practice-v2','g8-drill-set-v1','g8-drill-state-v1','g8-drill-state-v2','g8-drill-mastered-v1','g8-exams-v1','g8-tut-checks-v1','g8-tut-checks-v2'].forEach(k => localStorage.removeItem(k));
+  location.reload();
+};
+
+// =================== INIT ===================
+document.getElementById('topic-count').textContent = TOPICS.length;
+document.getElementById('prac-count').textContent = PRACTICE.length;
+renderTopics();
+renderPractice();
+updatePracticeStats();
+renderExamPicker();
+renderTutorial(activeTut);
+
+</script>
+</body>
+</html>
